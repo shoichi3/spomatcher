@@ -1,17 +1,22 @@
+// 関数の読み込み
+@import "block";
+
+// ログイン画面
+// サインイン画面でも用いています
 .wrapper {
-  width: 100%;
-  min-height: 100vh;
-  position: relative;
-  background-color: white;
-  padding-top: 144px;
+  @include whole;
+  // サインイン画面でも用いています
   .container {
     text-align: center;
     padding-bottom: 20px;
+    // サインイン画面でも用いています
     .form-title {
+      // サインイン画面でも用いています
       h3 {
         color: #ffc107;
       }
     }
+    // サインイン画面でも用いています
     .form {
       width: 350px;
       margin: 40px auto;
@@ -21,11 +26,14 @@
       .guest_login {
         margin-top: 24px;
       }
+      // サインイン画面でも用いています
       .form-content {
         text-align: left;
+        // サインイン画面でも用いています
         label {
-          font-weight: bold;
+          // font-weight: bold;
         }
+        // サインイン画面でも用いています
         &__field {
           height: 40px;
           width: 350px;
@@ -33,6 +41,27 @@
           border-radius: 1px;
           border: solid 1px #a4a8a4;
         }
+      }
+    }
+  }
+}
+
+// サインイン画面
+.wrapper {
+  @include whole;
+  .form {
+    .signup {
+      margin-top: 40px;
+    }
+    .form-content {
+      &__profile {
+        width: 350px;
+        margin-bottom: 24px;
+        border-radius: 1px;
+        border: solid 1px #a4a8a4;
+      }
+      &__image {
+        margin-bottom: 24px;
       }
     }
   }
