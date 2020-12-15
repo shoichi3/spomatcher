@@ -1,22 +1,22 @@
 <header class="navbar navbar-expand-lg navbar-light be-light fixed-top p-2" style="background-color:#ffff66;">
   <div class="container">
-    <a class="navbar-brand" href="#" style="font-family: 'Roboto Slab', serif; font-size: 32px;">
+    <%= link_to root_path, class: "navbar-brand", style: "font-family: 'Roboto Slab', serif; font-size: 30px;" do %>
       <%= image_tag '0116.png', width: '50', height: '50'%>
-      Spomatcher
-    </a>
+      <span>Spomatcher</span>
+    <% end %>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link text-dark font-weight-bold" href="#">新規登録</a>
+          <%= link_to "新規登録", new_user_registration_path, class: "nav-link text-dark font-weight-bold" %>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-dark font-weight-bold" href="#">ログイン</a>
+          <%= link_to "ログイン", new_user_session_path, class: "nav-link text-dark font-weight-bold" %>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-dark font-weight-bold" href="#">ゲストログイン</a>
+          <%= link_to "ゲストログイン", root_path, class: "nav-link text-dark font-weight-bold" %>
         </li>
       </ul>
     </div>
