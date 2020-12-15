@@ -1,0 +1,39 @@
+.wrapper {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  background-color: white;
+  padding-top: 144px;
+  .container {
+    text-align: center;
+    padding-bottom: 20px;
+    .form-title {
+      h3 {
+        color: #ffc107;
+      }
+    }
+    .form {
+      width: 350px;
+      margin: 40px auto;
+      .login {
+        margin-top: 40px;
+      }
+      .guest_login {
+        margin-top: 24px;
+      }
+      .form-content {
+        text-align: left;
+        label {
+          font-weight: bold;
+        }
+        &__field {
+          height: 40px;
+          width: 350px;
+          margin-bottom: 24px;
+          border-radius: 1px;
+          border: solid 1px #a4a8a4;
+        }
+      }
+    }
+  }
+}
