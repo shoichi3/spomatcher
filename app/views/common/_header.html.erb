@@ -6,11 +6,35 @@
         <%= image_tag '0116.png', width: '50', height: '50'%>
         <span>Spomatcher</span>
       <% end %>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav">
+      <div class="collapse navbar-collapse justify-content-end">
+        <ul class="navbar-nav align-items-center">
+          <li class="nav-item">
+            <%= link_to root_path do %>
+              <i class="fas fa-search"></i>
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to root_path do %>
+              <i class="far fa-edit"></i>
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to root_path do %>
+              <i class="far fa-envelope"></i>
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to root_path do %>
+              <i class="far fa-bell"></i>
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <% if @user.image.attached? %>
+              <%= image_tag @user.image, class: "user-image" %>
+            <% else %>
+              <%= image_tag 'default.png', class: "user-image" %>
+            <% end %>
+          </li>
           <li class="nav-item">
             <%= link_to "ログアウト", destroy_user_session_path, class: "nav-link text-dark font-weight-bold", method: :delete %>
           </li>
@@ -30,7 +54,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav align-items-center">
           <li class="nav-item">
             <%= link_to "新規登録", new_user_registration_path, class: "nav-link text-dark font-weight-bold" %>
           </li>
