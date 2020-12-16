@@ -19,3 +19,7 @@ require("channels")
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+
+$(function(){
+  setTimeout("$('.flash').fadeOut('slow')", 2000)
+})

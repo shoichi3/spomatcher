@@ -16,3 +16,11 @@
 
 @import "bootstrap";
 
+.flash {
+  position: relative;
+  z-index: 2000;
+  background-color: #ff6374;
+  text-align: center;
+  width: 100%;
+  color: #ffffff;
+}
