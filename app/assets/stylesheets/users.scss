@@ -5,10 +5,30 @@
 // 関数の読み込み
 @import "block";
 
+$pc: 1024px; // PC
+$tab: 991px; // タブレット
+$sp: 480px;  // スマホ
+
+@mixin pc {
+  @media (max-width: ($pc)) {
+    @content;
+  }
+}
+@mixin tab {
+  @media (max-width: ($tab)) {
+    @content;
+  }
+}
+@mixin sp {
+  @media (max-width: ($sp)) {
+    @content;
+  }
+}
+
 // ログイン画面
 .wrapper {
   @include whole;
-  .container {
+  .container-fluid {
     text-align: center;
     .form-title {
       h3 {
@@ -69,6 +89,25 @@
           padding-left: 5px;
           border-radius: 1px;
           border: solid 1px #a4a8a4;
+        }
+      }
+    }
+  }
+}
+
+// タブレット表示時
+.wrapper {
+  .container-fluid {
+    @include tab {
+      display: flex;
+      flex-wrap: nowrap !important;
+    }
+    .collapse {
+      @include tab {
+        display: flex;
+        .navbar-nav {
+          display: flex;
+          flex-direction: row;
         }
       }
     }

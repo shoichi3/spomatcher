@@ -1,43 +1,41 @@
 <%# サインインしているときのヘッダー %>
 <% if user_signed_in? %>
   <header class="navbar navbar-expand-lg navbar-light be-light fixed-top p-2" style="background-color:#ffff66;">
-    <div class="container">
-      <div class="row" style="width:100%;">
-        <%= link_to root_path, class: "navbar-brand", style: "font-family: 'Roboto Slab', serif; font-size: 30px;" do %>
-          <%= image_tag '0116.png', width: '50', height: '50'%>
-          <span>Spomatcher</span>
-        <% end %>
-        <div class="collapse navbar-collapse justify-content-end">
-          <ul class="navbar-nav align-items-center">
-            <li class="nav-item">
-              <%= link_to root_path do %>
-                <i class="fas fa-search"></i>
-              <% end %>
-            </li>
-            <li class="nav-item">
-              <%= link_to root_path do %>
-                <i class="far fa-edit"></i>
-              <% end %>
-            </li>
-            <li class="nav-item">
-              <%= link_to root_path do %>
-                <i class="far fa-envelope"></i>
-              <% end %>
-            </li>
-            <li class="nav-item">
-              <%= link_to root_path do %>
-                <i class="far fa-bell"></i>
-              <% end %>
-            </li>
-            <li class="nav-item" id="icon">
-              <% if @user.image.attached? %>
-                <%= image_tag @user.image, class: "user-image" %>
-              <% else %>
-                <%= image_tag 'default.png', class: "user-image" %>
-              <% end %>
-            </li>
-          </ul>
-        </div>
+    <div class="container-fluid" style="margin:0 155px; padding:0;">
+      <%= link_to root_path, class: "navbar-brand", style: "font-family: 'Roboto Slab', serif; font-size: 30px;" do %>
+        <%= image_tag '0116.png', width: '50', height: '50'%>
+        <span>Spomatcher</span>
+      <% end %>
+      <div class="collapse navbar-collapse justify-content-end">
+        <ul class="navbar-nav align-items-center">
+          <li class="nav-item">
+            <%= link_to root_path do %>
+              <i class="fas fa-search"></i>
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to root_path do %>
+              <i class="far fa-edit"></i>
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to root_path do %>
+              <i class="far fa-envelope"></i>
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to root_path do %>
+              <i class="far fa-bell"></i>
+            <% end %>
+          </li>
+          <li class="nav-item" id="icon">
+            <% if @user.image.attached? %>
+              <%= image_tag @user.image, class: "user-image" %>
+            <% else %>
+              <%= image_tag 'default.png', class: "user-image" %>
+            <% end %>
+          </li>
+        </ul>
       </div>
       <ul class="menu hidden" id="pull-down">
         <li class="menu__content">
