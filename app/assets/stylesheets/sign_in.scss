@@ -1,0 +1,13 @@
+// 関数の読み込み
+@import "function";
+@import "variable";
+
+.wrapper {
+  .content {
+    @include tab {
+      display: flex;
+      flex-wrap: nowrap;
+      flex-direction: column;
+    }
+  }
+}

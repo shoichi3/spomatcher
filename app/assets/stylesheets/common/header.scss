@@ -3,27 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // 関数の読み込み
-@import "block";
-
-$pc: 1024px; // PC
-$tab: 991px; // タブレット
-$sp: 480px;  // スマホ
-
-@mixin pc {
-  @media (max-width: ($pc)) {
-    @content;
-  }
-}
-@mixin tab {
-  @media (max-width: ($tab)) {
-    @content;
-  }
-}
-@mixin sp {
-  @media (max-width: ($sp)) {
-    @content;
-  }
-}
+@import "function";
+@import "variable";
 
 // ログイン画面
 .wrapper {
@@ -95,24 +76,6 @@ $sp: 480px;  // スマホ
   }
 }
 
-// レスポンシブWebデザイン
-.wrapper {
-  .container-fluid {
-    @include tab {
-      display: flex;
-      flex-wrap: nowrap !important;
-    }
-    .collapse {
-      @include tab {
-        display: flex;
-        .navbar-nav {
-          display: flex;
-          flex-direction: row;
-        }
-      }
-    }
-  }
-}
 
 // サインイン画面
 .wrapper {
@@ -130,6 +93,25 @@ $sp: 480px;  // スマホ
       }
       &__image {
         margin-bottom: 24px;
+      }
+    }
+  }
+}
+
+// レスポンシブWebデザイン
+.wrapper {
+  .container-fluid {
+    @include tab {
+      display: flex;
+      flex-wrap: nowrap !important;
+    }
+    .collapse {
+      @include tab {
+        display: flex;
+        .navbar-nav {
+          display: flex;
+          flex-direction: row;
+        }
       }
     }
   }
