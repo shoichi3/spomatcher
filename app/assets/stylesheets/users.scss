@@ -95,7 +95,7 @@ $sp: 480px;  // スマホ
   }
 }
 
-// タブレット表示時
+// レスポンシブWebデザイン
 .wrapper {
   .container-fluid {
     @include tab {

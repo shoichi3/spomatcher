@@ -1,34 +1,28 @@
-<div class="wrapper">
 
-  <%# ヘッダー %>
-  <%= render 'common/header' %>
+<%# 登録フォーム %>
+<div class="container-fluid">
+  <div class="form-title">
+    <h3>ログイン</h3>
+  </div>
 
-  <%# 登録フォーム %>
-  <div class="container">
-    <div class="form-title">
-      <h3>ログイン</h3>
-    </div>
+  <div class="form">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="form-content">
+        <label>メールアドレス</label><br>
+        <%= f.email_field :email, autofocus: true, class: "form-content__field" %>
+      </div>
 
-    <div class="form">
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <div class="form-content">
-          <label>メールアドレス</label><br>
-          <%= f.email_field :email, autofocus: true, class: "form-content__field" %>
-        </div>
+      <div class="form-content">
+        <label>パスワード</label><br>
+        <%= f.password_field :password, class: "form-content__field"%>
+      </div>
 
-        <div class="form-content">
-          <label>パスワード</label><br>
-          <%= f.password_field :password, class: "form-content__field"%>
-        </div>
-
-        <div class="login">
-          <%= f.submit "ログイン", class: "btn btn-warning text-white" %>
-        </div>
-        <div class="guest_login">
-          <%= f.submit "ゲストログイン(閲覧用)", class: "btn btn-outline-warning" %>
-        </div>
-      <% end %>
-    </div>
+      <div class="login">
+        <%= f.submit "ログイン", class: "btn btn-warning text-white" %>
+      </div>
+      <div class="guest_login">
+        <%= f.submit "ゲストログイン(閲覧用)", class: "btn btn-outline-warning" %>
+      </div>
+    <% end %>
   </div>
 </div>
-
