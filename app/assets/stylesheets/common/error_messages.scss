@@ -1,0 +1,20 @@
+// サインイン画面のエラー
+.error {
+  ul {
+    list-style: none;
+    text-align: left;
+    color: red;
+    margin-bottom: 24px;
+  }
+}
+
+// ログイン画面のエラー
+.content {
+  .form {
+    .login-flash-message {
+      text-align: left;
+      color: red;
+      margin-bottom: 24px;
+    }
+  }
+}

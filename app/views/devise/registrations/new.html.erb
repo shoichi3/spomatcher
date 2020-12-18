@@ -1,11 +1,13 @@
-<%# 登録フォーム %>
 <div class="container-fluid content">
   <div class="form-title">
     <h3>新規登録</h3>
   </div>
 
+<%# 登録フォーム %>
   <div class="form">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+      <%# エラーメッセージ %>
       <%= render "devise/shared/error_messages", resource: resource %>
 
       <div class="form-content">
@@ -30,7 +32,7 @@
 
 
       <div class="form-content">
-        <label>パスワード(6文字以上)</label>
+        <label>パスワード(半角英数字6文字以上)</label>
         <%= f.password_field :password, autocomplete: "new-password", class: "form-content__field" %>
       </div>
 

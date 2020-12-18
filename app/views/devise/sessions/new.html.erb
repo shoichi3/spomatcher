@@ -1,11 +1,18 @@
-<%# 登録フォーム %>
 <div class="container-fluid content">
   <div class="form-title">
     <h3>ログイン</h3>
   </div>
 
+<%# 登録フォーム %>
   <div class="form">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+      <%# エラーメッセージ %>
+      <div class='login-flash-message'>
+        <%= flash[:notice] %>
+        <%= flash[:alert] %>
+      </div>
+
       <div class="form-content">
         <label>メールアドレス</label><br>
         <%= f.email_field :email, autofocus: true, class: "form-content__field" %>

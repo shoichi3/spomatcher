@@ -1,0 +1,9 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        name: ニックネーム
+  errors:
+    format: "%{attribute}%{message}"
+    messages:
+      blank: 入力してください。

@@ -5,5 +5,4 @@ class Users::SessionsController < Devise::SessionsController
     redirect_to root_path
     flash[:notice] = 'ゲストユーザーとしてログインしました。'
   end
-  
 end
