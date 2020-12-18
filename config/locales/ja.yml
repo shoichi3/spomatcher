@@ -6,6 +6,6 @@ ja:
   errors:
     format: "%{attribute}%{message}"
     messages:
-      blank: 入力してください。
+      blank: を入力してください。
       taken: はすでに存在します。
       confirmation: と%{attribute}の入力が一致しません。
