@@ -7,3 +7,4 @@ ja:
     format: "%{attribute}%{message}"
     messages:
       blank: 入力してください。
+      taken: はすでに存在します。
