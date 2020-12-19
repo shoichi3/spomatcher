@@ -13,3 +13,23 @@
  *= require_tree .
  *= require_self
  */
+
+@import "bootstrap";
+
+.flash {
+  position: relative;
+  z-index: 2000;
+  background-color: #ff6374;
+  text-align: center;
+  width: 100%;
+  color: #ffffff;
+}
+
+a {
+  text-decoration: none;
+  color: #333333;
+}
+
+.hidden {
+  display: none;
+}
