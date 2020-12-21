@@ -7,20 +7,7 @@ RSpec.describe "ユーザー新規登録", type: :system do
 
   context 'ユーザーの新規登録ができるとき' do
     it '正しい情報を入力すると、ユーザーの新規登録ができトップページへ遷移する' do
-      visit root_path
-      expect(page).to have_content('新規登録')
-      click_on '新規登録'
-      fill_in 'user_name', with: @user.name
-      fill_in 'user_profile', with: @user.profile
-      image_path = Rails.root.join('app/assets/images/default.png')
-      attach_file('user[image]', image_path, make_visible: true)
-      fill_in 'user_email', with: @user.email
-      fill_in 'user_password', with: @user.password
-      fill_in 'user_password_confirmation', with: @user.password_confirmation
-      expect{
-        click_button '新規登録'
-      }.to change { User.count}.by(1)
-      expect(page).to have_css '.user-image'
+      sign_up(@user)
     end
 
     it '自己紹介が空欄であっても、ユーザーの新規登録ができトップページへ遷移する' do
@@ -309,6 +296,80 @@ RSpec.describe 'ログイン機能', type: :system do
         click_button 'ログイン'
       }.to change { User.count}.by(0)
       expect(page).to have_content('ログイン')
+    end
+  end
+end
+
+RSpec.describe 'アカウント情報編集', type: :system do
+  before do
+    @user = build(:user)
+  end
+    it '正しい情報を入力するとアカウント情報を編集できる' do
+      sign_up(@user)
+      find(".user-image").click
+      click_on 'アカウント編集'
+      expect(current_path).to eq edit_user_registration_path
+
+      # 入力内容の再設定
+      @user = build(:user)
+
+      fill_in 'user_name', with: @user.name
+      fill_in 'user_profile', with: @user.profile
+      image_path = Rails.root.join('app/assets/images/0116.png')
+      attach_file('user[image]', image_path, make_visible: true)
+      fill_in 'user_email', with: @user.email
+      expect{
+        click_button 'アカウント編集'
+      }.to change { User.count}.by(0)
+      expect(current_path).to eq root_path
+      find(".user-image").click
+      click_on 'アカウント編集'
+      expect(page).to have_field 'user[name]', with: @user.name
+      expect(page).to have_field 'user[profile]', with: @user.profile
+      expect(page).to have_field 'user[email]', with: @user.email
+    end
+
+  context 'ユーザーがアカウント情報を編集できないとき' do
+    it 'ニックネームが空白のときアカウント情報を編集できない' do
+      sign_up(@user)
+      find(".user-image").click
+      click_on 'アカウント編集'
+      expect(current_path).to eq edit_user_registration_path
+
+      # 入力内容の再設定
+      @user = build(:user)
+
+      fill_in 'user_name', with: ""
+      fill_in 'user_profile', with: @user.profile
+      image_path = Rails.root.join('app/assets/images/0116.png')
+      attach_file('user[image]', image_path, make_visible: true)
+      fill_in 'user_email', with: @user.email
+      expect{
+        click_button 'アカウント編集'
+      }.to change { User.count}.by(0)
+      expect(page).to have_content "アカウント編集"
+      expect(page).to have_content("ニックネームを入力してください。")
+    end
+
+    it 'Eメールが空白のときアカウント情報を編集できない' do
+      sign_up(@user)
+      find(".user-image").click
+      click_on 'アカウント編集'
+      expect(current_path).to eq edit_user_registration_path
+
+      # 入力内容の再設定
+      @user = build(:user)
+
+      fill_in 'user_name', with: @user.name
+      fill_in 'user_profile', with: @user.profile
+      image_path = Rails.root.join('app/assets/images/0116.png')
+      attach_file('user[image]', image_path, make_visible: true)
+      fill_in 'user_email', with: ""
+      expect{
+        click_button 'アカウント編集'
+      }.to change { User.count}.by(0)
+      expect(page).to have_content "アカウント編集"
+      expect(page).to have_content("Eメールを入力してください。")
     end
   end
 end
