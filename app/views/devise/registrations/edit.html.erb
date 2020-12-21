@@ -30,16 +30,6 @@
         <%= f.email_field :email, autocomplete: "email", class: "form-content__field"%>
       </div>
 
-      <div class="form-content">
-        <label>パスワード（パスワードを変更する場合、入力してください。）</label>
-        <%= f.password_field :password, autocomplete: "new-password", class: "form-content__field" %>
-      </div>
-
-      <div class="form-content">
-        <label>パスワード（確認用）</label>
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-content__field" %>
-      </div>
-
       <div class="signup">
         <%= f.submit "アカウント編集", class: "btn btn-warning text-white"%>
       </div>
