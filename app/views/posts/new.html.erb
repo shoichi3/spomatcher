@@ -8,7 +8,7 @@
     <%= form_with model: @post, local: true do |f| %>
 
       <%# エラーメッセージ %>
-      <%# render "devise/shared/error_messages", resource: resource %>
+      <%= render "devise/shared/error_messages", resource: f.object %>
 
       <div class="form-content">
         <label>タイトル</label>
@@ -23,15 +23,15 @@
       </div>
 
       <div class="form-content">
-        <label>タグ (複数個ある場合、カンマで区切ってください)</label>
+        <label>タグ (カンマで区切ってください)</label>
         <span class="optional">任意</span>
-        <%= f.text_field :tag_list, value: @user.tag_list.join(','), class: "form-content__field"%>
+        <%= f.text_field :tag_list, value: @post.tag_list.join(','), class: "form-content__field"%>
       </div>
 
       <div class="form-content">
         <label>競技名</label>
         <span class="required">必須</span>
-        <%= f.text_field :type, class: "form-content__field"%>
+        <%= f.text_field :sports, class: "form-content__field"%>
       </div>
 
       <div class="form-content">
@@ -59,7 +59,7 @@
       </div>
 
       <div class="form-content">
-        <label>募集内容</label>
+        <label>メッセージ</label>
         <span class="required">必須</span>
         <%= f.text_area :content, class: "form-content__profile", rows: 5 %>
       </div>
