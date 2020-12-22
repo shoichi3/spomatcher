@@ -3,6 +3,15 @@ ja:
     attributes:
       user:
         name: ニックネーム
+      post:
+        title: タイトル
+        image: 画像
+        sports: 競技名
+        datetime: 日時
+        region: 場所
+        cost: 費用
+        content: メッセージ
+        flow: 当日の流れ
   errors:
     format: "%{attribute}%{message}"
     messages:
