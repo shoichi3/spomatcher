@@ -19,13 +19,13 @@
       <div class="form-content">
         <label>画像</label>
         <span class="required">必須</span>
-        <%= f.file_field :active_image, class: "form-content__image"%>
+        <%= f.file_field :image, class: "form-content__image"%>
       </div>
 
       <div class="form-content">
-        <label>タグ</label>
+        <label>タグ (複数個ある場合、カンマで区切ってください)</label>
         <span class="optional">任意</span>
-        <%= f.email_field :email, class: "form-content__field"%>
+        <%= f.text_field :tag_list, value: @user.tag_list.join(','), class: "form-content__field"%>
       </div>
 
       <div class="form-content">
