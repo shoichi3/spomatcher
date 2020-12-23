@@ -57,10 +57,10 @@ RSpec.describe Post, type: :model do
       expect(@post.errors.full_messages).to include("場所を入力してください。")
     end
 
-    it '費用が空白のとき登録できない' do
+    it '参加費が空白のとき登録できない' do
       @post.cost = nil
       @post.valid?
-      expect(@post.errors.full_messages).to include("費用を入力してください。")
+      expect(@post.errors.full_messages).to include("参加費を入力してください。")
     end
     
     it 'メッセージが空白のとき登録できない' do
