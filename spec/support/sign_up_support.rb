@@ -9,10 +9,10 @@ module SignUpSupport
     attach_file('user[image]', image_path, make_visible: true)
     fill_in 'user_email', with: user.email
     fill_in 'user_password', with: user.password
-    fill_in 'user_password_confirmation', with: @user.password_confirmation
+    fill_in 'user_password_confirmation', with: user.password_confirmation
     expect{
       click_button '新規登録'
     }.to change { User.count}.by(1)
-    expect(page).to have_css '.user-image'
+    expect(page).to have_css '.fa-edit'
   end
 end
