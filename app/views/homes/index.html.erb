@@ -32,27 +32,35 @@
               </div>
               <div class="post-right">
                 <div class="title">
-                  <%= post.title %>
+                  <div class="title-content">
+                    <%= post.title %>
+                  </div>
                 </div>
                 <div class="content">
                   <div class="tags_list">
                     <% if post.tags.present? %>
                       <% post.tags.each do |tag| %>
-                        <%= tag.name %>
+                        <div class="tag">
+                          #<%= tag.name %>
+                        </div>
                       <% end %>
                     <% end %>
                   </div>
-                  <div class="sports">
-                    <%= post.sports %>
-                  </div>
-                  <div class="datetime">
-                    <%= post.datetime %>
+                  <div class="content__middle">
+                    <div class="sports">
+                      競技名: <%= post.sports %>
+                    </div>
+                    <div class="center">
+                      <div class="datetime">
+                        日時: <%= post.datetime %>
+                      </div>
+                      <div class="cost">
+                        参加費: <%= post.cost %>
+                      </div>
+                    </div>
                   </div>
                   <div class="region">
-                    <%= post.region %>
-                  </div>
-                  <div class="cost">
-                    <%= post.cost %>
+                    場所: <%= post.region %>
                   </div>
                 </div>
               </div>
