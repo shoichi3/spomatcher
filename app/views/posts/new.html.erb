@@ -29,6 +29,18 @@
       </div>
 
       <div class="form-content">
+        <label>メッセージ</label>
+        <span class="required">必須</span>
+        <%= f.text_area :content, class: "form-content__profile", rows: 5 %>
+      </div>
+
+      <div class="form-content">
+        <label>当日の流れ</label>
+        <span class="required">必須</span>
+        <%= f.text_area :flow, class: "form-content__profile", rows: 5 %>
+      </div>
+      
+      <div class="form-content">
         <label>競技名</label>
         <span class="required">必須</span>
         <%= f.text_field :sports, class: "form-content__field"%>
@@ -58,17 +70,6 @@
         <%= f.text_field :cost, class: "form-content__field"%>
       </div>
 
-      <div class="form-content">
-        <label>メッセージ</label>
-        <span class="required">必須</span>
-        <%= f.text_area :content, class: "form-content__profile", rows: 5 %>
-      </div>
-
-      <div class="form-content">
-        <label>当日の流れ</label>
-        <span class="required">必須</span>
-        <%= f.text_area :flow, class: "form-content__profile", rows: 5 %>
-      </div>
 
       <div class="signup">
         <%= f.submit "投稿する", class: "btn btn-warning text-white"%>
