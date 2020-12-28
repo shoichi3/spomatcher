@@ -8,6 +8,6 @@ module LogInSupport
     expect{
       click_button 'ログイン'
     }.to change { User.count}.by(0)
-    expect(page).to have_css '.user-image'
+    expect(page).to have_css '.fa-edit'
   end
 end

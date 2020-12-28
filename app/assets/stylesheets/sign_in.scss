@@ -11,6 +11,7 @@
   @include whole;
   .container-fluid {
     text-align: center;
+    padding-top: 144px;
     .form-title {
       h3 {
         color: #ffc107;
@@ -88,15 +89,6 @@
   }
 }
 
-.wrapper {
-  .content {
-    @include tab {
-      display: flex;
-      flex-wrap: nowrap;
-      flex-direction: column;
-    }
-  }
-}
 
 // サインイン画面
 .wrapper {
@@ -136,6 +128,16 @@
           flex-direction: row;
         }
       }
+    }
+  }
+}
+
+.wrapper {
+  .content {
+    @include tab {
+      display: flex;
+      flex-wrap: nowrap;
+      flex-direction: column;
     }
   }
 }

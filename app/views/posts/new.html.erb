@@ -25,7 +25,7 @@
       <div class="form-content">
         <label>タグ (カンマで区切ってください)</label>
         <span class="optional">任意</span>
-        <%= f.text_field :tag_list, value: @post.tag_list.join(','), class: "form-content__field"%>
+        <%= f.text_field :tag_list, value: @post.tag_list.join(','), class: "form-content__field", multiple: "multiple"%>
       </div>
 
       <div class="form-content">
@@ -53,7 +53,7 @@
       </div>
 
       <div class="form-content">
-        <label>費用</label>
+        <label>参加費</label>
         <span class="required">必須</span>
         <%= f.text_field :cost, class: "form-content__field"%>
       </div>
