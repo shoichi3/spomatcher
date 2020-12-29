@@ -11,7 +11,7 @@
     <div class="post-wrapper">
       <% @posts.each do |post| %>
         <div class="post">
-          <%= link_to root_path, class: "post-link" do %>
+          <%= link_to post_path(post), class: "post-link" do %>
             <div class="post-content">
               <div class="post-left">
                 <div class="user-icon">
