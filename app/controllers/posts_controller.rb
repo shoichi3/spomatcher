@@ -21,7 +21,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @user = @post.user
+    @user = User.find_by(id: current_user.id)
   end
 
   private
