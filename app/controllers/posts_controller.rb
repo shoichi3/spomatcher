@@ -24,6 +24,16 @@ class PostsController < ApplicationController
     @user = User.find_by(id: current_user.id)
   end
 
+  def destroy
+    post = Post.find(params[:id])
+    @user = User.find_by(id: current_user.id)
+    if post.destroy
+      redirect_to root_path
+    else
+      render :show
+    end
+  end
+
   private
 
   def post_params
