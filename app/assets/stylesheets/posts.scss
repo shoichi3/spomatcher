@@ -1,3 +1,86 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.container {
+  .post-show {
+    .post-top {
+      margin: 40px 0 24px;
+      .title {
+        text-align: center;
+        font-weight: bold;
+        font-size: 32px;
+      }
+    }
+    .top-image {
+      .active-photo {
+        height: 100%;
+      }
+    }
+    .post-detail {
+      margin: 40px 100px;
+      padding: 32px;
+      border: solid 1px gray;
+      box-shadow: 0 0 3px gray;
+      border-radius: 5px;
+      .user {
+        width: 100%;
+        .top {
+          text-align: center;
+          margin-bottom: 16px;
+          .title {
+            font-size: 24px;
+            font-weight: bold;
+          }
+        }
+        .bottom {
+          width: 100%;
+          display: flex;
+          padding: 0 144px;
+          margin-bottom: 32px;
+          .user {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            .icon {
+              border-radius: 50%;
+              width: 80px;
+              height: 80px;
+              }
+            }
+          }
+        .info {
+          width: 50%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-evenly;
+        }
+      }
+      .basic-info {
+        padding: 0 96px;
+        .content-block {
+          width: 100%;
+          .top {
+            text-align: center;
+            margin-bottom: 16px;
+            font-size: 24px;
+            font-weight: bold;
+          }
+          .bottom {
+            margin-bottom: 32px;
+          }
+        }
+      }
+    }
+  }
+  .button-block {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 60px;
+    .button {
+      width: 50%;
+      display: flex;
+      justify-content: space-evenly;
+    }
+  }
+}

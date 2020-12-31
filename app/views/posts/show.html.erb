@@ -1,0 +1,148 @@
+<div class="container">
+  <div class="post-show">
+    <div class="post-top">
+      <div class="title">
+        <%= @post.title %>
+      </div>
+    </div>
+    <div class="top-image">
+      <% if @post.image.attached? %>
+        <%= image_tag @post.image, class: "active-photo"%>
+      <% end %>
+      </div>
+    <div class="post-detail">
+      <div class="user">
+        <div class="top">
+          <div class="title">
+            〜投稿者〜
+          </div>
+        </div>
+        <div class="bottom">
+          <div class="user">
+            <% if @post.user.image.attached? %>
+              <%= image_tag @post.user.image, class: "icon" %>
+            <% else %>
+              <%= image_tag  'default.png', class: "icon"%>
+            <% end %>
+          </div>
+          <div class="info">
+            <div class="name">
+              <%= @post.user.name %>
+            </div>
+            <div class="review">
+              レビューはありません
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="basic-info">
+        <div class="content-block">
+          <div class="top">
+            〜メッセージ〜
+          </div>
+          <div class="bottom">
+            <%= @post.content %>
+          </div>
+        </div>
+        <div class="content-block">
+          <div class="top">
+            〜当日の流れ〜
+          </div>
+          <div class="bottom">
+            <%= @post.flow %>
+          </div>
+        </div>
+        <div class="content-block">
+          <div class="top">
+            〜詳細情報〜
+          </div>
+          <table class="table table-striped">
+            <tbody>
+              <tr>
+                <td>競技名</td>
+                <td><%= @post.sports %></td>
+              </tr>
+              <tr>
+                <td>日時</td>
+                <td><%= @post.datetime %></td>
+              </tr>
+              <tr>
+                <td>定期開催日</td>
+                <% if @post.regular_date != "" %>
+                  <td><%= @post.regular_date %></td>
+                <% else %>
+                  <td>情報がありません</td>
+                <% end %>
+              </tr>
+              <tr>
+                <td>場所</td>
+                <td><%= @post.address %></td>
+              </tr>
+              <tr>
+                <td>参加費</td>
+                <td><%= @post.cost %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="content-block">
+          <div class="top">
+            〜地図〜
+          </div>
+          <%# mapの表示 %>
+          <div id="map"></div>
+
+          <%# 表示するmapのcssです。ご自身でカスタマイズしてください。高さが設定されていないと表示されないことがあります。 %>
+          <style type="text/css">
+            #map { height: 400px;
+                  width: 100%;}
+          </style>
+
+          <%# 以下の記述の中にあるYOUR_API_KEYには取得したご自身のAPIキーを記述してください %>
+          <script type="text/javascript">
+            function initMap() {
+          // latitude,longitudeから位置を特定
+              var test ={lat: <%= @post.latitude %>, lng: <%= @post.longitude %>};
+              var map = new google.maps.Map(document.getElementById('map'), {
+                        zoom: 15, 
+                        center: test
+                        });
+              var transitLayer = new google.maps.TransitLayer();
+              transitLayer.setMap(map);
+
+              var contentString = '住所：<%= @post.address %>';
+              var infowindow = new google.maps.InfoWindow({
+                content: contentString
+              });
+
+          // Map上の指定した位置にピンを挿して表示する
+              var marker = new google.maps.Marker({
+                            position:test,
+                            map: map,
+                            title: contentString
+                          });
+
+              marker.addListener('click', function() {
+                infowindow.open(map, marker);
+              });
+            }
+          </script>
+          <script async defer
+                        src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap">
+          </script>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="button-block">
+    <% if @post.user.id == current_user.id %>
+    <div class="button">
+      <div class="btn btn-warning text-white">投稿を編集</div>
+      <div class="btn btn-warning text-white">投稿を削除</div>
+    </div>
+    <% else %>
+      <div class="btn btn-warning text-white">メッセージを送信</div>
+    <% end %>
+  </div>
+</div>
