@@ -52,7 +52,7 @@ RSpec.describe Post, type: :model do
     end
     
     it '場所が空白のとき登録できない' do
-      @post.region = nil
+      @post.address = nil
       @post.valid?
       expect(@post.errors.full_messages).to include("場所を入力してください。")
     end

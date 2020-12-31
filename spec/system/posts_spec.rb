@@ -22,7 +22,7 @@ RSpec.describe "投稿機能", type: :system do
       fill_in 'post_sports', with: @post.sports
       fill_in 'post_datetime', with: @post.datetime
       fill_in 'post_regular_date', with: ""
-      fill_in 'post_region', with: @post.region
+      fill_in 'post_address', with: @post.address
       fill_in 'post_cost', with: @post.cost
       fill_in 'post_content', with: @post.content
       fill_in 'post_flow', with: @post.flow
@@ -46,7 +46,7 @@ RSpec.describe "投稿機能", type: :system do
       fill_in 'post_sports', with: @post.sports
       fill_in 'post_datetime', with: @post.datetime
       fill_in 'post_regular_date', with: @post.regular_date
-      fill_in 'post_region', with: @post.region
+      fill_in 'post_address', with: @post.address
       fill_in 'post_cost', with: @post.cost
       fill_in 'post_content', with: @post.content
       fill_in 'post_flow', with: @post.flow
@@ -69,7 +69,7 @@ RSpec.describe "投稿機能", type: :system do
       fill_in 'post_sports', with: @post.sports
       fill_in 'post_datetime', with: @post.datetime
       fill_in 'post_regular_date', with: ""
-      fill_in 'post_region', with: @post.region
+      fill_in 'post_address', with: @post.address
       fill_in 'post_cost', with: @post.cost
       fill_in 'post_content', with: @post.content
       fill_in 'post_flow', with: @post.flow
@@ -94,7 +94,7 @@ RSpec.describe "投稿機能", type: :system do
       fill_in 'post_sports', with: @post.sports
       fill_in 'post_datetime', with: @post.datetime
       fill_in 'post_regular_date', with: @post.regular_date
-      fill_in 'post_region', with: @post.region
+      fill_in 'post_address', with: @post.address
       fill_in 'post_cost', with: @post.cost
       fill_in 'post_content', with: @post.content
       fill_in 'post_flow', with: @post.flow
@@ -113,7 +113,7 @@ RSpec.describe "投稿機能", type: :system do
       fill_in 'post_sports', with: @post.sports
       fill_in 'post_datetime', with: @post.datetime
       fill_in 'post_regular_date', with: @post.regular_date
-      fill_in 'post_region', with: @post.region
+      fill_in 'post_address', with: @post.address
       fill_in 'post_cost', with: @post.cost
       fill_in 'post_content', with: @post.content
       fill_in 'post_flow', with: @post.flow
@@ -134,7 +134,7 @@ RSpec.describe "投稿機能", type: :system do
       fill_in 'post_sports', with: ""
       fill_in 'post_datetime', with: @post.datetime
       fill_in 'post_regular_date', with: @post.regular_date
-      fill_in 'post_region', with: @post.region
+      fill_in 'post_address', with: @post.address
       fill_in 'post_cost', with: @post.cost
       fill_in 'post_content', with: @post.content
       fill_in 'post_flow', with: @post.flow
@@ -155,7 +155,7 @@ RSpec.describe "投稿機能", type: :system do
       fill_in 'post_sports', with: @post.sports
       fill_in 'post_datetime', with: ""
       fill_in 'post_regular_date', with: @post.regular_date
-      fill_in 'post_region', with: @post.region
+      fill_in 'post_address', with: @post.address
       fill_in 'post_cost', with: @post.cost
       fill_in 'post_content', with: @post.content
       fill_in 'post_flow', with: @post.flow
@@ -176,7 +176,7 @@ RSpec.describe "投稿機能", type: :system do
       fill_in 'post_sports', with: @post.sports
       fill_in 'post_datetime', with: @post.datetime
       fill_in 'post_regular_date', with: @post.regular_date
-      fill_in 'post_region', with: ""
+      fill_in 'post_address', with: ""
       fill_in 'post_cost', with: @post.cost
       fill_in 'post_content', with: @post.content
       fill_in 'post_flow', with: @post.flow
@@ -197,7 +197,7 @@ RSpec.describe "投稿機能", type: :system do
       fill_in 'post_sports', with: @post.sports
       fill_in 'post_datetime', with: @post.datetime
       fill_in 'post_regular_date', with: @post.regular_date
-      fill_in 'post_region', with: @post.region
+      fill_in 'post_address', with: @post.address
       fill_in 'post_cost', with: ""
       fill_in 'post_content', with: @post.content
       fill_in 'post_flow', with: @post.flow
@@ -218,7 +218,7 @@ RSpec.describe "投稿機能", type: :system do
       fill_in 'post_sports', with: @post.sports
       fill_in 'post_datetime', with: @post.datetime
       fill_in 'post_regular_date', with: @post.regular_date
-      fill_in 'post_region', with: @post.region
+      fill_in 'post_address', with: @post.address
       fill_in 'post_cost', with: @post.cost
       fill_in 'post_content', with: ""
       fill_in 'post_flow', with: @post.flow
@@ -239,7 +239,7 @@ RSpec.describe "投稿機能", type: :system do
       fill_in 'post_sports', with: @post.sports
       fill_in 'post_datetime', with: @post.datetime
       fill_in 'post_regular_date', with: @post.regular_date
-      fill_in 'post_region', with: @post.region
+      fill_in 'post_address', with: @post.address
       fill_in 'post_cost', with: @post.cost
       fill_in 'post_content', with: @post.content
       fill_in 'post_flow', with: ""
@@ -274,7 +274,7 @@ RSpec.describe "投稿機能", type: :system do
       fill_in 'post_sports', with: @post.sports
       fill_in 'post_datetime', with: @post.datetime
       fill_in 'post_regular_date', with: ""
-      fill_in 'post_region', with: @post.region
+      fill_in 'post_address', with: @post.address
       fill_in 'post_cost', with: @post.cost
       fill_in 'post_content', with: @post.content
       fill_in 'post_flow', with: @post.flow
@@ -298,7 +298,7 @@ RSpec.describe "投稿機能", type: :system do
       fill_in 'post_sports', with: @post.sports
       fill_in 'post_datetime', with: @post.datetime
       fill_in 'post_regular_date', with: @post.regular_date
-      fill_in 'post_region', with: @post.region
+      fill_in 'post_address', with: @post.address
       fill_in 'post_cost', with: @post.cost
       fill_in 'post_content', with: @post.content
       fill_in 'post_flow', with: @post.flow
@@ -321,7 +321,7 @@ RSpec.describe "投稿機能", type: :system do
       fill_in 'post_sports', with: @post.sports
       fill_in 'post_datetime', with: @post.datetime
       fill_in 'post_regular_date', with: ""
-      fill_in 'post_region', with: @post.region
+      fill_in 'post_address', with: @post.address
       fill_in 'post_cost', with: @post.cost
       fill_in 'post_content', with: @post.content
       fill_in 'post_flow', with: @post.flow
@@ -346,7 +346,7 @@ RSpec.describe "投稿機能", type: :system do
       fill_in 'post_sports', with: @post.sports
       fill_in 'post_datetime', with: @post.datetime
       fill_in 'post_regular_date', with: @post.regular_date
-      fill_in 'post_region', with: @post.region
+      fill_in 'post_address', with: @post.address
       fill_in 'post_cost', with: @post.cost
       fill_in 'post_content', with: @post.content
       fill_in 'post_flow', with: @post.flow
@@ -365,7 +365,7 @@ RSpec.describe "投稿機能", type: :system do
       fill_in 'post_sports', with: @post.sports
       fill_in 'post_datetime', with: @post.datetime
       fill_in 'post_regular_date', with: @post.regular_date
-      fill_in 'post_region', with: @post.region
+      fill_in 'post_address', with: @post.address
       fill_in 'post_cost', with: @post.cost
       fill_in 'post_content', with: @post.content
       fill_in 'post_flow', with: @post.flow
@@ -386,7 +386,7 @@ RSpec.describe "投稿機能", type: :system do
       fill_in 'post_sports', with: ""
       fill_in 'post_datetime', with: @post.datetime
       fill_in 'post_regular_date', with: @post.regular_date
-      fill_in 'post_region', with: @post.region
+      fill_in 'post_address', with: @post.address
       fill_in 'post_cost', with: @post.cost
       fill_in 'post_content', with: @post.content
       fill_in 'post_flow', with: @post.flow
@@ -407,7 +407,7 @@ RSpec.describe "投稿機能", type: :system do
       fill_in 'post_sports', with: @post.sports
       fill_in 'post_datetime', with: ""
       fill_in 'post_regular_date', with: @post.regular_date
-      fill_in 'post_region', with: @post.region
+      fill_in 'post_address', with: @post.address
       fill_in 'post_cost', with: @post.cost
       fill_in 'post_content', with: @post.content
       fill_in 'post_flow', with: @post.flow
@@ -428,7 +428,7 @@ RSpec.describe "投稿機能", type: :system do
       fill_in 'post_sports', with: @post.sports
       fill_in 'post_datetime', with: @post.datetime
       fill_in 'post_regular_date', with: @post.regular_date
-      fill_in 'post_region', with: ""
+      fill_in 'post_address', with: ""
       fill_in 'post_cost', with: @post.cost
       fill_in 'post_content', with: @post.content
       fill_in 'post_flow', with: @post.flow
@@ -449,7 +449,7 @@ RSpec.describe "投稿機能", type: :system do
       fill_in 'post_sports', with: @post.sports
       fill_in 'post_datetime', with: @post.datetime
       fill_in 'post_regular_date', with: @post.regular_date
-      fill_in 'post_region', with: @post.region
+      fill_in 'post_address', with: @post.address
       fill_in 'post_cost', with: ""
       fill_in 'post_content', with: @post.content
       fill_in 'post_flow', with: @post.flow
@@ -470,7 +470,7 @@ RSpec.describe "投稿機能", type: :system do
       fill_in 'post_sports', with: @post.sports
       fill_in 'post_datetime', with: @post.datetime
       fill_in 'post_regular_date', with: @post.regular_date
-      fill_in 'post_region', with: @post.region
+      fill_in 'post_address', with: @post.address
       fill_in 'post_cost', with: @post.cost
       fill_in 'post_content', with: ""
       fill_in 'post_flow', with: @post.flow
@@ -491,7 +491,7 @@ RSpec.describe "投稿機能", type: :system do
       fill_in 'post_sports', with: @post.sports
       fill_in 'post_datetime', with: @post.datetime
       fill_in 'post_regular_date', with: @post.regular_date
-      fill_in 'post_region', with: @post.region
+      fill_in 'post_address', with: @post.address
       fill_in 'post_cost', with: @post.cost
       fill_in 'post_content', with: @post.content
       fill_in 'post_flow', with: ""
