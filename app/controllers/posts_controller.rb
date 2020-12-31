@@ -24,6 +24,11 @@ class PostsController < ApplicationController
     @user = User.find_by(id: current_user.id)
   end
 
+  def edit
+    @post = Post.find(params[:id])
+    @user = User.find_by(id: current_user.id)
+  end
+
   def destroy
     post = Post.find(params[:id])
     @user = User.find_by(id: current_user.id)
