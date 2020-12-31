@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   end
 
   root "homes#index"
-  resources :posts, only: [:new, :create, :show, :edit, :destroy]
+  resources :posts
 end
