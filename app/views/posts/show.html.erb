@@ -138,8 +138,8 @@
   <div class="button-block">
     <% if @post.user.id == current_user.id %>
     <div class="button">
-      <div class="btn btn-warning text-white">投稿を編集</div>
-      <div class="btn btn-warning text-white">投稿を削除</div>
+      <%= link_to '投稿を編集', edit_post_path(@post.id), class:"btn btn-warning text-white" %>
+      <%= link_to '投稿を削除', post_path(@post.id), class:"btn btn-warning text-white", method: :delete %>
     </div>
     <% else %>
       <div class="btn btn-warning text-white">メッセージを送信</div>
