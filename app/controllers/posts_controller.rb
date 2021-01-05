@@ -40,9 +40,9 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post = Post.new(post_params)
+    @post = Post.find(params[:id])
     @user = User.find_by(id: current_user.id)
-    if @post.save
+    if @post.update(post_params)
       redirect_to root_path
     else
       render :edit
