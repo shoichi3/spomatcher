@@ -40,7 +40,7 @@
   }
   .posts {
     height: calc(100vh-547px);
-    margin-top: 24px;
+    margin: 24px 0 48px;
     .post-wrapper {
       height: 100%;
       margin: 0 100px;
@@ -171,7 +171,7 @@
   }
   .pagination {
     justify-content: center;
-    margin: 24px 0 32px;
+    margin-bottom: 48px;
     .page-item {
       a {
         color: #ffffff;

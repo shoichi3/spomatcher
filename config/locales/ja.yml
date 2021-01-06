@@ -8,7 +8,7 @@ ja:
         image: 画像
         sports: 競技名
         datetime: 日時
-        region: 場所
+        address: 場所
         cost: 参加費
         content: メッセージ
         flow: 当日の流れ
