@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// 関数の読み込み
+@import "function";
+@import "variable";
+
 .container {
   .post-show {
     .post-top {
@@ -23,6 +27,10 @@
       border: solid 1px gray;
       box-shadow: 0 0 3px gray;
       border-radius: 5px;
+      // レスポンシブデザイン
+      @include tab {
+        margin: 40px 0;
+      }
       .user {
         width: 100%;
         .top {
