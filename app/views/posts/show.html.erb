@@ -141,7 +141,7 @@
       <%= link_to '投稿を削除', post_path(@post.id), class:"btn btn-warning text-white", method: :delete %>
     </div>
     <% else %>
-      <div class="btn btn-warning text-white">メッセージを送信</div>
+      <%= link_to 'メッセージを送信', rooms_path, class:"btn btn-warning text-white" %>
     <% end %>
   </div>
 </div>
