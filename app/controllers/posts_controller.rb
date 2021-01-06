@@ -19,10 +19,40 @@ class PostsController < ApplicationController
     end
   end
 
+  def show
+    @post = Post.find(params[:id])
+    @user = User.find_by(id: current_user.id)
+  end
+
+  def edit
+    @post = Post.find(params[:id])
+    @user = User.find_by(id: current_user.id)
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @user = User.find_by(id: current_user.id)
+    if @post.destroy
+      redirect_to root_path
+    else
+      render :show
+    end
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    @user = User.find_by(id: current_user.id)
+    if @post.update(post_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+
   private
 
   def post_params
-    params.require(:post).permit(:title, :image, :tag_list, :sports, :datetime, :regular_date, :region, :cost, :content, :flow).merge(user_id: current_user.id)
+    params.require(:post).permit(:title, :image, :tag_list, :sports, :datetime, :regular_date, :address, :cost, :content, :flow).merge(user_id: current_user.id)
   end
 
 end
