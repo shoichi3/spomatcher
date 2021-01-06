@@ -22,6 +22,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @user = User.find_by(id: current_user.id)
+    @room = Room.new
   end
 
   def edit
