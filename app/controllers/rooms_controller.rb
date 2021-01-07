@@ -6,10 +6,6 @@ class RoomsController < ApplicationController
     end
   end
 
-  def index
-    @user = User.find_by(id: current_user.id)
-  end
-
   private
 
   def room_params
