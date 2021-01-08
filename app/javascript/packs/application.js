@@ -9,7 +9,7 @@ require("@rails/activestorage").start()
 require("channels")
 require("../pull-down.js")
 require("../top-page.js")
-require("../message-partner.js")
+require("../user-list.js")
 require("../message.js")
 
 
