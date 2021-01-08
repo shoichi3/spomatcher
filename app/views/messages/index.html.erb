@@ -1,0 +1,45 @@
+<div class="message-content">
+  <div class="user-lists">
+    <% @rooms.each do |room| %>
+    <% user = room.users.where.not(id: current_user.id).first %>
+      <div class="user-list">
+        <%= link_to room_messages_path(room), class: "message-link" do %>
+          <div class="user">
+            <div class="left">
+              <% if user.image.attached? %>
+                <%= image_tag user.image, class: "user-image" %>
+              <% else %>
+                <%= image_tag 'default.png', class: "user-image" %>
+              <% end %>
+            </div>
+            <div class="right">
+              <div class="top">
+                <div class="name">
+                  <%= user.name %>
+                </div>
+                <div class="time">
+                </div>
+              </div>
+              <div class="bottom">
+                <div class="last-message"></div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <div class="main">
+    <div class="main-header">
+      <div class="message-partner">
+        <%= @message_partner.name %>
+      </div>
+    </div>
+    <div class="communication">
+      <div class="messages">
+        <div class="message"></div>
+      </div>
+      <div class="send"></div>
+    </div>
+  </div>
+</div>
