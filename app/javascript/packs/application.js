@@ -10,6 +10,7 @@ require("channels")
 require("../pull-down.js")
 require("../top-page.js")
 require("../message-partner.js")
+require("../message.js")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
