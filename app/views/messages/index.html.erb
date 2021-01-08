@@ -39,7 +39,19 @@
       <div class="messages">
         <div class="message"></div>
       </div>
-      <div class="send"></div>
+    </div>
+    <div class="send">
+      <%= form_with model: [@room, @message], class: "message-form", local: true do |f| %>
+        <div class="message-field">
+          <%= f.text_area :text, class: "message-field__content", rows: 2 %>
+        </div>
+        <div class="message-image">
+          <%= f.file_field :image, class: "message-image__content" %>
+        </div>
+        <div class="message-submit">
+          <%= f.submit "送信", class: "btn btn-warning text-white" %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
