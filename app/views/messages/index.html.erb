@@ -41,7 +41,7 @@
       </div>
     </div>
     <div class="send">
-      <%= form_with model: [@room, @message], class: "message-form", local: true do |f| %>
+      <%= form_with model: [@room, @message], class: "message-form", id: "form", local: true do |f| %>
         <div class="message-field">
           <%= f.text_area :text, class: "message-field__content", rows: 2 %>
         </div>
@@ -49,7 +49,7 @@
           <%= f.file_field :image, class: "message-image__content" %>
         </div>
         <div class="message-submit">
-          <%= f.submit "送信", class: "btn btn-warning text-white" %>
+          <%= f.submit "送信", class: "btn btn-warning text-white", id: "submit" %>
         </div>
       <% end %>
     </div>

@@ -6,4 +6,15 @@ class MessagesController < ApplicationController
     @message_partner = @room.users.where.not(id: current_user.id).first
     @message = Message.new
   end
+
+  def create
+    message = Message.create(message_params)
+    render json:{message: message}
+  end
+
+  private
+
+  def message_params
+    params.require(:message).permit(:text, :image).merge(user_id: current_user.id, room_id: params[:room_id])
+  end
 end
