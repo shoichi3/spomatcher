@@ -13,6 +13,9 @@ module Spomatcher
     
     # 日本語の言語設定
     config.i18n.default_locale = :ja
+
+    # 日本時間に設定
+    config.time_zone = 'Tokyo'
     
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
