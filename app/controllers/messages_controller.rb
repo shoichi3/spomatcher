@@ -5,11 +5,14 @@ class MessagesController < ApplicationController
     @room = Room.find(params[:room_id])
     @message_partner = @room.users.where.not(id: current_user.id).first
     @message = Message.new
+    @messages = @room.messages.includes(:user)
+    @last_message = @room.messages.includes(:user).order(created_at: :desc).limit(1)
   end
 
   def create
     message = Message.create(message_params)
-    render json:{message: message}
+    send_user = message.user
+    render json:{ message: message, user: send_user }
   end
 
   private
