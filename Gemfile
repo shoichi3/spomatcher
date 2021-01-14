@@ -3,10 +3,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.5'
 
-gem 'bootstrap', '~> 4.5.0'
-gem 'bootstrap-sass'
-gem 'jquery-rails'
-gem "jquery-ui-rails"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.0'
@@ -68,3 +64,7 @@ gem 'acts-as-taggable-on', '~> 6.5'
 gem 'kaminari'
 gem 'geocoder'
 gem 'dotenv-rails'
+gem 'bootstrap', '~> 4.5.0'
+gem 'bootstrap-sass'
+gem 'jquery-rails'
+gem "jquery-ui-rails"
