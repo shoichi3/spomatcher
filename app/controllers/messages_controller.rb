@@ -10,9 +10,14 @@ class MessagesController < ApplicationController
   end
 
   def create
-    message = Message.create(message_params)
-    send_user = message.user
-    render json:{ message: message, user: send_user }
+    @message = Message.new(message_params)
+    if @message.save
+      respond_to do |format|
+        format.json
+      end
+    else
+      render :index
+    end
   end
 
   private
