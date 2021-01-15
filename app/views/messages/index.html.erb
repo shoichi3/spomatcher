@@ -1,42 +1,5 @@
 <div class="message-content">
-  <div class="user-lists">
-    <% @rooms.each do |room| %>
-    <% user = room.users.where.not(id: current_user.id).first %>
-    <% last_message = room.messages.includes(:user).order(created_at: :desc).limit(1) %>
-      <div class="user-list">
-        <%= link_to room_messages_path(room), class: "message-link" do %>
-          <div class="user">
-            <div class="left">
-              <% if user.image.attached? %>
-                <%= image_tag user.image, class: "user-image" %>
-              <% else %>
-                <%= image_tag 'default.png', class: "user-image" %>
-              <% end %>
-            </div>
-            <div class="right">
-              <div class="info">
-                <div class="user-name">
-                  <%= user.name %>
-                </div>
-                <div class="last-time">
-                  <% if last_message[0] != nil %>
-                    <%= l last_message[0].created_at, format: :short %>
-                  <% end %>
-                </div>
-              </div>
-              <div class="bottom">
-                <div class="last-message">
-                  <% if last_message[0] != nil %>
-                    <%= last_message[0].text %>
-                  <% end %>
-                </div>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
+  <%= render 'common/user_lists' %>
   <div class="main">
     <div class="main-header">
       <div class="message-partner">
