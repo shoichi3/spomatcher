@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   root "homes#index"
   resources :posts
-  resources :rooms, only: :create do
+  resources :rooms, only: [:create, :index] do
     resources :messages, only: [:index, :create]
   end
 end
