@@ -18,14 +18,12 @@
                   <%= user.name %>
                 </div>
                 <div class="last-time">
-                  2021/01/09
-                  <%# l @last_message.created_at, format: :short %>
+                  <%= l @last_message[0].created_at, format: :short %>
                 </div>
               </div>
               <div class="bottom">
                 <div class="last-message">
-                  楽しかった
-                  <%# @last_message.text %>
+                  <%= @last_message[0].text %>
                 </div>
               </div>
             </div>
