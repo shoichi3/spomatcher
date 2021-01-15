@@ -2,6 +2,7 @@
   <div class="user-lists">
     <% @rooms.each do |room| %>
     <% user = room.users.where.not(id: current_user.id).first %>
+    <% last_message = room.messages.includes(:user).order(created_at: :desc).limit(1) %>
       <div class="user-list">
         <%= link_to room_messages_path(room), class: "message-link" do %>
           <div class="user">
@@ -18,12 +19,16 @@
                   <%= user.name %>
                 </div>
                 <div class="last-time">
-                  <%= l @last_message[0].created_at, format: :short %>
+                  <% if last_message[0] != nil %>
+                    <%= l last_message[0].created_at, format: :short %>
+                  <% end %>
                 </div>
               </div>
               <div class="bottom">
                 <div class="last-message">
-                  <%= @last_message[0].text %>
+                  <% if last_message[0] != nil %>
+                    <%= last_message[0].text %>
+                  <% end %>
                 </div>
               </div>
             </div>

@@ -6,7 +6,6 @@ class MessagesController < ApplicationController
     @message_partner = @room.users.where.not(id: current_user.id).first
     @message = Message.new
     @messages = @room.messages.includes(:user)
-    @last_message = @room.messages.includes(:user).order(created_at: :desc).limit(1)
   end
 
   def create
