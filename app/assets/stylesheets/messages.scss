@@ -33,9 +33,27 @@
           }
         }
         .right {
-          .top {
-            .name {
+          width: 80%;
+          .info {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            .user-name {
               font-weight: bold;
+            }
+            .last-time {
+              color: #c0c0c0;
+              font-size: 12px;
+            }
+          }
+          .bottom {
+            width: 100%;
+            .last-message {
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
             }
           }
         }
@@ -46,24 +64,64 @@
     width: 80%;
     .main-header {
       width: 100%;
-      height: 50px;
+      height: 40px;
       box-shadow: 0 0 3px gray;
       z-index: 1;
       display: flex;
       align-items: center;
       position: fixed;
+      background-color: #ffffff;
       .message-partner {
         font-weight: bold;
         padding-left: 80px;
       }
     }
     .communication {
-      height: calc(100vh - 175px);
+      height: calc(100vh - 225px);
       overflow: scroll;
+      margin: 70px 160px 0 80px;
+      width: 100%;
+      .messages {
+        display: flex;
+        width: 100%;
+        padding-bottom: 32px;
+        .left {
+          width: 10%;
+          .user-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+          }
+        }
+        .right {
+          width: 90%;
+          .info {
+            display: flex;
+            margin-bottom: 8px;
+            .user-name {
+              font-weight: bold;
+            }
+            .message-time {
+              margin-left: 16px;
+              color: #c0c0c0;
+              font-size: 14px;
+            }
+          }
+          .message {
+            margin-bottom: 8px;
+          }
+          .attached-image {
+            .image {
+              height: 400px;
+              width: 400px;
+            }
+          }
+        }
+      }
     }
     .send {
       width: 100%;
-      height: 100px;
+      height: 85px;
       box-shadow: 0 0 3px gray;
       z-index: 1;
       display: flex;
