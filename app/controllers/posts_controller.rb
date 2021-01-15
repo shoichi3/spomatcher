@@ -21,8 +21,21 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @postUser = @post.user
     @user = User.find_by(id: current_user.id)
-    @room = Room.new
+    @currentUserRoom = RoomUser.where(user_id: @user.id)
+    @postUserRoom = RoomUser.where(user_id: @postUser.id)
+    @currentUserRoom.each do |cu|
+      @postUserRoom.each do |po|
+        if cu.room_id == po.room_id
+          @haveRoom = true
+          @roomId = cu.room_id
+        end
+      end
+    end
+    unless @haveRoom
+      @room = Room.new
+    end
   end
 
   def edit

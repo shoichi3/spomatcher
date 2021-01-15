@@ -141,10 +141,14 @@
       <%= link_to '投稿を削除', post_path(@post.id), class:"btn btn-warning text-white", method: :delete %>
     </div>
     <% else %>
-      <%= form_with model: @room, local: true do |f| %>
-        <input name="room[user_ids][]" type="hidden" value=<%= current_user.id%>>
-        <input name="room[user_ids][]" type="hidden" value=<%= @post.user.id%>>
-        <%= f.submit "メッセージを送信", class: "btn btn-warning text-white" %>
+      <% if @haveRoom == true %>
+        <%= link_to "メッセージを送信", room_messages_path(@roomId),class: "btn btn-warning text-white" %>
+      <% else %>
+        <%= form_with model: @room, local: true do |f| %>
+          <input name="room[user_ids][]" type="hidden" value=<%= current_user.id%>>
+          <input name="room[user_ids][]" type="hidden" value=<%= @post.user.id%>>
+          <%= f.submit "メッセージを送信", class: "btn btn-warning text-white" %>
+        <% end %>
       <% end %>
     <% end %>
   </div>
