@@ -1,4 +1,9 @@
 class RoomsController < ApplicationController
+  def index
+    @user = User.find_by(id: current_user.id)
+    @rooms = @user.rooms
+  end
+  
   def create
     @room = Room.new(room_params)
     if @room.save
