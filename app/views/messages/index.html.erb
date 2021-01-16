@@ -1,7 +1,14 @@
 <div class="message-content">
-  <%= render 'common/user_lists' %>
+  <div class="user-lists-second">
+    <%= render 'common/user_lists' %>
+  </div>
   <div class="main">
     <div class="main-header">
+      <div class="back-icon">
+        <%= link_to rooms_path do %>
+          <i class="fas fa-chevron-left"></i>
+        <% end %>
+      </div>
       <div class="message-partner">
         <%= @message_partner.name %>
       </div>

@@ -3,8 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // 関数の読み込み
-@import "function";
 @import "variable";
+@import "function";
 
 .message-content {
   height: 100vh;
@@ -15,53 +15,18 @@
     width: 25%;
     border-right: solid 1px #c0c0c0;
     overflow: scroll;
-    .user-list {
-      .user {
-        padding: 20px;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        .left {
-          width: 20%;
-          display: flex;
-          align-items: center;
-          margin-right: 16px;
-          .user-image {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-          }
-        }
-        .right {
-          width: 80%;
-          .info {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 16px;
-            .user-name {
-              font-weight: bold;
-            }
-            .last-time {
-              color: #c0c0c0;
-              font-size: 12px;
-            }
-          }
-          .bottom {
-            width: 100%;
-            .last-message {
-              overflow: hidden;
-              white-space: nowrap;
-              text-overflow: ellipsis;
-            }
-          }
-        }
-      }
+    // レスポンシブデザイン
+    @include tab {
+      width: 100%;
     }
+    @include user-list
   }
   .main {
     width: 80%;
+    // レスポンシブデザイン
+    @include tab {
+      width: 100%;
+    }
     .main-header {
       width: 100%;
       height: 40px;
@@ -71,9 +36,29 @@
       align-items: center;
       position: fixed;
       background-color: #ffffff;
+      .back-icon {
+        // レスポンシブデザイン
+        @include tab {
+          margin-left: 8px;
+        }
+        .fa-chevron-left {
+          display: none;
+          :active {
+            text-decoration: none;
+          }
+          // レスポンシブデザイン
+          @include tab {
+            display: block;
+          }
+        }
+      }
       .message-partner {
         font-weight: bold;
         padding-left: 80px;
+        // レスポンシブデザイン
+        @include tab {
+          padding-left: 16px;
+        }
       }
     }
     .communication {
@@ -81,6 +66,11 @@
       overflow: scroll;
       margin: 45px 160px 0 80px;
       width: 100%;
+      // レスポンシブデザイン
+      @include tab {
+        margin-top: 45px;
+        margin-left: 10px;
+      }
       .messages {
         display: flex;
         width: 100%;
@@ -91,29 +81,54 @@
             width: 60px;
             height: 60px;
             border-radius: 50%;
+            // レスポンシブデザイン
+            @include tab {
+              width: 30px;
+              height: 30px;
+            }
           }
         }
         .right {
           width: 90%;
+          // レスポンシブデザイン
+          @include tab {
+            margin-left: 8px;
+          }
           .info {
             display: flex;
+            align-items: center;
             margin-bottom: 8px;
             .user-name {
               font-weight: bold;
+              font-size: 20px;
+              // レスポンシブデザイン
+              @include pc {
+                font-size: 16px;
+              }
             }
             .message-time {
               margin-left: 16px;
               color: #c0c0c0;
-              font-size: 14px;
+              font-size: 12px;
             }
           }
           .message {
             margin-bottom: 8px;
+            font-size: 20px;
+            // レスポンシブデザイン
+            @include pc {
+              font-size: 16px;
+            }
           }
           .attached-image {
             .image {
               height: 400px;
               width: 400px;
+              // レスポンシブデザイン
+              @include tab {
+                height: 150px;
+                width: 150px;
+              }
             }
           }
         }
@@ -131,6 +146,10 @@
         align-items: center;
         padding: 0 80px;
         width: 100%;
+        // レスポンシブデザイン
+        @include tab {
+          padding: 0 10px;
+        }
         .message-field {
           width: 60%;
           &__content {
@@ -147,7 +166,14 @@
         }
       }
     }
-    .talkroom {
+  }
+  .second {
+    width: 80%;
+    // レスポンシブデザイン
+    @include tab {
+      display: none;
+    }
+    .top-message {
       height: 100%;
       display: flex;
       align-items: center;
@@ -158,5 +184,15 @@
         color: gray;
       }
     }
+  }
+  .user-lists-second {
+    width: 25%;
+    border-right: solid 1px #c0c0c0;
+    overflow: scroll;
+    // レスポンシブデザイン
+    @include tab {
+      display: none;
+    }
+    @include user-list
   }
 }
