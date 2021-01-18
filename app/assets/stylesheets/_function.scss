@@ -93,6 +93,14 @@
   }
 }
 
+@mixin favorite {
+  position: absolute;
+  top: 102px;
+  right: 200px;  
+  color: #ffc107;
+  font-size: 24px;
+}
+
 @mixin pc {
   @media (max-width: ($pc)) {
     @content;

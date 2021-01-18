@@ -1,5 +1,8 @@
 <div class="container">
   <div class="post-show">
+    <div class="favorite" id="favorite-button-<%= @post.id%>">
+      <%= render partial: 'favorites/favorite', locals: {post: @post} %>
+    </div>
     <div class="post-top">
       <div class="title">
         <%= @post.title %>
