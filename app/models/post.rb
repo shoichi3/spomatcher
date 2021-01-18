@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
   belongs_to :user
   has_one_attached :image
+  has_many :favorites, dependent: :destroy
 
   acts_as_taggable
   acts_as_taggable_on :skills, :interests
@@ -19,4 +20,8 @@ class Post < ApplicationRecord
   end
 
   validates :image, presence: {message: 'を選択してください。'}
+
+  def liked_by?(user)
+    Favorite.where(user_id: user.id).exists?
+  end
 end

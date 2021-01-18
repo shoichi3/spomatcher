@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   end
 
   root "homes#index"
-  resources :posts
+  resources :posts do
+    resources :favorites, only: [:create, :destroy]
+  end
   resources :rooms, only: [:create, :index] do
     resources :messages, only: [:index, :create]
   end

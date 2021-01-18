@@ -8,8 +8,18 @@
 
 .container {
   .post-show {
+    .favorite {
+      .post-favorite {
+        .fas {
+          @include favorite
+        }
+        .far {
+          @include favorite
+        }
+      }
+    }
     .post-top {
-      margin: 40px 0 24px;
+      margin: 40px 60px 24px;
       .title {
         text-align: center;
         font-weight: bold;
