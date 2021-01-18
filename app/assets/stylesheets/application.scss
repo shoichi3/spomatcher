@@ -16,6 +16,10 @@
 
 @import "bootstrap";
 
+// 関数の読み込み
+@import "function";
+@import "variable";
+
 .flash {
   position: relative;
   z-index: 2000;
@@ -43,4 +47,15 @@ footer {
 
 body {
   height: auto;
+  @include tab {
+    width: 100vw;
+  }
+}
+
+html {
+  @include tab {
+    min-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
 }

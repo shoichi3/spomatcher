@@ -5,7 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one_attached :image
-  has_many :post
+  has_many :posts
+  has_many :room_users
+  has_many :rooms, through: :room_users
+  has_many :messages
   
   validates :name, presence: true
   
