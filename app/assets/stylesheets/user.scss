@@ -1,0 +1,115 @@
+// 関数の読み込み
+@import "function";
+@import "variable";
+
+.container {
+  .user-inner {
+    margin: 60px 150px 48px;
+    .user-info {
+      height: 100%;
+      .upper {
+        display: flex;
+        .left {
+          margin-right: 32px;
+          .user-image {
+            width: 124px;
+            height: 124px;
+            border-radius: 50%;
+          }
+        }
+        .right {
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+          margin-top: 8px;
+          .user-content {
+            .name {
+              font-weight: bold;
+              font-size: 24px;
+              margin-bottom: 16px;
+            }
+            .review {
+              margin-bottom: 8px;
+            }
+            .follow {
+              display: flex;
+            }
+          }
+          .button {
+            .buttons {
+              height: 100%;
+              display: flex;
+              justify-content: space-around;
+              flex-direction: column;
+            }
+          }
+        }
+      }
+      .bottom {
+        margin-top: 24px;
+        margin-right: 200px;
+        word-break: break-all;
+        .profile {
+          color: #696969;
+        }
+      }
+    }
+  }
+  .post-inner {
+    margin-bottom: 48px;
+    .user-post {
+      margin: 0 100px;
+      .user-page-tags {
+        display: flex;
+        margin-bottom: 16px;
+        .user-last-post {
+          margin-right: 24px;
+          font-size: 20px;
+          color: #a9a9a9;
+          cursor: pointer;
+        }
+        .user-favorite-post {
+          font-size: 20px;
+          color: #a9a9a9;
+          cursor: pointer;
+        }
+        .active {
+          color: #ffa500;
+          border-bottom: solid 2px #ffa500;
+
+        }
+      }
+    }
+    .giving-post {
+      display: none;
+      .empty-post {
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .content {
+          color: #a9a9a9;
+          font-size: 24px;
+        }
+      }
+      @include post
+    }
+    .giving-post2 {
+      display: none;
+      .empty-post {
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .content {
+          color: #a9a9a9;
+          font-size: 24px;
+        }
+      }
+      @include post
+    }
+    .show {
+      display: block;
+    }
+  }
+}
