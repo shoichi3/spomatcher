@@ -21,7 +21,7 @@ class Post < ApplicationRecord
 
   validates :image, presence: {message: 'を選択してください。'}
 
-  def liked_by?(user)
-    Favorite.where(user_id: user.id).exists?
+  def liked_by?(user, post)
+    Favorite.where(user_id: user.id, post_id: post.id).exists?
   end
 end

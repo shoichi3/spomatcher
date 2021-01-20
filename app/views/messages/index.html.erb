@@ -17,10 +17,12 @@
       <% @messages.each do |message| %>
       <div class="messages">
         <div class="left">
-          <% if message.user.image.attached? %>
-            <%= image_tag message.user.image, class: "user-image" %>
-          <% else %>
-            <%= image_tag 'default.png', class: "user-image" %>
+          <%= link_to user_path(message.user.id) do %>
+            <% if message.user.image.attached? %>
+              <%= image_tag message.user.image, class: "user-image" %>
+            <% else %>
+              <%= image_tag 'default.png', class: "user-image", id: "user-icon" %>
+            <% end %>
           <% end %>
         </div>
         <div class="right">

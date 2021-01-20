@@ -1,0 +1,210 @@
+<div class="container">
+  <div class="user-inner">
+    <div class="user-info">
+      <div class="upper">
+        <div class="left">
+          <% if @postUser.image.attached? %>
+            <%= image_tag @postUser.image, class: "user-image" %>
+          <% else %>
+            <%= image_tag 'default.png', class: "user-image" %>
+          <% end %>
+        </div>
+        <div class="right">
+          <div class="user-content">
+            <div class="name">
+              <%= @postUser.name %>
+            </div>
+            <div class="review">
+              レビューはありません
+            </div>
+            <div class="follow">
+              <div class="following">
+                フォロー
+              </div>
+              <div class="follower">
+                フォロワー
+              </div>
+            </div>
+          </div>
+          <div class="button">
+            <% if current_user.id == @postUser.id %>
+              <%= link_to edit_user_registration_path, class: "btn btn-outline-warning" do %>
+                <i class="fas fa-user-edit"></i>
+                アカウント編集
+              <% end %>
+            <% else %>
+              <div class="buttons">
+                <%= link_to user_path(@postUser.id), class: "btn btn-outline-warning" do %>
+                  フォロー
+                <% end %>
+                <% if @haveRoom == true %>
+                  <%= link_to "メッセージを送信", room_messages_path(@roomId),class: "btn btn-outline-warning" %>
+                <% else %>
+                  <%= form_with model: @room, local: true do |f| %>
+                    <input name="room[user_ids][]" type="hidden" value=<%= current_user.id%>>
+                    <input name="room[user_ids][]" type="hidden" value=<%= @postUser.id%>>
+                    <%= f.submit "メッセージを送信", class: "btn btn-outline-warning" %>
+                  <% end %>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <% unless @postUser.profile == "" %>
+        <div class="bottom">
+          <div class="profile">
+            <%= @postUser.profile %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="post-inner">
+    <div class="user-post">
+      <div class="user-page-tags">
+        <div class="user-last-post active" id="lasted-post">最近の投稿</div>
+        <div class="user-favorite-post" id="favorited-post">お気に入りの投稿</div>
+      </div>
+      <div class="giving-post show">
+        <% if @posts.length != 0%>
+          <% @posts.each do |post| %>
+            <div class="post">
+              <%= link_to post_path(post), class: "post-link" do %>
+                <div class="post-content">
+                  <div class="post-left">
+                    <div class="user-icon">
+                      <% if post.user.image.attached? %>
+                        <%= image_tag post.user.image, class: "user-icon about-post" %>
+                      <% else %>
+                        <%= image_tag  'default.png', class: "user-icon about-post"%>
+                      <% end %>
+                    </div>
+                    <div class="user-info">
+                      <div class="name">
+                        <%= post.user.name %>
+                      </div>
+                      <div class="review">
+                        レビューはありません
+                      </div>
+                    </div>
+                  </div>
+                  <div class="post-right">
+                    <div class="title">
+                      <div class="title-content">
+                        <%= post.title %>
+                      </div>
+                    </div>
+                    <div class="content">
+                      <div class="tags_list">
+                        <% if post.tags.present? %>
+                          <% post.tags.each do |tag| %>
+                            <div class="tag">
+                              #<%= tag.name %>
+                            </div>
+                          <% end %>
+                        <% end %>
+                      </div>
+                      <div class="content__middle">
+                        <div class="sports">
+                          競技名: <%= post.sports %>
+                        </div>
+                        <div class="center">
+                          <div class="datetime">
+                            日時: <%= post.datetime %>
+                          </div>
+                          <div class="cost">
+                            参加費: <%= post.cost %>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="address">
+                        場所: <%= post.address %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        <% else %>
+          <div class="empty-post">
+            <div class="content">
+              投稿はありません
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="giving-post2">
+        <% if @favorites.length != 0%>
+          <% @favorites.each do |favorite| %>
+            <div class="post">
+              <%= link_to post_path(favorite.post), class: "post-link" do %>
+                <div class="post-content">
+                  <div class="post-left">
+                    <div class="user-icon">
+                      <% if favorite.post.user.image.attached? %>
+                        <%= image_tag favorite.post.user.image, class: "user-icon about-post" %>
+                      <% else %>
+                        <%= image_tag  'default.png', class: "user-icon about-post"%>
+                      <% end %>
+                    </div>
+                    <div class="user-info">
+                      <div class="name">
+                        <%= favorite.post.user.name %>
+                      </div>
+                      <div class="review">
+                        レビューはありません
+                      </div>
+                    </div>
+                  </div>
+                  <div class="post-right">
+                    <div class="title">
+                      <div class="title-content">
+                        <%= favorite.post.title %>
+                      </div>
+                    </div>
+                    <div class="content">
+                      <div class="tags_list">
+                        <% if favorite.post.tags.present? %>
+                          <% favorite.post.tags.each do |tag| %>
+                            <div class="tag">
+                              #<%= tag.name %>
+                            </div>
+                          <% end %>
+                        <% end %>
+                      </div>
+                      <div class="content__middle">
+                        <div class="sports">
+                          競技名: <%= favorite.post.sports %>
+                        </div>
+                        <div class="center">
+                          <div class="datetime">
+                            日時: <%= favorite.post.datetime %>
+                          </div>
+                          <div class="cost">
+                            参加費: <%= favorite.post.cost %>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="address">
+                        場所: <%= favorite.post.address %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        <% else %>
+          <div class="empty-post">
+            <div class="content">
+              お気に入りの投稿はありません
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <%# paginate @posts %>
+</div>

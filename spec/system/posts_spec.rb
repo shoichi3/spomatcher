@@ -520,7 +520,7 @@ RSpec.describe '投稿編集機能(サインイン後)', type: :system do
       attach_file('post[image]', image_path, make_visible: true)
       expect{
         click_on '編集する'
-      }.to change { Post.count }.by(1)
+      }.to change { Post.count }.by(0)
       expect(current_path).to eq root_path
       expect(page).to have_content("#{@post1.title} + 編集した内容")
     end
@@ -539,17 +539,6 @@ RSpec.describe '投稿編集機能(サインイン後)', type: :system do
         click_on '編集する'
       }.to change { Post.count }.by(0)
       expect(page).to have_content('タイトルを入力してください。')
-    end
-
-    it '画像が空欄の場合,投稿を編集することができない' do
-      sign_up(@post1.user)
-      post(@post1)
-      find('.post-link').click
-      click_on '投稿を編集'
-      expect{
-        click_on '編集する'
-      }.to change { Post.count }.by(0)
-      expect(page).to have_content('画像を選択してください。')
     end
 
     it 'メッセージが空欄の場合,投稿を編集することができない' do
@@ -671,7 +660,7 @@ RSpec.describe '投稿編集機能(ログイン後)', type: :system do
       attach_file('post[image]', image_path, make_visible: true)
       expect{
         click_on '編集する'
-      }.to change { Post.count }.by(1)
+      }.to change { Post.count }.by(0)
       expect(current_path).to eq root_path
       expect(page).to have_content("#{@post1.title} + 編集した内容")
     end
@@ -693,20 +682,6 @@ RSpec.describe '投稿編集機能(ログイン後)', type: :system do
         click_on '編集する'
       }.to change { Post.count }.by(0)
       expect(page).to have_content('タイトルを入力してください。')
-    end
-
-    it '画像が空欄の場合,投稿を編集することができない' do
-      sign_up(@post1.user)
-      find('.user-image').click
-      click_on 'ログアウト'
-      log_in(@post1.user)
-      post(@post1)
-      find('.post-link').click
-      click_on '投稿を編集'
-      expect{
-        click_on '編集する'
-      }.to change { Post.count }.by(0)
-      expect(page).to have_content('画像を選択してください。')
     end
 
     it 'メッセージが空欄の場合,投稿を編集することができない' do
@@ -895,6 +870,68 @@ RSpec.describe '投稿削除機能(ログイン後)', type: :system do
       log_in(@post2.user)
       find('.post-link').click
       expect(page).to_not have_content("投稿を削除")
+    end
+  end
+end
+
+RSpec.describe 'マイページで投稿の確認(サインイン後)', type: :system do
+  before do
+    @post = build(:post)
+    @user = build(:user)
+  end
+
+  context 'マイページで自身の投稿を表示することができる' do
+    it '新規投稿後、マイページに遷移すると自身の投稿が表示されていること' do
+      sign_up(@post.user)
+      post(@post)
+      mypage()
+      expect(page).to have_css '.post-link'
+    end
+  end
+
+  context 'マイページで他ユーザーの投稿を確認することができる' do
+    it '他ユーザーのアイコンをクリックするとそのユーザーのマイページへ遷移し、投稿を確認することができること' do
+      sign_up(@post.user)
+      post(@post)
+      log_out()
+      sign_up(@user)
+      find('.post-link').click
+      expect(page).to have_content @post.title
+      find('.icon').click
+      expect(page).to have_content @post.title
+    end
+  end
+end
+
+RSpec.describe 'マイページで投稿の確認(ログイン後)', type: :system do
+  before do
+    @post = build(:post)
+    @user = build(:user)
+  end
+
+  context 'マイページで自身の投稿を表示することができる' do
+    it '新規投稿後、マイページに遷移すると自身の投稿が表示されていること' do
+      sign_up(@post.user)
+      post(@post)
+      log_out()
+      log_in(@post.user)
+      mypage()
+      expect(page).to have_css '.post-link'
+    end
+  end
+
+  context 'マイページで他ユーザーの投稿を確認することができる' do
+    it '他ユーザーのアイコンをクリックするとそのユーザーのマイページへ遷移し、投稿を確認することができること' do
+      sign_up(@post.user)
+      post(@post)
+      log_out()
+      sign_up(@user)
+      log_out()
+      log_in(@user)
+      find('.post-link').click
+      expect(page).to have_content @post.title
+      find('.icon').click
+      expect(page).to have_content @post.title
     end
   end
 end

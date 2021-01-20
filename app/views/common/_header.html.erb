@@ -39,7 +39,7 @@
       </div>
       <ul class="menu hidden" id="pull-down">
         <li class="menu__content">
-          <%= link_to root_path, class: "pull-down-list" do %>
+          <%= link_to user_path(current_user.id), class: "pull-down-list" do %>
             <i class="fas fa-user"></i>
             マイページ
           <% end %>

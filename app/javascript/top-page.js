@@ -13,7 +13,4 @@ function topPage() {
   });
 }
 
-const pathName = location.pathname;
-if (pathName == '/') {
-  window.addEventListener("load", topPage);
-}
+window.addEventListener("load", topPage);

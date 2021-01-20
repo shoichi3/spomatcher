@@ -36,6 +36,9 @@ RSpec.configure do |config|
   config.include PostSupport
   config.include LogOutSupport
   config.include MakeRoomSupport
+  config.include FavoriteSupport
+  config.include MypageSupport
+  config.include MessageSupport
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 

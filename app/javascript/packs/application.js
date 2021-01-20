@@ -12,6 +12,7 @@ require("../pull-down.js")
 require("../top-page.js")
 require("../user-list.js")
 require("../message.js")
+require("../user-page.js")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
