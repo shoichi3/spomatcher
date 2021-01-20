@@ -223,6 +223,21 @@
   }
 }
 
+@mixin user-post-list {
+  display: none;
+  .empty-post {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .content {
+      color: #a9a9a9;
+      font-size: 24px;
+    }
+  }
+  @include post
+}
+
 @mixin pc {
   @media (max-width: ($pc)) {
     @content;

@@ -81,32 +81,10 @@
       }
     }
     .giving-post {
-      display: none;
-      .empty-post {
-        height: 200px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        .content {
-          color: #a9a9a9;
-          font-size: 24px;
-        }
-      }
-      @include post
+      @include user-post-list
     }
     .giving-post2 {
-      display: none;
-      .empty-post {
-        height: 200px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        .content {
-          color: #a9a9a9;
-          font-size: 24px;
-        }
-      }
-      @include post
+      @include user-post-list
     }
     .show {
       display: block;
