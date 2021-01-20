@@ -21,7 +21,7 @@
             <% if message.user.image.attached? %>
               <%= image_tag message.user.image, class: "user-image" %>
             <% else %>
-              <%= image_tag 'default.png', class: "user-image" %>
+              <%= image_tag 'default.png', class: "user-image", id: "user-icon" %>
             <% end %>
           <% end %>
         </div>
