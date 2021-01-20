@@ -42,7 +42,7 @@
                 <% else %>
                   <%= form_with model: @room, local: true do |f| %>
                     <input name="room[user_ids][]" type="hidden" value=<%= current_user.id%>>
-                    <input name="room[user_ids][]" type="hidden" value=<%= @post.user.id%>>
+                    <input name="room[user_ids][]" type="hidden" value=<%= @postUser.id%>>
                     <%= f.submit "メッセージを送信", class: "btn btn-outline-warning" %>
                   <% end %>
                 <% end %>
