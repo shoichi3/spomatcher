@@ -9,7 +9,8 @@ Rails.application.routes.draw do
 
   resources :users, only: :show do
     member do
-      get :following, :followers
+      get :followings, to: 'relationships#followings'
+      get :followers, to: 'relationships#followers'
     end
   end
 
