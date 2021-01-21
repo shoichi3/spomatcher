@@ -46,9 +46,9 @@
               <div class="buttons">
                 <div id="follow_form">
                   <% if current_user.following?(@postUser) %>
-                    <%= render 'unfollow' %>
+                    <%= render 'unfollow', {following_user: @following_user}%>
                   <% else %>
-                    <%= render 'follow' %>
+                    <%= render 'follow', {following: @postUser}%>
                   <% end %>
                 </div>
                 <% if @haveRoom == true %>

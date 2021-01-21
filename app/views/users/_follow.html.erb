@@ -1,4 +1,4 @@
 <%= form_with url: relationships_path do |f| %>
-  <%= hidden_field_tag :following_id, @postUser.id %>
+  <%= hidden_field_tag :following_id, following.id %>
   <%= f.submit 'フォロー', class: "btn btn-outline-warning follow-button" %>
 <% end %>

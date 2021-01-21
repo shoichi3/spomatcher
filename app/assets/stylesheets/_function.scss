@@ -238,6 +238,53 @@
   @include post
 }
 
+@mixin follow {
+  display: none;
+  .empty-post {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .content {
+      color: #a9a9a9;
+      font-size: 24px;
+    }
+  }
+  .user-box {
+    padding: 24px 40px;
+    border-bottom: solid 2px #aaaaaa;
+    &__content {
+      display: flex;
+      .left {
+        .user-image {
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+        }
+      }
+      .center {
+        display: flex;
+        flex-direction: column;
+        margin: auto 0;
+        margin-left: 32px;
+        .name {
+          font-weight: bold;
+          font-size: 16px;
+        }
+        .profile {
+          max-width: 500px;
+          word-break: break-all;
+          color: #696969;
+        }
+      }
+      .right {
+        position: absolute;
+        right: 350px;
+      }
+    }
+  }
+}
+
 @mixin pc {
   @media (max-width: ($pc)) {
     @content;
