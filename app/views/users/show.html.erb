@@ -18,12 +18,22 @@
               レビューはありません
             </div>
             <div class="follow">
-              <div class="following">
-                フォロー
-              </div>
-              <div class="follower">
-                フォロワー
-              </div>
+              <%= link_to followings_user_path(@postUser), class: "followings" do %>
+                <div class="count">
+                  <%= @postUser.followings.count %>
+                </div>
+                <div class="word">
+                  フォロー
+                </div>
+              <% end %>
+              <%= link_to followers_user_path(@postUser), class: "followers" do %>
+                <div class="count">
+                  <%= @postUser.followers.count %>
+                </div>
+                <div class="word">
+                  フォロワー
+                </div>
+              <% end %>
             </div>
           </div>
           <div class="button">
@@ -34,9 +44,13 @@
               <% end %>
             <% else %>
               <div class="buttons">
-                <%= link_to user_path(@postUser.id), class: "btn btn-outline-warning" do %>
-                  フォロー
-                <% end %>
+                <div id="follow_form">
+                  <% if current_user.following?(@postUser) %>
+                    <%= render 'unfollow' %>
+                  <% else %>
+                    <%= render 'follow' %>
+                  <% end %>
+                </div>
                 <% if @haveRoom == true %>
                   <%= link_to "メッセージを送信", room_messages_path(@roomId),class: "btn btn-outline-warning" %>
                 <% else %>
