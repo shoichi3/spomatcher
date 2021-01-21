@@ -55,6 +55,7 @@ class User < ApplicationRecord
 
   #フォローを外すときのメソッド
   def unfollow(user)
-    following_relationships.find_by(following_id: user.id).destroy
+    following_user = following_relationships.find_by(following_id: user.id) 
+    following_user.destroy
   end
 end
