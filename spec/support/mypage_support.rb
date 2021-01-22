@@ -1,6 +1,6 @@
 module MypageSupport
   def mypage()
-    find('.user-image').click
+    find('#icon').click
     click_link 'マイページ'
   end
 end

@@ -13,6 +13,7 @@ require("../top-page.js")
 require("../user-list.js")
 require("../message.js")
 require("../user-page.js")
+require("../follower-page.js")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -22,12 +23,12 @@ require("../user-page.js")
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-//= require jquery3
-//= require popper
-//= require bootstrap-sprockets
 //= require rails-ujs 
 //= require jquery 
+//= require jquery3
 //= require jquery_ujs 
+//= require popper
+//= require bootstrap-sprockets
 //= require_tree .
 
 

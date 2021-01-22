@@ -1,6 +1,6 @@
 module LogOutSupport
   def log_out()
-    find('.user-image').click
+    find('#icon').click
     click_on 'ログアウト'
   end
 end

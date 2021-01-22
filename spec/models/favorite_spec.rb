@@ -8,7 +8,7 @@ RSpec.describe Favorite, type: :model do
   end
 
   describe 'お気に入り機能' do
-    it 'use_idとpost_idが存在すれば保存できること' do
+    it 'user_idとpost_idが存在すれば保存できること' do
       expect(@favorite1).to be_valid
     end
 

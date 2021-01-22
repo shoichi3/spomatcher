@@ -1,3 +1,50 @@
 // Place all the styles related to the favorites controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// 関数の読み込み
+@import "function";
+@import "variable";
+
+.container {
+  .wrapper-inner {
+    width: 880px;
+    margin: 0 auto;
+    padding-top: 50px;
+    .title {
+      font-weight: bold;
+      color: #ffa500;
+      font-size: 20px;
+      margin-bottom: 24px;
+    }
+    .follow_tabs {
+      width: 880px;
+      display: flex;
+      justify-content: center;
+      .follow_tab {
+        width: 50%;
+        text-align: center;
+        font-weight: bold;
+        font-size: 18px;
+        color: #a9a9a9;
+        border-bottom: solid 2px #a9a9a9;
+        padding-bottom: 8px;
+        cursor: pointer;
+      }
+      .active {
+        color: #ffa500;
+        border-bottom: solid 2px #ffa500;
+        padding-bottom: 8px;
+      }
+    }
+    .follower-list {
+      @include follow
+    }
+    .follower-list2 {
+      @include follow
+    }
+    .show {
+      display: block;
+    }
+  }
+}
