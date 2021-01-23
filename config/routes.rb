@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: :show do
+    resources :reviews, only: [:index, :new, :create]
     member do
       get :followings, to: 'relationships#followings'
       get :followers, to: 'relationships#followers'
