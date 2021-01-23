@@ -30,6 +30,10 @@
             }
             .review {
               margin-bottom: 8px;
+              .link {
+                text-decoration: none;
+                color: black;
+              }
             }
             .follow {
               display: flex;

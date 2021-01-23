@@ -72,6 +72,12 @@
           display: flex;
           flex-direction: column;
           justify-content: space-evenly;
+          .review {
+            .link {
+              text-decoration: none;
+              color: black;
+            }
+          }
         }
       }
       .basic-info {
