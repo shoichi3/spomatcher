@@ -14,6 +14,7 @@ class User < ApplicationRecord
    has_many :followings, through: :following_relationships
    has_many :follower_relationships, foreign_key: "following_id", class_name: "Relationship"
    has_many :followers, through: :follower_relationships
+   has_many :reviews, foreign_key: "reviewee_id"
   
   validates :name, presence: true
   
