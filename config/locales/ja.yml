@@ -12,6 +12,9 @@ ja:
         cost: 参加費
         content: メッセージ
         flow: 当日の流れ
+      review:
+        content: レビュー
+        score: 評価
   errors:
     format: "%{attribute}%{message}"
     messages:
