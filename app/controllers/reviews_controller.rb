@@ -10,6 +10,16 @@ class ReviewsController < ApplicationController
     @review = Review.new
   end
 
+  def create
+    @review = Review.new(review_params)
+    @review.reviewer_id = current_user.id
+    if @review.save
+      redirect_to user_reviews_path(@review.reviewee_id)
+    else
+      render :new
+    end
+  end
+
   private
   
   def set_user
@@ -18,5 +28,9 @@ class ReviewsController < ApplicationController
 
   def set_reviewee
     @reviewee = User.find(params[:user_id])
+  end
+
+  def review_params
+    params.require(:review).permit(:score, :content, :reviewee_id)
   end
 end
