@@ -4,6 +4,7 @@ class ReviewsController < ApplicationController
 
   def index
     @reviewee = User.find(params[:user_id])
+    @reviews = Review.where(reviewee_id: @reviewee.id).includes(:reviewer).order('reviews.created_at DESC')
   end
 
   def new
