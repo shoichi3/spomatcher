@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="review-form-wrapper">
+    <%= form_with model: [@reviewee, @review], class: "review-form", local: true do |f| %>
+
+      <%# エラーメッセージ %>
+      <%= render "devise/shared/error_messages", resource: f.object %>
+
+      <div class="main-rating">
+        <div class="ratings">
+          <i class="far fa-star", id="star"></i>
+          <i class="far fa-star", id="star"></i>
+          <i class="far fa-star", id="star"></i>
+          <i class="far fa-star", id="star"></i>
+          <i class="far fa-star", id="star"></i>
+        </div>
+        <div class="rating-value-display">
+          <span id="rating-value-display">0</span>/5
+        </div>
+        <%= f.hidden_field :score, id: "rating-value" %>
+        <%= f.hidden_field :reviewee_id, value: @reviewee.id %>
+      </div>
+
+      <div class="form-content">
+        <%= f.text_area :content, class: "text-area", rows: 5, class: "form-content__field" %>
+      </div>
+
+      <div class="submit">
+        <%= f.submit '投稿する', class: "btn btn-warning text-white" %>
+      </div>
+    <% end %>
+  </div>
+</div>

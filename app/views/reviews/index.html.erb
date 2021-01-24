@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="review-content">
+    <div class="review-header">
+      <div class="title">
+        <%= @reviewee.name %>さんのレビュー
+      </div>
+      <div class="make-review">
+        <%= link_to 'レビューを書く', new_user_review_path(@reviewee.id), class: "btn btn-warning text-white" %>
+      </div>
+    </div>
+  </div>
+</div>
