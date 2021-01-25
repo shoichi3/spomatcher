@@ -59,4 +59,12 @@ class User < ApplicationRecord
     following_user = following_relationships.find_by(following_id: user.id) 
     following_user.destroy
   end
+
+  def avg_score
+    if reviews.empty?
+      0.0
+    else
+      reviews.average(:score).round(1).to_f
+    end
+  end
 end

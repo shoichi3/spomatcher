@@ -12,8 +12,8 @@
         .left {
           margin-right: 32px;
           .user-image {
-            width: 124px;
-            height: 124px;
+            width: 110px;
+            height: 110px;
             border-radius: 50%;
           }
         }
@@ -21,18 +21,35 @@
           display: flex;
           justify-content: space-between;
           width: 100%;
-          margin-top: 8px;
           .user-content {
             .name {
               font-weight: bold;
               font-size: 24px;
-              margin-bottom: 16px;
             }
             .review {
               margin-bottom: 8px;
+              position: relative;
+              font-size: 24px;
+              width: 66%;
+              .star-rating-front {
+                position: absolute;
+                top: 0;
+                left: 0;
+                color: #fc0;
+                overflow: hidden;
+              }
+              .star-rating-back {
+                color: #ccc;
+                margin-right: 8px;
+              }
               .link {
                 text-decoration: none;
                 color: black;
+                display: flex;
+                .count {
+                  font-size: 16px;
+                  margin: auto;
+                }
               }
             }
             .follow {
