@@ -5,13 +5,73 @@
 .container {
   .review-content {
     margin: 54px auto 0;
-    width: 850px;
+    width: 800px;
     .review-header {
       display: flex;
       justify-content: space-between;
       .title {
         font-weight: bold;
         font-size: 20px;
+      }
+    }
+    .reviews {
+      margin-top: 32px;
+      .review {
+        border-bottom: solid 2px #aaaaaa;
+        display: flex;
+        padding: 32px 0 32px 32px;
+        .review-image {
+          display: flex;
+          align-items: center;
+          .user-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+          }
+        }
+        .review-name {
+          display: flex;
+          align-items: center;
+          margin-left: 32px;
+          .reviewer {
+            font-weight: bold;
+            font-size: 16px;
+          }
+        }
+      }
+      .review-detail {
+        display: flex;
+        justify-content: space-between;
+        margin-left: 48px;
+        width: -webkit-fill-available;
+        .review-display {
+          display: flex;
+          flex-direction: column;
+          width: 60%;
+          .score {
+            position: relative;
+            font-size: 24px;
+            .star-rating-front {
+              position: absolute;
+              top: 0;
+              left: 0;
+              color: #fc0;
+              overflow: hidden;
+            }
+            .star-rating-back {
+              color: #ccc;
+            }
+          }
+        }
+        .content {
+          word-break: break-all;
+        }
+        .review-time {
+          .created {
+            color: #c0c0c0;
+            font-size: 12px;
+          }
+        }
       }
     }
   }

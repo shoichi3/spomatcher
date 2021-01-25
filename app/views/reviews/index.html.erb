@@ -8,5 +8,45 @@
         <%= link_to 'レビューを書く', new_user_review_path(@reviewee.id), class: "btn btn-warning text-white" %>
       </div>
     </div>
+    <div class="reviews">
+      <% @reviews.each do |review| %>
+        <div class="review">
+          <div class="review-image">
+            <%= link_to user_path(review.reviewer.id) do %>
+              <% if review.reviewer.image.attached? %>
+                <%= image_tag review.reviewer.image, class: "user-image" %>
+              <% else %>
+                <%= image_tag 'default.png', class: "user-image" %>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="review-name">
+            <div class="reviewer">
+              <%= review.reviewer.name %>
+            </div>
+          </div>
+          <div class="review-detail">
+            <div class="review-display">
+              <div class="score">
+                <div class="star-rating-front" style="width: <%= review.score*20 %>% ">
+                  ★★★★★
+                </div>
+                <div class="star-rating-back" >
+                  ★★★★★
+                </div>
+              </div>
+              <div class="content">
+                <%= review.content %>
+              </div>
+            </div>
+            <div class="review-time">
+              <div class="created">
+                <%= l review.created_at %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
