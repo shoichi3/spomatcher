@@ -14,6 +14,7 @@ class User < ApplicationRecord
    has_many :followings, through: :following_relationships
    has_many :follower_relationships, foreign_key: "following_id", class_name: "Relationship"
    has_many :followers, through: :follower_relationships
+   has_many :reviews, foreign_key: "reviewee_id"
   
   validates :name, presence: true
   
@@ -57,5 +58,13 @@ class User < ApplicationRecord
   def unfollow(user)
     following_user = following_relationships.find_by(following_id: user.id) 
     following_user.destroy
+  end
+
+  def avg_score
+    if reviews.empty?
+      0.0
+    else
+      reviews.average(:score).round(1).to_f
+    end
   end
 end

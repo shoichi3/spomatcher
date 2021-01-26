@@ -26,7 +26,15 @@
                     <%= post.user.name %>
                   </div>
                   <div class="review">
-                    レビューはありません
+                    <div class="star-rating-front" style="width: <%= post.user.avg_score*20 %>% ">
+                      ★★★★★
+                    </div>
+                    <div class="star-rating-back" >
+                      ★★★★★
+                    </div>
+                    <div class="count">
+                      (<%= post.user.reviews.count %>件のレビュー)
+                    </div>
                   </div>
                 </div>
               </div>

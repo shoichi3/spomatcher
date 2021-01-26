@@ -1,0 +1,112 @@
+// Place all the styles related to the reviews controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.container {
+  .review-content {
+    margin: 54px auto 0;
+    width: 800px;
+    .review-header {
+      display: flex;
+      justify-content: space-between;
+      .title {
+        font-weight: bold;
+        font-size: 20px;
+      }
+    }
+    .reviews {
+      margin-top: 32px;
+      .review {
+        border-bottom: solid 2px #aaaaaa;
+        display: flex;
+        padding: 32px 0 32px 32px;
+        .review-image {
+          display: flex;
+          align-items: center;
+          .user-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+          }
+        }
+        .review-name {
+          display: flex;
+          align-items: center;
+          margin-left: 32px;
+          .reviewer {
+            font-weight: bold;
+            font-size: 16px;
+          }
+        }
+      }
+      .review-detail {
+        display: flex;
+        justify-content: space-between;
+        margin-left: 48px;
+        width: -webkit-fill-available;
+        .review-display {
+          display: flex;
+          flex-direction: column;
+          width: 60%;
+          .score {
+            width: 36%;
+            position: relative;
+            font-size: 24px;
+            .star-rating-front {
+              position: absolute;
+              top: 0;
+              left: 0;
+              color: #fc0;
+              overflow: hidden;
+            }
+            .star-rating-back {
+              color: #ccc;
+            }
+          }
+        }
+        .content {
+          word-break: break-all;
+        }
+        .review-time {
+          .created {
+            color: #c0c0c0;
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+  .review-form-wrapper {
+    margin: 100px auto 0;
+    width: 700px;
+    .review-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .main-rating {
+        display: flex;
+        margin-bottom: 32px;
+        .ratings {
+          color: #fc0;
+          font-size: 28px;
+          margin-right: 24px;
+          cursor: pointer;
+          letter-spacing: -1px;
+        }
+        .rating-value-display {
+          font-size: 16px;
+          margin: auto;
+          letter-spacing: 5px;
+        }
+      }
+      .form-content {
+        margin-bottom: 40px;
+        &__field {
+          width: 500px;
+          padding-top: 8px;
+          padding-left: 8px;
+        }
+      }
+    }
+  }
+}

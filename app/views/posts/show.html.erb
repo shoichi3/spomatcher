@@ -35,7 +35,17 @@
               <%= @post.user.name %>
             </div>
             <div class="review">
-              レビューはありません
+              <div class="star-rating-front" style="width: <%= @postUser.avg_score*20 %>% ">
+                ★★★★★
+              </div>
+              <div class="star-rating-back" >
+                ★★★★★
+              </div>
+              <%= link_to user_reviews_path(@postUser.id), class: "link" do %>
+                <div class="count">
+                  (<%= @postUser.reviews.count %>件のレビュー)
+                </div>
+              <% end %>
             </div>
           </div>
         </div>

@@ -15,7 +15,17 @@
               <%= @postUser.name %>
             </div>
             <div class="review">
-              レビューはありません
+              <div class="star-rating-front" style="width: <%= @postUser.avg_score*20 %>% ">
+                ★★★★★
+              </div>
+              <div class="star-rating-back" >
+                ★★★★★
+              </div>
+              <%= link_to user_reviews_path(@postUser.id), class: "link" do %>
+                <div class="count" id="count">
+                  (<%= @postUser.reviews.count %>件のレビュー)
+                </div>
+              <% end %>
             </div>
             <div class="follow">
               <%= link_to followings_user_path(@postUser), class: "followings" do %>
@@ -99,7 +109,15 @@
                         <%= post.user.name %>
                       </div>
                       <div class="review">
-                        レビューはありません
+                        <div class="star-rating-front" style="width: <%= @postUser.avg_score*20 %>% ">
+                        ★★★★★
+                      </div>
+                      <div class="star-rating-back" >
+                        ★★★★★
+                      </div>
+                      <div class="count">
+                        (<%= @postUser.reviews.count %>件のレビュー)
+                      </div>
                       </div>
                     </div>
                   </div>
@@ -168,7 +186,15 @@
                         <%= favorite.post.user.name %>
                       </div>
                       <div class="review">
-                        レビューはありません
+                        <div class="star-rating-front" style="width: <%= @postUser.avg_score*20 %>% ">
+                          ★★★★★
+                        </div>
+                        <div class="star-rating-back" >
+                          ★★★★★
+                        </div>
+                        <div class="count">
+                          (<%= @postUser.reviews.count %>件のレビュー)
+                        </div>
                       </div>
                     </div>
                   </div>
