@@ -5,7 +5,9 @@
         <%= @reviewee.name %>さんのレビュー
       </div>
       <div class="make-review">
-        <%= link_to 'レビューを書く', new_user_review_path(@reviewee.id), class: "btn btn-warning text-white" %>
+        <% if current_user.id != @reviewee.id %>
+          <%= link_to 'レビューを書く', new_user_review_path(@reviewee.id), class: "btn btn-warning text-white" %>
+        <% end %>
       </div>
     </div>
     <div class="reviews">

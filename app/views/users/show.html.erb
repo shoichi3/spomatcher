@@ -22,7 +22,7 @@
                 ★★★★★
               </div>
               <%= link_to user_reviews_path(@postUser.id), class: "link" do %>
-                <div class="count">
+                <div class="count" id="count">
                   (<%= @postUser.reviews.count %>件のレビュー)
                 </div>
               <% end %>
