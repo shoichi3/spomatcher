@@ -2,6 +2,7 @@ class Post < ApplicationRecord
   belongs_to :user
   has_one_attached :image
   has_many :favorites, dependent: :destroy
+  has_many :notifications, dependent: :destroy
 
   acts_as_taggable
   acts_as_taggable_on :skills, :interests

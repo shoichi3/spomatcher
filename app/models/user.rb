@@ -10,11 +10,14 @@ class User < ApplicationRecord
   has_many :rooms, through: :room_users
   has_many :messages
   has_many :favorites
-  has_many :following_relationships, foreign_key: "follower_id", class_name: "Relationship"
-   has_many :followings, through: :following_relationships
-   has_many :follower_relationships, foreign_key: "following_id", class_name: "Relationship"
-   has_many :followers, through: :follower_relationships
-   has_many :reviews, foreign_key: "reviewee_id"
+  has_many :following_relationships, class_name: "Relationship", foreign_key: "follower_id"
+  has_many :followings, through: :following_relationships
+  has_many :follower_relationships, class_name: "Relationship", foreign_key: "following_id"
+  has_many :followers, through: :follower_relationships
+  has_many :reviews, foreign_key: "reviewee_id"
+
+  has_many :active_notifications, class_name: "Notification", foreign_key: "visitor_id"
+  has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id"
   
   validates :name, presence: true
   
