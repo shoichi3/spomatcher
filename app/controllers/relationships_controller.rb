@@ -20,6 +20,7 @@ class RelationshipsController < ApplicationController
   def create
     @following_user = User.find(params[:following_id])
     current_user.follow(@following_user)
+    @following_user.create_notification_follow!(current_user)
   end
 
   def destroy
