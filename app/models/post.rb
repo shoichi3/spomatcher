@@ -25,4 +25,20 @@ class Post < ApplicationRecord
   def liked_by?(user, post)
     Favorite.where(user_id: user.id, post_id: post.id).exists?
   end
+
+  def create_notification_favorite!(current_user)
+    temp = Notification.where(["visitor_id = ? and visited_id = ? and post_id = ? and action = ?", current_user.id, user_id, id, "like"])
+    if temp.blank?
+      notification = current_user.active_notifications.new(
+        visited_id: user_id,
+        post_id: id,
+        action: 'like'
+      )
+      if notification.visitor_id == notification.visited_id
+        notification.checked = true
+      end
+      notification.save if notification.valid?
+    end
+  end
+
 end
