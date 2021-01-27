@@ -21,7 +21,10 @@ Rails.application.routes.draw do
   resources :posts do
     resources :favorites, only: [:create, :destroy]
   end
+
   resources :rooms, only: [:create, :index] do
     resources :messages, only: [:index, :create]
   end
+
+  resources :notifications, only: :index
 end
