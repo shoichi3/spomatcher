@@ -10,7 +10,10 @@ class MessagesController < ApplicationController
 
   def create
     @message = Message.new(message_params)
+    @room = Room.find(params[:room_id])
+    @user = @room.users.where.not(id: current_user.id).first
     if @message.save
+      @message.create_notification_message!(current_user, @user, @room)
       respond_to do |format|
         format.json
       end

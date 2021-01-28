@@ -13,16 +13,7 @@ RSpec.describe 'レビュー機能(サインイン後)', type: :system do
       post(@post)
       log_out()
       sign_up(@user)
-      find('.post-link').click
-      find('.icon').click
-      find('#count').click
-      click_on 'レビューを書く'
-      page.all('.fa-star')[4].click
-      fill_in 'review_content', with: @review.content
-      expect{
-        click_button '投稿する'
-      }.to change { Review.count }.by(1)
-      expect(page).to have_css '.review'
+      review(@review)
     end
   end
 
@@ -100,16 +91,7 @@ RSpec.describe 'レビュー機能(ログイン後)', type: :system do
       sign_up(@user)
       log_out()
       log_in(@user)
-      find('.post-link').click
-      find('.icon').click
-      find('#count').click
-      click_on 'レビューを書く'
-      page.all('.fa-star')[4].click
-      fill_in 'review_content', with: @review.content
-      expect{
-        click_button '投稿する'
-      }.to change { Review.count }.by(1)
-      expect(page).to have_css '.review'
+      review(@review)
     end
   end
 

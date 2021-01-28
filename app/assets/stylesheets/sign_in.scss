@@ -24,6 +24,16 @@
           color: #333333;
           font-size: 30px;
         }
+        .fa-stack {
+          .fa-circle {
+            position: absolute;
+            font-size: 10px;
+            color: #ff4500;
+            right: 100px;
+            left: 10px;
+            top: 14px;
+          }
+        }
         .user-image {
           width: 40px;
           height: 40px;

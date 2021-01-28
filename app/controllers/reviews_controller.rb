@@ -15,6 +15,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.reviewer_id = current_user.id
     if @review.save
+      @review.create_notification_review!(current_user, @review.reviewee)
       redirect_to user_reviews_path(@review.reviewee_id)
     else
       render :new
