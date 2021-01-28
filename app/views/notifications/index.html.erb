@@ -69,6 +69,26 @@
                   </div>
                 </div>
               <% end %>
+            <% elsif notification.action == 'review' %>
+              <%= link_to user_reviews_path(current_user.id), class: "notification-link" do %>
+                <div class="detail">
+                  <div class="user-image">
+                    <% if notification.visitor.image.attached? %>
+                      <%= image_tag notification.visitor.image, class: "user-image" %>
+                    <% else %>
+                      <%= image_tag 'default.png', class: "user-image" %>
+                    <% end %>
+                  </div>
+                  <div class="info">
+                    <div class="text">
+                      <%= notification.visitor.name %>さんからレビューが投稿されました
+                    </div>
+                    <div class="time-difference">
+                      <%= time_ago_in_words(notification.created_at) %>前
+                    </div>
+                  </div>
+                </div>
+              <% end %>
             <% end %>
           <% end %>
         <% end %>
