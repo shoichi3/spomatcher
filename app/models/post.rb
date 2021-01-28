@@ -27,7 +27,7 @@ class Post < ApplicationRecord
   end
 
   def create_notification_favorite!(current_user)
-    temp = Notification.where(["visitor_id = ? and visited_id = ? and post_id = ? and action = ?", current_user.id, user_id, id, "like"])
+    temp = Notification.where(["visitor_id = ? and visited_id = ? and post_id = ? and action = ?", current_user.id, user_id, id, "favorite"])
     if temp.blank?
       notification = current_user.active_notifications.new(
         visited_id: user_id,
