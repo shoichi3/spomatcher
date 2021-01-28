@@ -32,7 +32,7 @@ class Post < ApplicationRecord
       notification = current_user.active_notifications.new(
         visited_id: user_id,
         post_id: id,
-        action: 'like'
+        action: 'favorite'
       )
       if notification.visitor_id == notification.visited_id
         notification.checked = true
