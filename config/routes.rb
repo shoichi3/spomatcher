@@ -20,6 +20,9 @@ Rails.application.routes.draw do
   root "homes#index"
   resources :posts do
     resources :favorites, only: [:create, :destroy]
+    collection do
+      get 'search'
+    end
   end
 
   resources :rooms, only: [:create, :index] do
