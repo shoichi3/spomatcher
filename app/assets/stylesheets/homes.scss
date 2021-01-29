@@ -10,26 +10,22 @@
 .container {
   padding-top: 52px;
   overflow: auto;
-  .top-image {
-    height: 450px;
-    .image {
-      height: 100%;
-      width: 100%;
-      background-image: image-url('top_image.png');
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      p {
-        color: #ffa70a;
-        font-size: 56px;
-        font-weight: bold;
-      }
+  .search-box {
+    margin-top: 80px;
+    text-align: center;
+    #keyword {
+      padding-left: 4px;
+    }
+    .search-btn {
+      background: none;
+      border: none;
+      padding: 0;
+      font-size: 20px;
+      padding-left: 4px;
     }
   }
   .form-title {
-    padding-top: 64px;
+    padding-top: 40px;
     h3 {
       text-align: center;
       span {
@@ -44,6 +40,16 @@
     .post-wrapper {
       height: 100%;
       margin: 0 100px;
+      .empty {
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .text {
+          font-size: 24px;
+          color: #a9a9a9;
+        }
+      }
       // レスポンシブデザイン
       @include pc {
         margin: 0;
