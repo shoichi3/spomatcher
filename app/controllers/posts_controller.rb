@@ -63,6 +63,13 @@ class PostsController < ApplicationController
     end
   end
 
+  def search
+    if user_signed_in?
+      @user = User.find_by(id: current_user.id)
+    end
+    @posts = Post.search(params[:keyword]).page(params[:page]).per(5).order(created_at: "DESC")
+  end
+
   private
 
   def post_params

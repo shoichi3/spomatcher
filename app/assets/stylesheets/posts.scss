@@ -31,6 +31,20 @@
         height: 100%;
       }
     }
+    .tags-field {
+      margin: 40px 100px 0;
+      display: flex;
+      .tags {
+        margin-right: 8px;
+        padding: 4px;
+        background-color: #f5f5f5;
+        border-radius: 3px;
+        .tag {
+          text-decoration: none;
+          color: #ffc107;
+        }
+      }
+    }
     .post-detail {
       margin: 40px 100px;
       padding: 32px;
