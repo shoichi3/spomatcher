@@ -5,7 +5,7 @@ module PostSupport
     fill_in 'post_title', with: post.title
     image_path = Rails.root.join('app/assets/images/0116.png')
     attach_file('post[image]', image_path, make_visible: true)
-    fill_in 'post_tag_list', with: post.tag_list
+    fill_in 'post_tag_list', with: post.tag_list.first
     fill_in 'post_sports', with: post.sports
     fill_in 'post_datetime', with: post.datetime
     fill_in 'post_regular_date', with: post.regular_date

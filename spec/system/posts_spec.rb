@@ -5,7 +5,7 @@ RSpec.describe "投稿機能(サインイン後)", type: :system do
     @post = build(:post)
   end
 
-  context 'サインイン後、ユーザーが新規投稿できるとき' do
+  context 'ユーザーが新規投稿できるとき' do
     it '正しい情報を入力すると、新規投稿することができる' do
       sign_up(@post.user)
       post(@post)
@@ -31,7 +31,7 @@ RSpec.describe "投稿機能(サインイン後)", type: :system do
       }.to change { Post.count }.by(1)
       expect(current_path).to eq root_path
       expect(page).to have_content @post.title
-      expect(page).to_not have_content @post.tag_list
+      expect(page).to_not have_content @post.tag_list.first
       expect(page).to_not have_content @post.regular_date
     end
 
@@ -55,7 +55,7 @@ RSpec.describe "投稿機能(サインイン後)", type: :system do
       }.to change { Post.count }.by(1)
       expect(current_path).to eq root_path
       expect(page).to have_content @post.title
-      expect(page).to_not have_content @post.tag_list
+      expect(page).to_not have_content @post.tag_list.first
     end
 
     it '定期開催日が空白のときでも、新規投稿することができる' do
@@ -65,7 +65,7 @@ RSpec.describe "投稿機能(サインイン後)", type: :system do
       fill_in 'post_title', with: @post.title
       image_path = Rails.root.join('app/assets/images/0116.png')
       attach_file('post[image]', image_path, make_visible: true)
-      fill_in 'post_tag_list', with: @post.tag_list
+      fill_in 'post_tag_list', with: @post.tag_list.first
       fill_in 'post_sports', with: @post.sports
       fill_in 'post_datetime', with: @post.datetime
       fill_in 'post_regular_date', with: ""
@@ -90,7 +90,7 @@ RSpec.describe "投稿機能(サインイン後)", type: :system do
       fill_in 'post_title', with: ""
       image_path = Rails.root.join('app/assets/images/0116.png')
       attach_file('post[image]', image_path, make_visible: true)
-      fill_in 'post_tag_list', with: @post.tag_list
+      fill_in 'post_tag_list', with: @post.tag_list.first
       fill_in 'post_sports', with: @post.sports
       fill_in 'post_datetime', with: @post.datetime
       fill_in 'post_regular_date', with: @post.regular_date
@@ -109,7 +109,7 @@ RSpec.describe "投稿機能(サインイン後)", type: :system do
       find(".fa-edit").click
       expect(current_path).to eq new_post_path
       fill_in 'post_title', with: @post.title
-      fill_in 'post_tag_list', with: @post.tag_list
+      fill_in 'post_tag_list', with: @post.tag_list.first
       fill_in 'post_sports', with: @post.sports
       fill_in 'post_datetime', with: @post.datetime
       fill_in 'post_regular_date', with: @post.regular_date
@@ -130,7 +130,7 @@ RSpec.describe "投稿機能(サインイン後)", type: :system do
       fill_in 'post_title', with: @post.title
       image_path = Rails.root.join('app/assets/images/0116.png')
       attach_file('post[image]', image_path, make_visible: true)
-      fill_in 'post_tag_list', with: @post.tag_list
+      fill_in 'post_tag_list', with: @post.tag_list.first
       fill_in 'post_sports', with: ""
       fill_in 'post_datetime', with: @post.datetime
       fill_in 'post_regular_date', with: @post.regular_date
@@ -151,7 +151,7 @@ RSpec.describe "投稿機能(サインイン後)", type: :system do
       fill_in 'post_title', with: @post.title
       image_path = Rails.root.join('app/assets/images/0116.png')
       attach_file('post[image]', image_path, make_visible: true)
-      fill_in 'post_tag_list', with: @post.tag_list
+      fill_in 'post_tag_list', with: @post.tag_list.first
       fill_in 'post_sports', with: @post.sports
       fill_in 'post_datetime', with: ""
       fill_in 'post_regular_date', with: @post.regular_date
@@ -172,7 +172,7 @@ RSpec.describe "投稿機能(サインイン後)", type: :system do
       fill_in 'post_title', with: @post.title
       image_path = Rails.root.join('app/assets/images/0116.png')
       attach_file('post[image]', image_path, make_visible: true)
-      fill_in 'post_tag_list', with: @post.tag_list
+      fill_in 'post_tag_list', with: @post.tag_list.first
       fill_in 'post_sports', with: @post.sports
       fill_in 'post_datetime', with: @post.datetime
       fill_in 'post_regular_date', with: @post.regular_date
@@ -193,7 +193,7 @@ RSpec.describe "投稿機能(サインイン後)", type: :system do
       fill_in 'post_title', with: @post.title
       image_path = Rails.root.join('app/assets/images/0116.png')
       attach_file('post[image]', image_path, make_visible: true)
-      fill_in 'post_tag_list', with: @post.tag_list
+      fill_in 'post_tag_list', with: @post.tag_list.first
       fill_in 'post_sports', with: @post.sports
       fill_in 'post_datetime', with: @post.datetime
       fill_in 'post_regular_date', with: @post.regular_date
@@ -214,7 +214,7 @@ RSpec.describe "投稿機能(サインイン後)", type: :system do
       fill_in 'post_title', with: @post.title
       image_path = Rails.root.join('app/assets/images/0116.png')
       attach_file('post[image]', image_path, make_visible: true)
-      fill_in 'post_tag_list', with: @post.tag_list
+      fill_in 'post_tag_list', with: @post.tag_list.first
       fill_in 'post_sports', with: @post.sports
       fill_in 'post_datetime', with: @post.datetime
       fill_in 'post_regular_date', with: @post.regular_date
@@ -235,7 +235,7 @@ RSpec.describe "投稿機能(サインイン後)", type: :system do
       fill_in 'post_title', with: @post.title
       image_path = Rails.root.join('app/assets/images/0116.png')
       attach_file('post[image]', image_path, make_visible: true)
-      fill_in 'post_tag_list', with: @post.tag_list
+      fill_in 'post_tag_list', with: @post.tag_list.first
       fill_in 'post_sports', with: @post.sports
       fill_in 'post_datetime', with: @post.datetime
       fill_in 'post_regular_date', with: @post.regular_date
@@ -257,7 +257,7 @@ RSpec.describe "投稿機能(ログイン後)", type: :system do
     @post = build(:post)
   end
 
-  context 'ログイン後、ユーザーが新規投稿できるとき' do
+  context 'ユーザーが新規投稿できるとき' do
     it '正しい情報を入力すると、新規投稿することができる' do
       log_in(@user)
       post(@post)
@@ -283,7 +283,7 @@ RSpec.describe "投稿機能(ログイン後)", type: :system do
       }.to change { Post.count }.by(1)
       expect(current_path).to eq root_path
       expect(page).to have_content @post.title
-      expect(page).to_not have_content @post.tag_list
+      expect(page).to_not have_content @post.tag_list.first
       expect(page).to_not have_content @post.regular_date
     end
 
@@ -307,7 +307,7 @@ RSpec.describe "投稿機能(ログイン後)", type: :system do
       }.to change { Post.count }.by(1)
       expect(current_path).to eq root_path
       expect(page).to have_content @post.title
-      expect(page).to_not have_content @post.tag_list
+      expect(page).to_not have_content @post.tag_list.first
     end
 
     it '定期開催日が空白のときでも、新規投稿することができる' do
@@ -317,7 +317,7 @@ RSpec.describe "投稿機能(ログイン後)", type: :system do
       fill_in 'post_title', with: @post.title
       image_path = Rails.root.join('app/assets/images/0116.png')
       attach_file('post[image]', image_path, make_visible: true)
-      fill_in 'post_tag_list', with: @post.tag_list
+      fill_in 'post_tag_list', with: @post.tag_list.first
       fill_in 'post_sports', with: @post.sports
       fill_in 'post_datetime', with: @post.datetime
       fill_in 'post_regular_date', with: ""
@@ -342,7 +342,7 @@ RSpec.describe "投稿機能(ログイン後)", type: :system do
       fill_in 'post_title', with: ""
       image_path = Rails.root.join('app/assets/images/0116.png')
       attach_file('post[image]', image_path, make_visible: true)
-      fill_in 'post_tag_list', with: @post.tag_list
+      fill_in 'post_tag_list', with: @post.tag_list.first
       fill_in 'post_sports', with: @post.sports
       fill_in 'post_datetime', with: @post.datetime
       fill_in 'post_regular_date', with: @post.regular_date
@@ -361,7 +361,7 @@ RSpec.describe "投稿機能(ログイン後)", type: :system do
       find(".fa-edit").click
       expect(current_path).to eq new_post_path
       fill_in 'post_title', with: @post.title
-      fill_in 'post_tag_list', with: @post.tag_list
+      fill_in 'post_tag_list', with: @post.tag_list.first
       fill_in 'post_sports', with: @post.sports
       fill_in 'post_datetime', with: @post.datetime
       fill_in 'post_regular_date', with: @post.regular_date
@@ -382,7 +382,7 @@ RSpec.describe "投稿機能(ログイン後)", type: :system do
       fill_in 'post_title', with: @post.title
       image_path = Rails.root.join('app/assets/images/0116.png')
       attach_file('post[image]', image_path, make_visible: true)
-      fill_in 'post_tag_list', with: @post.tag_list
+      fill_in 'post_tag_list', with: @post.tag_list.first
       fill_in 'post_sports', with: ""
       fill_in 'post_datetime', with: @post.datetime
       fill_in 'post_regular_date', with: @post.regular_date
@@ -403,7 +403,7 @@ RSpec.describe "投稿機能(ログイン後)", type: :system do
       fill_in 'post_title', with: @post.title
       image_path = Rails.root.join('app/assets/images/0116.png')
       attach_file('post[image]', image_path, make_visible: true)
-      fill_in 'post_tag_list', with: @post.tag_list
+      fill_in 'post_tag_list', with: @post.tag_list.first
       fill_in 'post_sports', with: @post.sports
       fill_in 'post_datetime', with: ""
       fill_in 'post_regular_date', with: @post.regular_date
@@ -424,7 +424,7 @@ RSpec.describe "投稿機能(ログイン後)", type: :system do
       fill_in 'post_title', with: @post.title
       image_path = Rails.root.join('app/assets/images/0116.png')
       attach_file('post[image]', image_path, make_visible: true)
-      fill_in 'post_tag_list', with: @post.tag_list
+      fill_in 'post_tag_list', with: @post.tag_list.first
       fill_in 'post_sports', with: @post.sports
       fill_in 'post_datetime', with: @post.datetime
       fill_in 'post_regular_date', with: @post.regular_date
@@ -445,7 +445,7 @@ RSpec.describe "投稿機能(ログイン後)", type: :system do
       fill_in 'post_title', with: @post.title
       image_path = Rails.root.join('app/assets/images/0116.png')
       attach_file('post[image]', image_path, make_visible: true)
-      fill_in 'post_tag_list', with: @post.tag_list
+      fill_in 'post_tag_list', with: @post.tag_list.first
       fill_in 'post_sports', with: @post.sports
       fill_in 'post_datetime', with: @post.datetime
       fill_in 'post_regular_date', with: @post.regular_date
@@ -466,7 +466,7 @@ RSpec.describe "投稿機能(ログイン後)", type: :system do
       fill_in 'post_title', with: @post.title
       image_path = Rails.root.join('app/assets/images/0116.png')
       attach_file('post[image]', image_path, make_visible: true)
-      fill_in 'post_tag_list', with: @post.tag_list
+      fill_in 'post_tag_list', with: @post.tag_list.first
       fill_in 'post_sports', with: @post.sports
       fill_in 'post_datetime', with: @post.datetime
       fill_in 'post_regular_date', with: @post.regular_date
@@ -487,7 +487,7 @@ RSpec.describe "投稿機能(ログイン後)", type: :system do
       fill_in 'post_title', with: @post.title
       image_path = Rails.root.join('app/assets/images/0116.png')
       attach_file('post[image]', image_path, make_visible: true)
-      fill_in 'post_tag_list', with: @post.tag_list
+      fill_in 'post_tag_list', with: @post.tag_list.first
       fill_in 'post_sports', with: @post.sports
       fill_in 'post_datetime', with: @post.datetime
       fill_in 'post_regular_date', with: @post.regular_date
@@ -787,7 +787,7 @@ RSpec.describe '投稿編集機能(ログイン後)', type: :system do
     end
   end
 
-  context 'ログイン後、他ユーザーの投稿を編集することができない' do
+  context '他ユーザーの投稿を編集することができない' do
     it '正しい情報を入力すると、投稿を編集することができる' do
       sign_up(@post1.user)
       post(@post1)
@@ -932,6 +932,118 @@ RSpec.describe 'マイページで投稿の確認(ログイン後)', type: :syst
       expect(page).to have_content @post.title
       find('.icon').click
       expect(page).to have_content @post.title
+    end
+  end
+end
+
+RSpec.describe '検索機能(サインイン後)', type: :system do
+  before do
+    @post1 = build(:post)
+    @post2 = build(:post)
+  end
+
+  context '検索結果が表示されるとき' do
+    it '検索ボックスに入力したキーワードと類似する投稿を表示することができること' do
+      sign_up(@post2.user)
+      post(@post2)
+      log_out()
+      sign_up(@post1.user)
+      fill_in 'keyword', with: @post2.title
+      find('.fa-search').click
+      expect(page).to have_content @post2.title
+    end
+
+    it '検索ボックスを空白にして検索すると全ての投稿が表示されること' do
+      sign_up(@post2.user)
+      post(@post2)
+      log_out()
+      sign_up(@post1.user)
+      find('.fa-search').click
+      expect(page).to have_css '.post-link'
+    end
+
+    it '投稿詳細ページのタグをクリックするとタグに結びついた投稿が表示されること' do
+      sign_up(@post2.user)
+      post(@post2)
+      log_out()
+      sign_up(@post1.user)
+      first('.post-link').click
+      first('.tag').click
+      expect(page).to have_content @post2.title
+    end
+  end
+
+  context '検索結果が表示されないとき' do
+    it '検索ボックスに入力したキーワードと類似する投稿が存在しないとき、「投稿がありません」と表示されること' do
+      sign_up(@post2.user)
+      post(@post2)
+      log_out()
+      sign_up(@post1.user)
+      fill_in 'keyword', with: "aaa"
+      find('.fa-search').click
+      expect(page).to have_content "投稿がありません"
+    end
+  end
+end
+
+RSpec.describe '検索機能(ログイン後)', type: :system do
+  before do
+    @post1 = build(:post)
+    @post2 = build(:post)
+  end
+
+  context '検索結果が表示されるとき' do
+    it '検索ボックスに入力したキーワードと類似する投稿を表示することができること' do
+      sign_up(@post1.user)
+      post(@post1)
+      log_out()
+      sign_up(@post2.user)
+      post(@post2)
+      log_out()
+      log_in(@post1.user)
+      fill_in 'keyword', with: @post2.title
+      find('.fa-search').click
+      expect(page).to have_content @post2.title
+    end
+
+    it '検索ボックスを空白にして検索すると全ての投稿が表示されること' do
+      sign_up(@post1.user)
+      post(@post1)
+      log_out()
+      sign_up(@post2.user)
+      post(@post2)
+      log_out()
+      log_in(@post1.user)
+      find('.fa-search').click
+      expect(all('.post-link').size).to eq(2)
+    end
+
+    it '投稿詳細ページのタグをクリックするとタグに結びついた投稿が表示されること' do
+      sign_up(@post1.user)
+      post(@post1)
+      log_out()
+      sign_up(@post2.user)
+      post(@post2)
+      log_out()
+      log_in(@post1.user)
+      first('.post-link').click
+      first('.tag').click
+      expect(page).to have_content @post2.title
+    end
+  end
+
+  context '検索結果が表示されないとき' do
+    it '検索ボックスに入力したキーワードと類似する投稿が存在しないとき、「投稿がありません」と表示されること' do
+      sign_up(@post1.user)
+      post(@post1)
+      log_out()
+      sign_up(@post2.user)
+      post(@post2)
+      log_out()
+      log_in(@post1.user)
+      fill_in 'keyword', with: "aaa"
+      find('.fa-search').click
+      expect(page).to have_content "投稿がありません"
     end
   end
 end
