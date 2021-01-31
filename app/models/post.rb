@@ -5,7 +5,6 @@ class Post < ApplicationRecord
   has_many :notifications, dependent: :destroy
 
   acts_as_taggable
-  acts_as_taggable_on :skills, :interests
 
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
