@@ -12,21 +12,25 @@
 
       <div class="form-content">
         <label>ニックネーム（10文字以内）</label>
+        <span class="required">必須</span>
         <%= f.text_field :name, autofocus: true, class: "form-content__field", maxlength: '10' %>
       </div>
 
       <div class="form-content">
-        <label>自己紹介（必須ではありません）</label>
+        <label>自己紹介</label>
+        <span class="optional">任意</span>
         <%= f.text_area :profile, class: "form-content__profile", rows: 5 %>
       </div>
 
       <div class="form-content">
-        <label>プロフィール画像（必須ではありません）</label>
+        <label>プロフィール画像</label>
+        <span class="optional">任意</span>
         <%= f.file_field :image, class: "form-content__image"%>
       </div>
       
       <div class="form-content">
-        <label>メールアドレス</label><br />
+        <label>メールアドレス</label>
+        <span class="required">必須</span>
         <%= f.email_field :email, autocomplete: "email", class: "form-content__field"%>
       </div>
 
