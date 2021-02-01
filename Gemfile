@@ -68,3 +68,4 @@ gem 'bootstrap', '~> 4.5.0'
 gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem "jquery-ui-rails"
+gem 'image_processing', '~> 1.2'
