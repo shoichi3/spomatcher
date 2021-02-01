@@ -10,7 +10,7 @@
     </div>
     <div class="top-image">
       <% if @post.image.attached? %>
-        <%= image_tag @post.image, class: "active-photo"%>
+        <%= image_tag @post.image.variant(resize: "700x700"), class: "active-photo"%>
       <% end %>
     </div>
     <% if @post.tags.exists? %>

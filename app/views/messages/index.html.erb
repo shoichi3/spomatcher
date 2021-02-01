@@ -39,7 +39,7 @@
           </div>
           <div class="attached-image">
             <% if message.image.attached? %>
-              <%= image_tag message.image, class: "image" %>
+              <%= image_tag message.image.variant(resize: "500x500"), class: "image" %>
             <% end %>
           </div>
         </div>

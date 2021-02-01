@@ -74,6 +74,16 @@
           }
         }
       }
+      .empty {
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .text {
+          font-size: 24px;
+          color: #a9a9a9;
+        }
+      }
     }
   }
   .review-form-wrapper {

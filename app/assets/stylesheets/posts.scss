@@ -27,9 +27,8 @@
       }
     }
     .top-image {
-      .active-photo {
-        height: 100%;
-      }
+      display: flex;
+      justify-content: center;
     }
     .tags-field {
       margin: 40px 100px 0;
@@ -46,7 +45,7 @@
       }
     }
     .post-detail {
-      margin: 40px 100px;
+      margin: 40px 120px;
       padding: 32px;
       border: solid 1px gray;
       box-shadow: 0 0 3px gray;
