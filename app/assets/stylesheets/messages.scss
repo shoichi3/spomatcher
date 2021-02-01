@@ -122,8 +122,6 @@
           }
           .attached-image {
             .image {
-              height: 400px;
-              width: 400px;
               // レスポンシブデザイン
               @include tab {
                 height: 150px;
