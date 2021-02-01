@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
-  before_action :set_user
+  before_action :authenticate_user!, except: :index
+  before_action :set_user, except: :index
   before_action :set_reviewee
 
   def index
