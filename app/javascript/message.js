@@ -1,5 +1,5 @@
 function buildHTML(message) {
-  const user_image = (message.user_image) ? `<img class="user-image" src=${message.user_image}>`:`<img class="user-image" src="app/assets/images/default.png"`;
+  const user_image = (message.user_image) ? `<img class="user-image" src=${message.user_image}>`:`<img class="user-image" src="/assets/default-8ed94e5598f8c339726385894d2e2833882330b135d60dc96ddcc7a829b8e599.png">`;
   const message_image = (message.image) ? `<img class="image" src=${message.image}>`:"";
   const HTML = `
             <div class="messages">
