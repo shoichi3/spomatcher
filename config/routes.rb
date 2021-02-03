@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {
-    registrations: 'users/registrations'
+    registrations: 'users/registrations',
+    passwords: 'users/passwords'
   }
   
   devise_scope :user do
@@ -18,7 +19,7 @@ Rails.application.routes.draw do
   resources :relationships, only: [:create, :destroy]
 
   root "homes#index"
-  resources :posts do
+  resources :posts, except: :index do
     resources :favorites, only: [:create, :destroy]
     collection do
       get 'search'

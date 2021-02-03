@@ -1,11 +1,8 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, except: [:show, :search]
 
   def new
-    if user_signed_in?
-      @user = User.find_by(id: current_user.id)
-    else
-      redirect_to new_user_registration_path
-    end
+    @user = User.find_by(id: current_user.id)
     @post = Post.new
   end
 
@@ -20,22 +17,26 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
-    @postUser = @post.user
-    @user = User.find_by(id: current_user.id)
-    @currentUserRoom = RoomUser.where(user_id: @user.id)
-    @postUserRoom = RoomUser.where(user_id: @postUser.id)
-    @currentUserRoom.each do |cu|
-      @postUserRoom.each do |po|
-        if cu.room_id == po.room_id
-          @haveRoom = true
-          @roomId = cu.room_id
+    if user_signed_in?
+      @user = User.find_by(id: current_user.id)
+      @currentUserRoom = RoomUser.where(user_id: @user.id)
+      @post = Post.find(params[:id])
+      @postUser = @post.user
+      @postUserRoom = RoomUser.where(user_id: @postUser.id)
+      @currentUserRoom.each do |cu|
+        @postUserRoom.each do |po|
+          if cu.room_id == po.room_id
+            @haveRoom = true
+            @roomId = cu.room_id
+          end
         end
       end
+      unless @haveRoom
+        @room = Room.new
+      end
     end
-    unless @haveRoom
-      @room = Room.new
-    end
+    @post = Post.find(params[:id])
+    @postUser = @post.user
   end
 
   def edit
