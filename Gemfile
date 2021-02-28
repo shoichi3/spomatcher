@@ -74,3 +74,7 @@ gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem "jquery-ui-rails"
 gem 'image_processing', '~> 1.2'
+
+group :production, :staging do
+    gem 'unicorn'
+end
