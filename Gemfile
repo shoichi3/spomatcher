@@ -74,6 +74,8 @@ gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem "jquery-ui-rails"
 gem 'image_processing', '~> 1.2'
+gem 'ed25519'
+gem 'bcrypt_pbkdf'
 
 group :production, :staging do
     gem 'unicorn'
