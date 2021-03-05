@@ -31,9 +31,7 @@ class PostsController < ApplicationController
           end
         end
       end
-      unless @haveRoom
-        @room = Room.new
-      end
+      @room = Room.new unless @haveRoom
     end
     @post = Post.find(params[:id])
     @postUser = @post.user
@@ -65,16 +63,14 @@ class PostsController < ApplicationController
   end
 
   def search
-    if user_signed_in?
-      @user = User.find_by(id: current_user.id)
-    end
-    @posts = Post.search(params[:keyword]).page(params[:page]).per(5).order(created_at: "DESC")
+    @user = User.find_by(id: current_user.id) if user_signed_in?
+    @posts = Post.search(params[:keyword]).page(params[:page]).per(5).order(created_at: 'DESC')
   end
 
   private
 
   def post_params
-    params.require(:post).permit(:title, :image, :tag_list, :sports, :datetime, :regular_date, :address, :cost, :content, :flow).merge(user_id: current_user.id)
+    params.require(:post).permit(:title, :image, :tag_list, :sports, :datetime, :regular_date, :address, :cost, :content,
+                                 :flow).merge(user_id: current_user.id)
   end
-
 end

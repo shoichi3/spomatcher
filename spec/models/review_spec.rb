@@ -4,7 +4,7 @@ RSpec.describe Review, type: :model do
   before do
     @review = build(:review)
   end
-   
+
   describe 'レビュー機能' do
     it '正しい値が入力されると保存することができること' do
       expect(@review).to be_valid

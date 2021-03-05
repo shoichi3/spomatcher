@@ -4,9 +4,7 @@ class ReviewsController < ApplicationController
   before_action :set_reviewee
 
   def index
-    if user_signed_in?
-      @user = User.find_by(id: current_user.id)
-    end
+    @user = User.find_by(id: current_user.id) if user_signed_in?
     @reviewee = User.find(params[:user_id])
     @reviews = Review.where(reviewee_id: @reviewee.id).includes(:reviewer).order('reviews.created_at DESC')
   end
@@ -27,7 +25,7 @@ class ReviewsController < ApplicationController
   end
 
   private
-  
+
   def set_user
     @user = User.find_by(id: current_user.id)
   end

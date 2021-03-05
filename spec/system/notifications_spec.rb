@@ -12,11 +12,11 @@ RSpec.describe '通知機能', type: :system do
     it 'フォローされたとき通知が届くこと' do
       sign_up(@post.user)
       post(@post)
-      log_out()
+      log_out
       sign_up(@user)
       find('.post-link').click
-      follow()
-      log_out()
+      follow
+      log_out
       log_in(@post.user)
       expect(page).to have_css '.n-circle'
       find('.n-circle').click
@@ -26,10 +26,10 @@ RSpec.describe '通知機能', type: :system do
     it 'お気に入り登録されたとき通知が届くこと' do
       sign_up(@post.user)
       post(@post)
-      log_out()
+      log_out
       sign_up(@user)
-      favorite()
-      log_out()
+      favorite
+      log_out
       log_in(@post.user)
       expect(page).to have_css '.n-circle'
       find('.n-circle').click
@@ -39,10 +39,10 @@ RSpec.describe '通知機能', type: :system do
     it 'レビューされたとき通知が届くこと' do
       sign_up(@post.user)
       post(@post)
-      log_out()
+      log_out
       sign_up(@user)
       review(@review)
-      log_out()
+      log_out
       log_in(@post.user)
       expect(page).to have_css '.n-circle'
       find('.n-circle').click
@@ -52,11 +52,11 @@ RSpec.describe '通知機能', type: :system do
     it 'メッセージが送信されたとき通知が届くこと' do
       sign_up(@post.user)
       post(@post)
-      log_out()
+      log_out
       sign_up(@message.user)
       make_room(@post.user)
       message(@message)
-      log_out()
+      log_out
       log_in(@post.user)
       expect(page).to have_css '.n-circle'
       find('.n-circle').click

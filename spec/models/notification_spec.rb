@@ -9,19 +9,19 @@ RSpec.describe Notification, type: :model do
     it 'メッセージが送信されたとき保存できること' do
       expect(@notification).to be_valid
     end
-    
+
     it 'フォローされたとき保存できること' do
-      @notification.action = "follow"
+      @notification.action = 'follow'
       expect(@notification).to be_valid
     end
 
     it '投稿がお気に入り登録されたとき保存できること' do
-      @notification.action = "favorite"
+      @notification.action = 'favorite'
       expect(@notification).to be_valid
     end
 
     it 'レビューが投稿されたとき保存できること' do
-      @notification.action = "review"
+      @notification.action = 'review'
       expect(@notification).to be_valid
     end
 
@@ -29,9 +29,9 @@ RSpec.describe Notification, type: :model do
       @notification.action = nil
       @notification.valid?
     end
- 
+
     it 'actionが適切な値ではないとき保存できないこと' do
-      @notification.action = "like"
+      @notification.action = 'like'
       @notification.valid?
     end
 

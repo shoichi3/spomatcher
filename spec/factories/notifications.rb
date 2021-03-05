@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :notification do
     checked       { true }
-    action        { "message" } 
+    action        { 'message' }
     association :visitor, factory: :user
     association :visited, factory: :user
     association :post

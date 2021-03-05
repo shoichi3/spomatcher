@@ -1,5 +1,5 @@
 module MypageSupport
-  def mypage()
+  def mypage
     find('#icon').click
     click_link 'マイページ'
   end

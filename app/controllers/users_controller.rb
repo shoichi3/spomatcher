@@ -13,12 +13,10 @@ class UsersController < ApplicationController
           end
         end
       end
-      unless @haveRoom
-        @room = Room.new
-      end
+      @room = Room.new unless @haveRoom
     end
     @postUser = User.find(params[:id])
-    @posts = @postUser.posts.order(created_at: "DESC")
-    @favorites = @postUser.favorites.includes(:user).order(created_at: "DESC")
+    @posts = @postUser.posts.order(created_at: 'DESC')
+    @favorites = @postUser.favorites.includes(:user).order(created_at: 'DESC')
   end
 end

@@ -6,9 +6,9 @@ module ReviewSupport
     click_on 'レビューを書く'
     page.all('.fa-star')[4].click
     fill_in 'review_content', with: review.content
-    expect{
+    expect  do
       click_button '投稿する'
-    }.to change { Review.count }.by(1)
+    end.to change { Review.count }.by(1)
     expect(page).to have_css '.review'
   end
 end
