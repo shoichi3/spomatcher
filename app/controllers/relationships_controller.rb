@@ -3,17 +3,13 @@ class RelationshipsController < ApplicationController
   before_action :set_user, only: [:followings, :followers, :destroy]
 
   def followings
-    if user_signed_in?
-      @user = User.find_by(id: current_user.id)
-    end
+    @user = User.find_by(id: current_user.id) if user_signed_in?
     @followings = @postUser.followings
     @followers = @postUser.followers
   end
 
   def followers
-    if user_signed_in?
-      @user = User.find_by(id: current_user.id)
-    end
+    @user = User.find_by(id: current_user.id) if user_signed_in?
     @followings = @postUser.followings
     @followers = @postUser.followers
   end

@@ -5,9 +5,9 @@ module LogInSupport
     click_on 'ログイン'
     fill_in 'user_email', with: user.email
     fill_in 'user_password', with: user.password
-    expect{
+    expect  do
       click_button 'ログイン'
-    }.to change { User.count}.by(0)
+    end.to change { User.count }.by(0)
     expect(page).to have_css '.fa-edit'
   end
 end

@@ -5,6 +5,6 @@ class Notification < ApplicationRecord
   belongs_to :room, optional: true
   belongs_to :review, optional: true
 
-  ACTION_VALUES = %w(message favorite follow review).freeze
+  ACTION_VALUES = %w[message favorite follow review].freeze
   validates :action, presence: true, inclusion: { in: ACTION_VALUES }
 end

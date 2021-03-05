@@ -7,11 +7,9 @@ class Message < ApplicationRecord
     notification = current_user.active_notifications.new(
       visited_id: user.id,
       room_id: room.id,
-      action: "message"
+      action: 'message'
     )
-    if notification.visitor_id == notification.visited_id
-      notification.checked = true
-    end
+    notification.checked = true if notification.visitor_id == notification.visited_id
     notification.save if notification.valid?
   end
 end

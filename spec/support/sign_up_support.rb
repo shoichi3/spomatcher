@@ -10,9 +10,9 @@ module SignUpSupport
     fill_in 'user_email', with: user.email
     fill_in 'user_password', with: user.password
     fill_in 'user_password_confirmation', with: user.password_confirmation
-    expect{
+    expect  do
       click_button '新規登録'
-    }.to change { User.count}.by(1)
+    end.to change { User.count }.by(1)
     expect(page).to have_css '.fa-edit'
   end
 end
