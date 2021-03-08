@@ -31,7 +31,7 @@
         </div>
         <div class="bottom">
           <div class="user">
-            <%= link_to user_path(@postUser) do %>
+            <%= link_to user_path(@post_user) do %>
               <% if @post.user.image.attached? %>
                 <%= image_tag @post.user.image, class: "icon" %>
               <% else %>
@@ -44,15 +44,15 @@
               <%= @post.user.name %>
             </div>
             <div class="review">
-              <div class="star-rating-front" style="width: <%= @postUser.avg_score*20 %>% ">
+              <div class="star-rating-front" style="width: <%= @post_user.avg_score*20 %>% ">
                 ★★★★★
               </div>
               <div class="star-rating-back" >
                 ★★★★★
               </div>
-              <%= link_to user_reviews_path(@postUser.id), class: "link" do %>
+              <%= link_to user_reviews_path(@post_user.id), class: "link" do %>
                 <div class="count">
-                  (<%= @postUser.reviews.count %>件のレビュー)
+                  (<%= @post_user.reviews.count %>件のレビュー)
                 </div>
               <% end %>
             </div>
@@ -166,8 +166,8 @@
         <%= link_to '投稿を削除', post_path(@post.id), class:"btn btn-warning text-white", method: :delete %>
       </div>
       <% else %>
-        <% if @haveRoom == true %>
-          <%= link_to "メッセージを送信", room_messages_path(@roomId),class: "btn btn-warning text-white" %>
+        <% if @have_room == true %>
+          <%= link_to "メッセージを送信", room_messages_path(@room_id),class: "btn btn-warning text-white" %>
         <% else %>
           <%= form_with model: @room, local: true do |f| %>
             <input name="room[user_ids][]" type="hidden" value=<%= current_user.id%>>

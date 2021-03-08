@@ -4,14 +4,14 @@ class RelationshipsController < ApplicationController
 
   def followings
     @user = User.find_by(id: current_user.id) if user_signed_in?
-    @followings = @postUser.followings
-    @followers = @postUser.followers
+    @followings = @post_user.followings
+    @followers = @post_user.followers
   end
 
   def followers
     @user = User.find_by(id: current_user.id) if user_signed_in?
-    @followings = @postUser.followings
-    @followers = @postUser.followers
+    @followings = @post_user.followings
+    @followers = @post_user.followers
   end
 
   def create
@@ -21,12 +21,12 @@ class RelationshipsController < ApplicationController
   end
 
   def destroy
-    current_user.unfollow(@postUser)
+    current_user.unfollow(@post_user)
   end
 
   private
 
   def set_user
-    @postUser = User.find(params[:id])
+    @post_user = User.find(params[:id])
   end
 end

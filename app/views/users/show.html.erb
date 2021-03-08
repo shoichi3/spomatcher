@@ -3,8 +3,8 @@
     <div class="user-info">
       <div class="upper">
         <div class="left">
-          <% if @postUser.image.attached? %>
-            <%= image_tag @postUser.image, class: "user-image" %>
+          <% if @post_user.image.attached? %>
+            <%= image_tag @post_user.image, class: "user-image" %>
           <% else %>
             <%= image_tag 'default.png', class: "user-image" %>
           <% end %>
@@ -12,33 +12,33 @@
         <div class="right">
           <div class="user-content">
             <div class="name">
-              <%= @postUser.name %>
+              <%= @post_user.name %>
             </div>
             <div class="review">
-              <div class="star-rating-front" style="width: <%= @postUser.avg_score*20 %>% ">
+              <div class="star-rating-front" style="width: <%= @post_user.avg_score*20 %>% ">
                 ★★★★★
               </div>
               <div class="star-rating-back" >
                 ★★★★★
               </div>
-              <%= link_to user_reviews_path(@postUser.id), class: "link" do %>
+              <%= link_to user_reviews_path(@post_user.id), class: "link" do %>
                 <div class="count" id="count">
-                  (<%= @postUser.reviews.count %>件のレビュー)
+                  (<%= @post_user.reviews.count %>件のレビュー)
                 </div>
               <% end %>
             </div>
             <div class="follow">
-              <%= link_to followings_user_path(@postUser), class: "followings" do %>
+              <%= link_to followings_user_path(@post_user), class: "followings" do %>
                 <div class="count">
-                  <%= @postUser.followings.count %>
+                  <%= @post_user.followings.count %>
                 </div>
                 <div class="word">
                   フォロー
                 </div>
               <% end %>
-              <%= link_to followers_user_path(@postUser), class: "followers" do %>
+              <%= link_to followers_user_path(@post_user), class: "followers" do %>
                 <div class="count">
-                  <%= @postUser.followers.count %>
+                  <%= @post_user.followers.count %>
                 </div>
                 <div class="word">
                   フォロワー
@@ -48,7 +48,7 @@
           </div>
           <div class="button">
             <% if user_signed_in? %>
-              <% if current_user.id == @postUser.id %>
+              <% if current_user.id == @post_user.id %>
                 <%= link_to edit_user_registration_path, class: "btn btn-outline-warning" do %>
                   <i class="fas fa-user-edit"></i>
                   アカウント編集
@@ -56,18 +56,18 @@
               <% else %>
                 <div class="buttons">
                   <div id="follow_form">
-                    <% if current_user.following?(@postUser) %>
-                      <%= render 'unfollow', {following_user: @postUser}%>
+                    <% if current_user.following?(@post_user) %>
+                      <%= render 'unfollow', {following_user: @post_user}%>
                     <% else %>
-                      <%= render 'follow', {following: @postUser}%>
+                      <%= render 'follow', {following: @post_user}%>
                     <% end %>
                   </div>
-                  <% if @haveRoom == true %>
-                    <%= link_to "メッセージを送信", room_messages_path(@roomId),class: "btn btn-outline-warning" %>
+                  <% if @have_room == true %>
+                    <%= link_to "メッセージを送信", room_messages_path(@room_id),class: "btn btn-outline-warning" %>
                   <% else %>
                     <%= form_with model: @room, local: true do |f| %>
                       <input name="room[user_ids][]" type="hidden" value=<%= current_user.id%>>
-                      <input name="room[user_ids][]" type="hidden" value=<%= @postUser.id%>>
+                      <input name="room[user_ids][]" type="hidden" value=<%= @post_user.id%>>
                       <%= f.submit "メッセージを送信", class: "btn btn-outline-warning" %>
                     <% end %>
                   <% end %>
@@ -77,10 +77,10 @@
           </div>
         </div>
       </div>
-      <% unless @postUser.profile == "" %>
+      <% unless @post_user.profile == "" %>
         <div class="bottom">
           <div class="profile">
-            <%= @postUser.profile %>
+            <%= @post_user.profile %>
           </div>
         </div>
       <% end %>
@@ -111,14 +111,14 @@
                         <%= post.user.name %>
                       </div>
                       <div class="review">
-                        <div class="star-rating-front" style="width: <%= @postUser.avg_score*20 %>% ">
+                        <div class="star-rating-front" style="width: <%= @post_user.avg_score*20 %>% ">
                         ★★★★★
                       </div>
                       <div class="star-rating-back" >
                         ★★★★★
                       </div>
                       <div class="count">
-                        (<%= @postUser.reviews.count %>件のレビュー)
+                        (<%= @post_user.reviews.count %>件のレビュー)
                       </div>
                       </div>
                     </div>
@@ -188,14 +188,14 @@
                         <%= favorite.post.user.name %>
                       </div>
                       <div class="review">
-                        <div class="star-rating-front" style="width: <%= @postUser.avg_score*20 %>% ">
+                        <div class="star-rating-front" style="width: <%= @post_user.avg_score*20 %>% ">
                           ★★★★★
                         </div>
                         <div class="star-rating-back" >
                           ★★★★★
                         </div>
                         <div class="count">
-                          (<%= @postUser.reviews.count %>件のレビュー)
+                          (<%= @post_user.reviews.count %>件のレビュー)
                         </div>
                       </div>
                     </div>
