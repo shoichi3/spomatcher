@@ -19,22 +19,22 @@ class PostsController < ApplicationController
   def show
     if user_signed_in?
       @user = User.find_by(id: current_user.id)
-      @currentUserRoom = RoomUser.where(user_id: @user.id)
+      @current_user_room = RoomUser.where(user_id: @user.id)
       @post = Post.find(params[:id])
-      @postUser = @post.user
-      @postUserRoom = RoomUser.where(user_id: @postUser.id)
-      @currentUserRoom.each do |cu|
-        @postUserRoom.each do |po|
+      @post_user = @post.user
+      @post_user_room = RoomUser.where(user_id: @post_user.id)
+      @current_user_room.each do |cu|
+        @post_user_room.each do |po|
           if cu.room_id == po.room_id
-            @haveRoom = true
-            @roomId = cu.room_id
+            @have_room = true
+            @room_id = cu.room_id
           end
         end
       end
-      @room = Room.new unless @haveRoom
+      @room = Room.new unless @have_room
     end
     @post = Post.find(params[:id])
-    @postUser = @post.user
+    @post_user = @post.user
   end
 
   def edit

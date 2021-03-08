@@ -27,7 +27,7 @@ class User < ApplicationRecord
   end
 
   def self.guest
-    user = User.find_or_create_by!(email: 'guest@example.com') do |user|
+    User.find_or_create_by!(email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
       user.name = 'ゲスト'
     end
@@ -73,12 +73,12 @@ class User < ApplicationRecord
 
   def create_notification_follow!(current_user)
     temp = Notification.where(['visitor_id = ? and visited_id = ? and action = ? ', current_user.id, id, 'follow'])
-    if temp.blank?
-      notification = current_user.active_notifications.new(
-        visited_id: id,
-        action: 'follow'
-      )
-      notification.save if notification.valid?
-    end
+    return unless temp.blank?
+
+    notification = current_user.active_notifications.new(
+      visited_id: id,
+      action: 'follow'
+    )
+    notification.save if notification.valid?
   end
 end

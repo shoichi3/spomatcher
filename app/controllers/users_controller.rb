@@ -2,21 +2,21 @@ class UsersController < ApplicationController
   def show
     if user_signed_in?
       @user = User.find_by(id: current_user.id)
-      @postUser = User.find(params[:id])
-      @currentUserRoom = RoomUser.where(user_id: @user.id)
-      @postUserRoom = RoomUser.where(user_id: @postUser.id)
-      @currentUserRoom.each do |cu|
-        @postUserRoom.each do |po|
+      @post_user = User.find(params[:id])
+      @current_user_room = RoomUser.where(user_id: @user.id)
+      @post_user_room = RoomUser.where(user_id: @post_user.id)
+      @current_user_room.each do |cu|
+        @post_user_room.each do |po|
           if cu.room_id == po.room_id
-            @haveRoom = true
-            @roomId = cu.room_id
+            @have_room = true
+            @room_id = cu.room_id
           end
         end
       end
-      @room = Room.new unless @haveRoom
+      @room = Room.new unless @have_room
     end
-    @postUser = User.find(params[:id])
-    @posts = @postUser.posts.order(created_at: 'DESC')
-    @favorites = @postUser.favorites.includes(:user).order(created_at: 'DESC')
+    @post_user = User.find(params[:id])
+    @posts = @post_user.posts.order(created_at: 'DESC')
+    @favorites = @post_user.favorites.includes(:user).order(created_at: 'DESC')
   end
 end
