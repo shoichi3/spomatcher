@@ -16,10 +16,11 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
   password: password
-  socket: /tmp/mysql.sock
+  
 
 development:
   <<: *default
+  socket: /tmp/mysql.sock
   database: spomatcher_development
   host: db
 
@@ -28,6 +29,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
+  socket: /tmp/mysql.sock
   database: spomatcher_test
   host: <%= ENV['MYSQL_HOST'] %>
 
@@ -56,4 +58,3 @@ production:
   username: <%= ENV['DB_USERNAME'] %>
   password: <%= ENV['DB_PASSWORD'] %>
   host: <%= ENV['DB_HOSTNAME'] %>
-  socket: /var/lib/mysql/mysql.sock
