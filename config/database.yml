@@ -54,7 +54,7 @@ test:
 #
 production:
   <<: *default
-  database: <%= ENV['DB_NAME'] %>
-  username: <%= ENV['DB_USERNAME'] %>
-  password: <%= ENV['DB_PASSWORD'] %>
-  host: <%= ENV['DB_HOSTNAME'] %>
+  database: spomatcher_production
+  username: root
+  password: e1D05aWpkkHFghHaHjrX
+  host: spomatcher-mysql.cqij95n45tpr.ap-northeast-1.rds.amazonaws.com
