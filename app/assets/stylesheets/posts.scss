@@ -24,20 +24,37 @@
         text-align: center;
         font-weight: bold;
         font-size: 32px;
+        @include xs {
+          font-size: 20px;
+        }
       }
     }
     .top-image {
       display: flex;
       justify-content: center;
+      .active-photo {
+        @include xs {
+          width: 100%;
+        }
+      }
     }
     .tags-field {
-      margin: 40px 100px 0;
+      margin: 40px 120px 0;
       display: flex;
+      @include md {
+        margin: 40px 0 0;
+      }
+      @include xs {
+        margin-top: 24px;
+      }
       .tags {
         margin-right: 8px;
         padding: 4px;
         background-color: #f5f5f5;
         border-radius: 3px;
+        @include xs {
+          padding: 0;
+        }
         .tag {
           text-decoration: none;
           color: #ffc107;
@@ -51,8 +68,12 @@
       box-shadow: 0 0 3px gray;
       border-radius: 5px;
       // レスポンシブデザイン
-      @include tab {
+      @include md {
         margin: 40px 0;
+      }
+      @include xs {
+        padding: 24px 0;
+        margin-top: 24px;
       }
       .user {
         width: 100%;
@@ -63,6 +84,9 @@
           .title {
             font-size: 24px;
             font-weight: bold;
+            @include xs {
+              font-size: 20px;
+            }
           }
         }
         .bottom {
@@ -70,6 +94,9 @@
           display: flex;
           padding: 0 144px;
           margin-bottom: 32px;
+          @include md {
+            padding: 0;
+          }
           .user {
             width: 50%;
             display: flex;
@@ -78,6 +105,10 @@
               border-radius: 50%;
               width: 90px;
               height: 90px;
+              @include sm {
+                width: 50px;
+                height: 50px;
+              }
               }
             }
           }
@@ -89,11 +120,31 @@
           .name {
             font-size: 24px;
             font-weight: bold;
+            @include sm {
+              font-size: 20px;
+            }
+            @include xs {
+              font-size: 18px;
+            }
           }
           .review {
             position: relative;
             font-size: 24px;
-            width: 45%;
+            width: 48%;
+            @include lg {
+              width: 73%;
+            }
+            @include md {
+              width: 40%;
+            }
+            @include sm {
+              width: 37%;
+              font-size: 16px;
+            }
+            @include xs {
+              width: 75px;
+              font-size: 15px;
+            }
             .star-rating-front {
               position: absolute;
               top: 0;
@@ -109,6 +160,15 @@
               color: black;
               .count {
                 font-size: 16px;
+                @include lg {
+                  font-size: 14px;
+                }
+                @include sm {
+                  font-size: 12px;
+                }
+                @include xs {
+                  font-size: 8px;
+                }
               }
             }
           }
@@ -116,6 +176,9 @@
       }
       .basic-info {
         padding: 0 96px;
+        @include sm {
+          padding: 0 16px;
+        }
         .content-block {
           width: 100%;
           .top {
@@ -123,9 +186,20 @@
             margin-bottom: 16px;
             font-size: 24px;
             font-weight: bold;
+            @include xs {
+              font-size: 20px;
+            }
+            .table td {
+              @include xs {
+                font-size: 14px;
+              }
+            }
           }
           .bottom {
             margin-bottom: 32px;
+            @include xs {
+              font-size: 16px;
+            }
           }
         }
       }
@@ -139,6 +213,13 @@
       width: 50%;
       display: flex;
       justify-content: space-evenly;
+      @include sm {
+        justify-content: space-between;
+      }
+      @include xs {
+        width: 100%;
+        justify-content: space-evenly;
+      }
     }
   }
 }

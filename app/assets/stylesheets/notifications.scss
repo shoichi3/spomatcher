@@ -8,7 +8,14 @@
 
 .container {
   .notification-wrapper {
-    margin: 80px 300px 0;
+    margin: 80px auto;
+    width: 50%;
+    @include md {
+      width: 60%;
+    }
+    @include sm {
+      width: 100%;
+    }
     .title {
       text-align: center;
       margin-bottom: 24px;
@@ -16,6 +23,9 @@
         font-size: 28px;
         color: #ffc107;
         border-bottom: solid 2px #ffc107;
+        @include xs {
+          font-size: 24px;
+        }
       }
     }
     .notification-content {
@@ -29,14 +39,21 @@
             margin-top: 24px;
             border-bottom: solid 1px gray;
             .user-image {
-              width: 30px;
-              height: 30px;
+              width: 25px;
+              height: 25px;
               border-radius: 50%;
               margin-right: 4px;
+              @include xs {
+                width: 20px;
+                height: 20px;
+              }
             }
             .info {
               .text {
                 font-size: 20px;
+                @include xs {
+                  font-size: 16px;
+                }
               }
               .time-difference {
                 font-size: 12px;

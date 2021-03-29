@@ -1,3 +1,4 @@
+<% if @rooms.exists? %>
 <% @rooms.each do |room| %>
 <% user = room.users.where.not(id: current_user.id).first %>
 <% last_message = room.messages.includes(:user).order(created_at: :desc).limit(1) %>
@@ -33,4 +34,11 @@
       </div>
     <% end %>
   </div>
+<% end %>
+<% else %>
+<div class="empty-room">
+  <div class="text">
+    現在トーク相手はいません
+  </div>
+</div>
 <% end %>

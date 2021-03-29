@@ -4,7 +4,7 @@
       <div class="title">
         <%= @reviewee.name %>さんのレビュー
       </div>
-      <div class="make-review">
+      <div class="review-btn">
         <% if user_signed_in? %>
           <% if current_user.id != @reviewee.id %>
             <%= link_to 'レビューを書く', new_user_review_path(@reviewee.id), class: "btn btn-warning text-white" %>
@@ -40,13 +40,13 @@
                     ★★★★★
                   </div>
                 </div>
-                <div class="content">
-                  <%= review.content %>
-                </div>
-              </div>
-              <div class="review-time">
                 <div class="created">
                   <%= l review.created_at %>
+                </div>
+              </div>
+              <div class="review-text">
+                <div class="content">
+                  <%= review.content %>
                 </div>
               </div>
             </div>

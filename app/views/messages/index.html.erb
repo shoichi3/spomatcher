@@ -15,39 +15,43 @@
     </div>
     <div class="communication">
       <% @messages.each do |message| %>
-      <div class="messages">
-        <div class="left">
-          <%= link_to user_path(message.user.id) do %>
-            <% if message.user.image.attached? %>
-              <%= image_tag message.user.image, class: "user-image" %>
-            <% else %>
-              <%= image_tag 'default.png', class: "user-image", id: "user-icon" %>
+      <div class="messages-wrapper">
+        <div class="messages">
+          <div class="left">
+            <%= link_to user_path(message.user.id) do %>
+              <% if message.user.image.attached? %>
+                <%= image_tag message.user.image, class: "user-image" %>
+              <% else %>
+                <%= image_tag 'default.png', class: "user-image", id: "user-icon" %>
+              <% end %>
             <% end %>
-          <% end %>
-        </div>
-        <div class="right">
-          <div class="info">
-            <div class="user-name">
-              <%= message.user.name %>
-            </div>
-            <div class="message-time">
-              <%= l message.created_at %>
-            </div>
           </div>
-          <div class="message">
-            <%= message.text %>
-          </div>
-          <div class="attached-image">
-            <% if message.image.attached? %>
-              <%= image_tag message.image.variant(resize: "500x500"), class: "image" %>
-            <% end %>
+          <div class="right">
+            <div class="info">
+              <div class="user-name">
+                <%= message.user.name %>
+              </div>
+              <div class="message-time">
+                <%= l message.created_at %>
+              </div>
+            </div>
+            <div class="message">
+              <%= message.text %>
+            </div>
+            <div class="attached-image">
+              <% if message.image.attached? %>
+                <%= image_tag message.image.variant(resize: "500x500"), class: "image" %>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
       <% end %>
       
       <%# 最新のメッセージ表示 %>
-      <div id="message">
+      <div class="messages-wrapper">
+        <div id="message">
+        </div>
       </div>
 
     </div>
@@ -57,7 +61,9 @@
           <%= f.text_area :text, class: "message-field__content", id: "message-text", rows: 2 %>
         </div>
         <div class="message-image">
-          <%= f.file_field :image, class: "message-image__content", id: "message-image" %>
+          <%= f.label :image, class: "far fa-image", id: "message-image" do %>
+            <%= f.file_field :image, class: "file-input" %>
+          <% end %>
         </div>
         <div class="message-submit">
           <%= f.submit "送信", class: "btn btn-warning text-white", id: "submit" %>

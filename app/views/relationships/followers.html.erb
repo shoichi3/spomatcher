@@ -16,24 +16,26 @@
         <% @followings.each do |following| %>
           <div class="user-box">
             <div class="user-box__content">
-              <%= link_to user_path(following) do %>
-                <div class="left">
-                  <% if following.image.attached? %>
-                    <%= image_tag following.image, class: "user-image" %>
-                  <% else %>
-                    <%= image_tag 'default.png', class: "user-image" %>
+              <div class="left">
+                <div class="photo-area">
+                  <%= link_to user_path(following) do %>
+                    <% if following.image.attached? %>
+                      <%= image_tag following.image, class: "user-image" %>
+                    <% else %>
+                      <%= image_tag 'default.png', class: "user-image" %>
+                    <% end %>
                   <% end %>
                 </div>
-              <% end %>
-              <div class="center">
-                <div class="name">
-                  <%= following.name %>
-                </div>
-                <% unless following.profile == "" %>
-                  <div class="profile">
-                    <%= following.profile %>
+                <div class="user-info">
+                  <div class="name">
+                    <%= following.name %>
                   </div>
-                <% end %>
+                  <% unless following.profile == "" %>
+                    <div class="profile">
+                      <%= following.profile %>
+                    </div>
+                  <% end %>
+                </div>
               </div>
               <% if current_user != following %>
                 <div class="right">
@@ -63,23 +65,25 @@
           <div class="user-box">
             <div class="user-box__content">
               <div class="left">
-              <%= link_to user_path(follower) do %>
-                  <% if follower.image.attached? %>
-                    <%= image_tag follower.image, class: "user-image" %>
-                  <% else %>
-                    <%= image_tag 'default.png', class: "user-image" %>
+                <div class="photo-area">
+                  <%= link_to user_path(follower) do %>
+                    <% if follower.image.attached? %>
+                      <%= image_tag follower.image, class: "user-image" %>
+                    <% else %>
+                      <%= image_tag 'default.png', class: "user-image" %>
+                    <% end %>
                   <% end %>
-                <% end %>
-              </div>
-              <div class="center">
-                <div class="name">
-                  <%= follower.name %>
                 </div>
-                <% unless follower.profile == "" %>
-                  <div class="profile">
-                    <%= follower.profile %>
+                <div class="user-info">
+                  <div class="name">
+                    <%= follower.name %>
                   </div>
-                <% end %>
+                  <% unless follower.profile == "" %>
+                    <div class="profile">
+                      <%= follower.profile %>
+                    </div>
+                  <% end %>
+                </div>
               </div>
               <% if current_user != follower %>
                 <div class="right">

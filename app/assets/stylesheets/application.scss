@@ -47,15 +47,11 @@ footer {
 
 body {
   height: auto;
-  @include tab {
-    width: 100vw;
-  }
+  width: 100vw;
 }
 
 html {
-  @include tab {
-    min-width: 100%;
-    margin: 0;
-    padding: 0;
-  }
+  min-width: 100%;
+  margin: 0;
+  padding: 0;
 }
