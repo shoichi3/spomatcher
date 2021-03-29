@@ -8,7 +8,7 @@
 @mixin user-list {
   .user-list {
     // レスポンシブデザイン
-    @include pc {
+    @include lg {
       margin-bottom: 8px;
     }
     .user {
@@ -17,8 +17,11 @@
       height: 100%;
       display: flex;
       // レスポンシブデザイン
-      @include pc {
-        padding: 8px;
+      @include lg {
+        padding: 12px;
+      }
+      @include md {
+        padding: 20px;
       }
       .left {
         width: 20%;
@@ -26,7 +29,7 @@
         align-items: center;
         margin-right: 16px;
         // レスポンシブデザイン
-        @include pc {
+        @include lg {
           margin-right: 0px;
           display: flex;
           justify-content: center;
@@ -36,10 +39,21 @@
           height: 60px;
           border-radius: 50%;
           // レスポンシブデザイン
-          @include pc {
+          @include lg {
             width: 35px;
             height: 35px;
-            border-radius: 50%;
+          }
+          @include md {
+            width: 60px;
+            height: 60px;
+          }
+          @include sm {
+            width: 50px;
+            height: 50px;
+          }
+          @include xs {
+            width: 40px;
+            height: 40px;
           }
         }
       }
@@ -47,7 +61,7 @@
         width: 80%;
         padding: 0 8px;
         // レスポンシブデザイン
-        @include pc {
+        @include lg {
           padding: 0 8px;
         }
         .info {
@@ -57,34 +71,46 @@
           align-items: center;
           margin-bottom: 16px;
           // レスポンシブデザイン
-          @include pc {
+          @include lg {
             margin-bottom: 8px;
           }
           .user-name {
             font-weight: bold;
             // レスポンシブデザイン
-            @include pc {
+            @include lg {
               font-size: 12px;
+            }
+            @include md {
+              font-size: 20px;
             }
           }
           .last-time {
             color: #c0c0c0;
             font-size: 12px;
             // レスポンシブデザイン
-            @include pc {
+            @include lg {
               font-size: 8px;
+            }
+            @include md {
+              font-size: 12px;
             }
           }
         }
         .bottom {
           width: 100%;
+          @include md {
+            width: 80%;
+          }
           .last-message {
             overflow: hidden;
             white-space: nowrap;
             text-overflow: ellipsis;
             // レスポンシブデザイン
-            @include pc {
+            @include lg {
               font-size: 12px;
+            }
+            @include md {
+              font-size: 16px;
             }
           }
         }
@@ -99,6 +125,14 @@
   right: 200px;  
   color: #ffc107;
   font-size: 24px;
+  @include sm {
+    right: 30px;
+    font-size: 20px;
+  }
+  @include xs {
+    top: 98px;
+    font-size: 12px;
+  }
 }
 
 @mixin post {
@@ -108,46 +142,110 @@
     height: auto;
     margin-bottom: 24px;
     box-shadow: 0 0 3px gray;
+    // レスポンシブデザイン
+    @include md {
+      height: 200px;
+    }
+    @include xs {
+      height: auto;
+      padding: 8px 0 16px;
+    }
     .post-content {
       padding: 16px;
       height: 100%;
       display: flex;
+      // レスポンシブデザイン
+      @include md {
+        padding: 8px 16px;
+      }
+      @include xs {
+        padding: 0;
+      }
       .post-left {
         width: 40%;
         display: flex;
+        // レスポンシブデザイン
+        @include sm {
+          width: 20%;
+          flex-direction: column;
+          justify-content: space-around;
+        }
+        @include xs {
+          margin-left: 12px;
+        }
         .user-icon {
           width: 50%;
           display: flex;
           justify-content: center;
           align-items: center;
+          // レスポンシブデザイン
+          @include md {
+            width: auto;
+          }
           .about-post {
             border-radius: 50%;
             width: 100px;
             height: 100px;
             // レスポンシブデザイン
-            @include tab {
-              width: 100px;
-              height: 100px;
+            @include md {
+              width: 90px;
+              height: 90px;
+            }
+            @include sm {
+              width: 60px;
+              height: 60px;
+            }
+            @include xs {
+              width: 40px;
+              height: 40px;
             }
           }
         }
         .user-info {
           width: 50%;
-          // display: flex;
-          // flex-direction: column;
-          // justify-content: space-evenly;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          // レスポンシブデザイン
+          @include md {
+            width: auto;
+            align-items: center;
+            margin-left: 16px;
+            font-size: 20px;
+          }
+          @include sm {
+            margin-left: 0;
+          }
           .name {
             width: 100%;
             font-size: 24px;
             // レスポンシブデザイン
-            @include tab {
+            @include md {
               font-size: 20px;
+              text-align: center;
+            }
+            @include xs {
+              font-size: 16px;
             }
           }
           .review {
-            // width: 100%;
             font-size: 24px;
-            position: absolute;
+            position: relative;
+            width: 70%;
+            // レスポンシブデザイン
+            @include lg {
+              width: 88%;
+            }
+            @include md {
+              font-size: 16px;
+            }
+            @include xs {
+              font-size: 10px;
+            }
+            @include xs {
+              width: 70px;
+              font-size: 14px;
+            }
             .star-rating-front {
               position: absolute;
               top: 0;
@@ -160,12 +258,31 @@
             }
             .count {
               font-size: 16px;
+              // レスポンシブデザイン
+              @include md {
+                font-size: 12px;
+              }
+              @include xs {
+                font-size: 8px;
+              }
             }
           }
         }
       }
       .post-right {
         width: 60%;
+        // レスポンシブデザイン
+        @include md {
+          margin-left: 16px;
+        }
+        // レスポンシブデザイン
+        @include md {
+          width: 80%;
+          margin-left: 24px;
+        }
+        @include xs {
+          margin-left: 16px;
+        }
         .title {
           height: 30%;
           display: flex;
@@ -178,8 +295,11 @@
             white-space: nowrap;
             text-overflow: ellipsis;
             // レスポンシブデザイン
-            @include tab {
+            @include md {
               font-size: 20px;
+            }
+            @include xs {
+              font-size: 16px;
             }
           }
         }
@@ -195,8 +315,12 @@
               background-color: #f5f5f5;
               border-radius: 3px;
               // レスポンシブデザイン
-              @include tab {
+              @include md {
                 font-size: 12px;
+              }
+              @include xs {
+                font-size: 2px;
+                padding: 0;
               }
             }
           }
@@ -204,23 +328,29 @@
             display: flex;
             margin-bottom: 8px;
             // レスポンシブデザイン
-            @include tab {
+            @include md {
               display: block;
               margin-bottom: 0;
             }
             .sports {
               // レスポンシブデザイン
-              @include tab {
+              @include md {
                 margin-bottom: 4px;
+              }
+              @include xs {
+                font-size: 12px;
               }
             }
             .datetime,.cost {
               margin-left: 16px;
+              @include xs {
+                font-size: 12px;
+              }
             }
             .center {
               display: flex;
               // レスポンシブデザイン
-              @include tab {
+              @include md {
                 display: flex;
                 margin-bottom: 4px;
                 .datetime {
@@ -230,6 +360,11 @@
                   margin-left: 8px;
                 }
               }
+            }
+          }
+          .address {
+            @include xs {
+              font-size: 12px;
             }
           }
         }
@@ -268,52 +403,88 @@
   .user-box {
     padding: 24px 40px;
     border-bottom: solid 2px #aaaaaa;
+    @include xs {
+      padding: 20px 0;
+    }
     &__content {
       display: flex;
+      justify-content: space-between;
       .left {
-        .user-image {
-          width: 80px;
-          height: 80px;
-          border-radius: 50%;
-        }
-      }
-      .center {
         display: flex;
-        flex-direction: column;
-        margin: auto 0;
-        margin-left: 32px;
-        .name {
-          font-weight: bold;
-          font-size: 16px;
+        .photo-area {
+          display: flex;
+          align-items: center;
+          .user-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            @include sm {
+              width: 70px;
+              height: 70px;
+            }
+            @include xs {
+              width: 50px;
+              height: 50px;
+            }
+          }
         }
-        .profile {
-          max-width: 500px;
-          word-break: break-all;
-          color: #696969;
+        .user-info {
+          margin-left: 40px;
+          @include sm {
+            margin-left: 24px;
+          }
+          .name {
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 16px;
+            @include sm {
+              margin-bottom: 12px;
+            }
+          }
+          .profile {
+            width: 85%;
+            word-break: break-all;
+            color: #696969;
+            @include sm {
+              width: 90%;
+              font-size: 14px;
+            }
+          }
         }
       }
       .right {
-        position: absolute;
-        right: 350px;
+        display: flex;
+        align-items: center;
+        .btn {
+          @include xs {
+            font-size: x-small;
+          }
+        }
       }
     }
   }
 }
 
-@mixin pc {
-  @media (max-width: ($pc)) {
+@mixin lg {
+  @media (max-width: ($lg)) {
     @content;
   }
 }
 
-@mixin tab {
-  @media (max-width: ($tab)) {
+@mixin md {
+  @media (max-width: ($md)) {
     @content;
   }
 }
 
-@mixin sp {
-  @media (max-width: ($sp)) {
+@mixin sm {
+  @media (max-width: ($sm)) {
+    @content;
+  }
+}
+
+@mixin xs {
+  @media (max-width: ($xs)) {
     @content;
   }
 }

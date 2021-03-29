@@ -20,9 +20,24 @@
     .collapse {
       .nav-item {
         margin-left: 24px;
+        @include sm {
+          margin-left: 20px;
+        }
+        @include xs {
+          margin-left: 12px;
+        }
         i {
           color: #333333;
           font-size: 30px;
+          @include sm {
+            font-size: 24px;
+          }
+          @include xs {
+            font-size: 20px;
+          }
+          @include xs {
+            font-size: 18px;
+          }
         }
         .fa-stack {
           .fa-circle {
@@ -39,13 +54,21 @@
           height: 40px;
           border-radius: 50%;
           cursor: pointer;
+          @include sm {
+            width: 30px;
+            height: 30px;
+          }
+          @include xs {
+            width: 25px;
+            height: 25px;
+          }
         }
       }
     }
     .menu {
       position: absolute;
       top: 70px;
-      right: 180px;
+      right: 76px;
       border: solid 1px #d3d3d3;
       text-align: left;
       list-style: none;
@@ -53,24 +76,68 @@
       box-shadow: 0px 0px 2px rgba(0,0,0,0.1);
       padding: 0 8px 8px;
       margin: 0;
+      @include sm {
+        padding: 0 4px 1px;
+      }
+      @include md {
+        right: 50px;
+      }
+      @include sm {
+        top: 58px;
+        right: 30px;
+      }
+      @include xs {
+        top: 48px;
+        right: 12px;
+      }
       &__content {
         padding-top: 8px;
+        @include sm {
+          padding-top: 2px;
+        }
+        @include xs {
+          padding-top: 0;
+        }
         i {
           margin-right: 12px;
+          @include xs {
+            margin-right: 8px;
+          }
         }
         .fa-user-edit {
           margin-right: 8px;
         }
+        .pull-down-list {
+          @include sm {
+            font-size: 14px;
+          }
+          @include xs {
+            font-size: 12px;
+          }
+        }
       }
     }
     .form {
-      width: 350px;
+      width: 400px;
       margin: 40px auto;
+      @include xs {
+        width: 80%;
+      }
       .login {
         margin-top: 40px;
+        .btn {
+          @include xs {
+            font-size: x-small;
+          }
+        }
       }
       .guest-login {
         margin-top: 24px;
+        .btn {
+          @include xs {
+            font-size: x-small;
+          }
+        }
       }
       .forgot-password {
         margin-top: 40px;
@@ -83,25 +150,44 @@
       }
       .form-content {
         text-align: left;
+        label {
+          @include xs {
+            font-size: 14px;
+          }
+        }
         .required {
           background-color: red;
           border-radius: 3px;
           color: #ffffff;
           padding: 1px;
+          @include xs {
+            font-size: 12px;
+          }
         }
         .optional {
           background-color: #a9a9a9;
           border-radius: 3px;
           color: #ffffff;
           padding: 1px;
+          @include xs {
+            font-size: 12px;
+          }
         }
         &__field {
           height: 40px;
-          width: 350px;
+          width: 400px;
           margin-bottom: 24px;
           padding-left: 5px;
           border-radius: 1px;
           border: solid 1px #a4a8a4;
+          @include xs {
+            width: 100%;
+          }
+        }
+        &__image {
+          @include xs {
+            width: 100%;
+          }
         }
       }
     }
@@ -118,12 +204,15 @@
     }
     .form-content {
       &__profile {
-        width: 350px;
+        width: 400px;
         margin-bottom: 24px;
         border-radius: 1px;
         border: solid 1px #a4a8a4;
         padding-left: 5px;
         padding-top: 5px;
+        @include xs {
+          width: 100%;
+        }
       }
       &__image {
         margin-bottom: 24px;
@@ -164,12 +253,12 @@
 // レスポンシブWebデザイン
 .wrapper {
   .container-fluid {
-    @include tab {
+    @include md {
       display: flex;
       flex-wrap: nowrap !important;
     }
     .collapse {
-      @include tab {
+      @include md {
         display: flex;
         .navbar-nav {
           display: flex;
@@ -182,7 +271,7 @@
 
 .wrapper {
   .content {
-    @include tab {
+    @include md {
       display: flex;
       flex-wrap: nowrap;
       flex-direction: column;

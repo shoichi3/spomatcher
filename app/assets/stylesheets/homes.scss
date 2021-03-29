@@ -7,6 +7,79 @@
 @import "variable";
 
 // トップページ
+.wrapper {
+  header {
+    background-color:#ffff66;
+    box-shadow: 0 0 3px gray;
+    .container-fluid {
+      margin: 0 80px;
+      padding: 0;
+      @include md {
+        margin: 0 50px;
+      }
+      @include sm {
+        margin: 0 30px;
+      }
+      @include xs {
+        margin: 0;
+      }
+      .navbar-brand {
+        font-family: 'Roboto Slab', serif; 
+        font-size: 30px;
+        @include sm {
+          font-size: 24px;
+        }
+        @include xs {
+          font-size: 20px;
+          margin-right: 0;
+        }
+        .top-image {
+          width: 50px;
+          height: 50px;
+          @include sm {
+            width: 30px;
+            height: 30px;
+          }
+          @include xs {
+            width: 20px;
+            height: 20px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.wrapper {
+  header {
+    .navbar {
+      .top-image {
+        width: 50px;
+        height: 50px;
+        @include sm {
+          width: 30px;
+          height: 30px;
+        }
+        @include xs {
+          width: 20px;
+          height: 20px;
+        }
+      }
+      span {
+      font-family: 'Roboto Slab', serif; 
+      font-size: 30px;
+      @include sm {
+        font-size: 24px;
+      }
+      @include xs {
+        font-size: 20px;
+        margin-right: 0;
+      }
+      }
+    }
+  }
+}
+
 .container {
   padding-top: 52px;
   overflow: auto;
@@ -51,7 +124,7 @@
         }
       }
       // レスポンシブデザイン
-      @include pc {
+      @include md {
         margin: 0;
       }
       @include post
