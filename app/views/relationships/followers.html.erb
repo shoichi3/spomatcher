@@ -39,7 +39,7 @@
               </div>
               <% if current_user != following %>
                 <div class="right">
-                  <div id="follow_form">
+                  <div id="follow_form-<%= following.id%>">
                     <% if current_user.following?(following) %>
                       <%= render 'users/unfollow' ,{following_user: following}%>
                     <% else %>
@@ -87,7 +87,7 @@
               </div>
               <% if current_user != follower %>
                 <div class="right">
-                  <div id="follow_form">
+                  <div id="follow_form-<%= follower.id%>">
                     <% if current_user.following?(follower) %>
                       <%= render 'users/unfollow' ,{following_user: follower}%>
                     <% else %>
@@ -101,9 +101,9 @@
         <% end %>
       <% else %>
         <div class="empty-post">
-            <div class="content">
-              フォロワーはいません
-            </div>
+          <div class="content">
+            フォロワーはいません
+          </div>
           </div>
       <% end %>
     </div>

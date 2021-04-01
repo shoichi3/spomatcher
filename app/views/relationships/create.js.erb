@@ -1,1 +1,1 @@
-$("#follow_form").html("<%= j(render partial: "users/unfollow", locals: {following_user: @following_user}) %>");
+$("#follow_form-<%= @following_user.id%>").html("<%= j(render partial: "users/unfollow", locals: {following_user: @following_user}) %>");
