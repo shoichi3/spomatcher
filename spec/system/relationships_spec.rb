@@ -69,7 +69,7 @@ RSpec.describe 'フォロー機能(サインイン後)', type: :system do
       mypage
       find('.followings').click
       expect(page).to have_css '.user-box'
-      find('#follow_form').click
+      find('.follow-button').click
       visit current_path
       expect(page).to have_no_css '.user-box'
     end
@@ -106,7 +106,7 @@ RSpec.describe 'フォロー機能(サインイン後)', type: :system do
       page.all('.post-link')[1].click
       find('.icon').click
       find('.followers').click
-      find('#follow_form').click
+      find('.follow-button').click
       expect(page).to have_css '.text-white'
     end
   end
@@ -209,7 +209,7 @@ RSpec.describe 'フォロー機能(ログイン後)', type: :system do
       mypage
       find('.followings').click
       expect(page).to have_css '.user-box'
-      find('#follow_form').click
+      find('.follow-button').click
       visit current_path
       expect(page).to have_no_css '.user-box'
     end
@@ -250,7 +250,7 @@ RSpec.describe 'フォロー機能(ログイン後)', type: :system do
       page.all('.post-link')[1].click
       find('.icon').click
       find('.followers').click
-      find('#follow_form').click
+      find('.follow-button').click
       expect(page).to have_css '.text-white'
     end
   end

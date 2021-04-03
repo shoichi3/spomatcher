@@ -55,7 +55,7 @@
                 <% end %>
               <% else %>
                 <div class="buttons">
-                  <div id="follow_form">
+                  <div id="follow_form-<%= @post_user.id%>">
                     <% if current_user.following?(@post_user) %>
                       <%= render 'unfollow', {following_user: @post_user}%>
                     <% else %>

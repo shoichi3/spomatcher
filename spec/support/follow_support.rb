@@ -1,6 +1,6 @@
 module FollowSupport
   def follow
     find('.icon').click
-    find('#follow_form').click
+    find('.follow-button').click
   end
 end

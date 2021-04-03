@@ -39,7 +39,7 @@
               </div>
               <% if current_user != following %>
                 <div class="right">
-                  <div id="follow_form-<%= {following.id}%>">
+                  <div id="follow_form-<%= following.id%>">
                     <% if current_user.following?(following) %>
                       <%= render 'users/unfollow' ,{following_user: following}%>
                     <% else %>
