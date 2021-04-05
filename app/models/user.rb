@@ -3,21 +3,25 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
   has_one_attached :image
-  has_many :posts
-  has_many :room_users
-  has_many :rooms, through: :room_users
-  has_many :messages
-  has_many :favorites
-  has_many :following_relationships, class_name: 'Relationship', foreign_key: 'follower_id'
-  has_many :followings, through: :following_relationships
-  has_many :follower_relationships, class_name: 'Relationship', foreign_key: 'following_id'
-  has_many :followers, through: :follower_relationships
-  has_many :reviews, foreign_key: 'reviewee_id'
 
-  has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id'
-  has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id'
+  has_many :posts, dependent: :destroy
+
+  has_many :room_users, dependent: :destroy
+  has_many :rooms, through: :room_users
+  has_many :messages, dependent: :destroy
+
+  has_many :favorites, dependent: :destroy
+  
+  has_many :following_relationships, class_name: 'Relationship', foreign_key: 'follower_id', dependent: :destroy
+  has_many :followings, through: :following_relationships
+  has_many :follower_relationships, class_name: 'Relationship', foreign_key: 'following_id', dependent: :destroy
+  has_many :followers, through: :follower_relationships
+
+  has_many :reviews, foreign_key: 'reviewee_id', dependent: :destroy
+
+  has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
+  has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
 
   validates :name, presence: true
 
