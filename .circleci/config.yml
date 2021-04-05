@@ -27,8 +27,8 @@ jobs:
     docker:
       - image: circleci/ruby:2.6.5-node-browsers-legacy
         environment:
-            RAILS_ENV: test
-            MYSQL_HOST: 127.0.0.1
+          RAILS_ENV: test
+          MYSQL_HOST: 127.0.0.1
       - image: circleci/mysql:5.6.47
         environment:
           BUNDLER_VERSION: 2.1.4
@@ -47,19 +47,20 @@ jobs:
           name: Rspec
           command: bundle exec rspec
 
-  deploy:
-    docker:
-      - image: circleci/ruby:2.6.5-node-browsers-legacy
-        environment:
-          BUNDLER_VERSION: 2.1.4
-    steps:
-      - add_ssh_keys:
-          fingerprints:
-            - "40:0a:81:f8:f5:dd:09:bf:88:af:2a:c0:26:b3:f3:94"
-      - deploy:
-          name: Capistrano deploy
-          command:
-            bundle exec cap production deploy
+  # deploy:
+  #   docker:
+  #     - image: circleci/ruby:2.6.5-node-browsers-legacy
+  #       environment:
+  #         BUNDLER_VERSION: 2.1.4
+  #   steps:
+  #     - checkout
+  #     - add_ssh_keys:
+  #         fingerprints:
+  #           - "40:0a:81:f8:f5:dd:09:bf:88:af:2a:c0:26:b3:f3:94"
+  #     - deploy:
+  #         name: Capistrano deploy
+  #         command:
+  #           bundle exec cap production deploy
 
 workflows:
   version: 2
@@ -69,9 +70,9 @@ workflows:
       - rspec:
           requires:
             - rubocop
-      - deploy:
-          requires:
-            - rspec
-          filters:
-            branches:
-              only: master
+      # - deploy:
+      #     requires:
+      #       - rspec
+      #     filters:
+      #       branches:
+      #         only: master
