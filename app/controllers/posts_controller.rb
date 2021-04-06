@@ -1,8 +1,10 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :search]
+  before_action :set_current_user, except: [:create, :show]
+  before_action :set_post, except: [:new, :create]
+  before_action :set_post_user, only: :show
 
   def new
-    @user = User.find_by(id: current_user.id)
     @post = Post.new
   end
 
@@ -20,8 +22,6 @@ class PostsController < ApplicationController
     if user_signed_in?
       @user = User.find_by(id: current_user.id)
       @current_user_room = RoomUser.where(user_id: @user.id)
-      @post = Post.find(params[:id])
-      @post_user = @post.user
       @post_user_room = RoomUser.where(user_id: @post_user.id)
       @current_user_room.each do |cu|
         @post_user_room.each do |po|
@@ -33,18 +33,12 @@ class PostsController < ApplicationController
       end
       @room = Room.new unless @have_room
     end
-    @post = Post.find(params[:id])
-    @post_user = @post.user
   end
 
   def edit
-    @post = Post.find(params[:id])
-    @user = User.find_by(id: current_user.id)
   end
 
   def destroy
-    @post = Post.find(params[:id])
-    @user = User.find_by(id: current_user.id)
     if @post.destroy
       redirect_to root_path
     else
@@ -53,8 +47,6 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post = Post.find(params[:id])
-    @user = User.find_by(id: current_user.id)
     if @post.update(post_params)
       redirect_to root_path
     else
@@ -72,5 +64,17 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:title, :image, :tag_list, :sports, :datetime, :regular_date, :address, :cost, :content,
                                  :flow).merge(user_id: current_user.id)
+  end
+
+  def set_current_user
+    @user = User.find_by(id: current_user.id)
+  end
+
+  def set_post
+    @post = Post.find(params[:id])
+  end
+
+  def set_post_user
+    @post_user = @post.user
   end
 end
