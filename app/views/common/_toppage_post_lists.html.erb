@@ -1,0 +1,72 @@
+<div class="posts">
+  <div class="post-wrapper">
+    <% posts.each do |post| %>
+      <div class="post">
+        <%= link_to post_path(post), class: "post-link" do %>
+          <div class="post-content">
+            <div class="post-left">
+              <div class="user-icon">
+                <% if post.user.image.attached? %>
+                  <%= image_tag post.user.image, class: "user-icon about-post" %>
+                <% else %>
+                  <%= image_tag  'default.png', class: "user-icon about-post"%>
+                <% end %>
+              </div>
+              <div class="user-info">
+                <div class="name">
+                  <%= post.user.name %>
+                </div>
+                <div class="review">
+                  <div class="star-rating-front" style="width: <%= post.user.avg_score*20 %>% ">
+                    ★★★★★
+                  </div>
+                  <div class="star-rating-back" >
+                    ★★★★★
+                  </div>
+                  <div class="count">
+                    (<%= post.user.reviews.count %>件のレビュー)
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="post-right">
+              <div class="title">
+                <div class="title-content">
+                  <%= post.title %>
+                </div>
+              </div>
+              <div class="content">
+                <div class="tags_list">
+                  <% if post.tags.present? %>
+                    <% post.tags.each do |tag| %>
+                      <div class="tag">
+                        #<%= tag.name %>
+                      </div>
+                    <% end %>
+                  <% end %>
+                </div>
+                <div class="content__middle">
+                  <div class="sports">
+                    競技名: <%= post.sports %>
+                  </div>
+                  <div class="center">
+                    <div class="datetime">
+                      日時: <%= post.datetime %>
+                    </div>
+                    <div class="cost">
+                      参加費: <%= post.cost %>
+                    </div>
+                  </div>
+                </div>
+                <div class="address">
+                  場所: <%= post.address %>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+<%= paginate posts %>

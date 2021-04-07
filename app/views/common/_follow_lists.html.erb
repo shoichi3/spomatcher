@@ -1,0 +1,46 @@
+<% if follows.length != 0 %>
+  <% follows.each do |following| %>
+    <div class="user-box">
+      <div class="user-box__content">
+        <div class="left">
+          <div class="photo-area">
+            <%= link_to user_path(following) do %>
+              <% if following.image.attached? %>
+                <%= image_tag following.image, class: "user-image" %>
+              <% else %>
+                <%= image_tag 'default.png', class: "user-image" %>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="user-info">
+            <div class="name">
+              <%= following.name %>
+            </div>
+            <% unless following.profile == "" %>
+              <div class="profile">
+                <%= following.profile %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        <% if current_user != following %>
+          <div class="right">
+            <div id="follow_form-<%= following.id%>">
+              <% if current_user.following?(following) %>
+                <%= render 'users/unfollow' ,{following_user: following}%>
+              <% else %>
+                <%= render 'users/follow' ,{following: following}%>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  <div class="empty-post">
+      <div class="content">
+        <%= empty_content%>
+      </div>
+    </div>
+<% end %>
