@@ -113,21 +113,21 @@
     .post-wrapper {
       height: 100%;
       margin: 0 100px;
-      .empty {
-        height: 400px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        .text {
-          font-size: 24px;
-          color: #a9a9a9;
-        }
-      }
       // レスポンシブデザイン
       @include md {
         margin: 0;
       }
       @include post
+    }
+  }
+  .empty {
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .text {
+      font-size: 24px;
+      color: #a9a9a9;
     }
   }
   .pagination {

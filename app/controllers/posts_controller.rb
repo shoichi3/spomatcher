@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :search]
   before_action :set_current_user, except: [:create, :show]
-  before_action :set_post, except: [:new, :create]
+  before_action :set_post, except: [:new, :create, :search]
   before_action :set_post_user, only: :show
 
   def new
