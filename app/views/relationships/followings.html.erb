@@ -1,111 +1,19 @@
 <div class="container">
   <div class="wrapper-inner">
-    <div class="title">
-      <%= @post_user.name %>さんのフォロワー
-    </div>
+    <%= render 'common/follow_page_username' %>
     <div class="follow_tabs">
       <div class="follow_tab active" id="follower">
-        フォロー中(<%= @followings.count %>)
+        <%= render 'common/following_count' %>
       </div>
       <div class="follow_tab" id="following">
-        フォロワー(<%= @followers.count %>)
+        <%= render 'common/follower_count' %>
       </div>
     </div>
     <div class="follower-list show">
-      <% if @followings.length != 0 %>
-        <% @followings.each do |following| %>
-          <div class="user-box">
-            <div class="user-box__content">
-              <div class="left">
-                <div class="photo-area">
-                  <%= link_to user_path(following) do %>
-                    <% if following.image.attached? %>
-                      <%= image_tag following.image, class: "user-image" %>
-                    <% else %>
-                      <%= image_tag 'default.png', class: "user-image" %>
-                    <% end %>
-                  <% end %>
-                </div>
-                <div class="user-info">
-                  <div class="name">
-                    <%= following.name %>
-                  </div>
-                  <% unless following.profile == "" %>
-                    <div class="profile">
-                      <%= following.profile %>
-                    </div>
-                  <% end %>
-                </div>
-              </div>
-              <% if current_user != following %>
-                <div class="right">
-                  <div id="follow_form-<%= following.id%>">
-                    <% if current_user.following?(following) %>
-                      <%= render 'users/unfollow' ,{following_user: following}%>
-                    <% else %>
-                      <%= render 'users/follow' ,{following: following}%>
-                    <% end %>
-                  </div>
-                </div>
-              <% end %>
-            </div>
-          </div>
-        <% end %>
-      <% else %>
-        <div class="empty-post">
-            <div class="content">
-              フォロー中のユーザーはいません
-            </div>
-          </div>
-      <% end %>
+      <%= render 'common/follow_lists', { follows: @followings, empty_content: "フォロー中のユーザーはいません"} %>
     </div>
     <div class="follower-list2">
-      <% if @followers.length != 0 %>
-        <% @followers.each do |follower| %>
-          <div class="user-box">
-            <div class="user-box__content">
-              <div class="left">
-                <div class="photo-area">
-                  <%= link_to user_path(follower) do %>
-                    <% if follower.image.attached? %>
-                      <%= image_tag follower.image, class: "user-image" %>
-                    <% else %>
-                      <%= image_tag 'default.png', class: "user-image" %>
-                    <% end %>
-                  <% end %>
-                </div>
-                <div class="user-info">
-                  <div class="name">
-                    <%= follower.name %>
-                  </div>
-                  <% unless follower.profile == "" %>
-                    <div class="profile">
-                      <%= follower.profile %>
-                    </div>
-                  <% end %>
-                </div>
-              </div>
-              <% if current_user != follower %>
-                <div class="right">
-                  <div id="follow_form-<%= follower.id%>">
-                    <% if current_user.following?(follower) %>
-                      <%= render 'users/unfollow' ,{following_user: follower}%>
-                    <% else %>
-                      <%= render 'users/follow' ,{following: follower}%>
-                    <% end %>
-                  </div>
-                </div>
-              <% end %>
-            </div>
-          </div>
-        <% end %>
-      <% else %>
-        <div class="empty-post">
-          <div class="content">
-            フォロワーはいません
-          </div>
-        </div>
-      <% end %>
+      <%= render 'common/follow_lists', { follows: @followers, empty_content: "フォロワーはいません"} %>
     </div>
   </div>
 </div>
