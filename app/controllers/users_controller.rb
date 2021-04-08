@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_post_user
-  
+
   def show
     if user_signed_in?
       @user = User.find_by(id: current_user.id)
