@@ -17,7 +17,10 @@ class UsersController < ApplicationController
       @room = Room.new unless @have_room
     end
     @posts = @post_user.posts.order(created_at: 'DESC')
-    @favorites = @post_user.favorites.includes(:user).order(created_at: 'DESC')
+    favorites = @post_user.favorites.includes(:user).order(created_at: 'DESC')
+    @favorites = favorites.map do |favorite|
+      Post.find(favorite.post_id)
+    end
   end
 
   private
