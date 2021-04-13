@@ -11,18 +11,11 @@
     width: 80%;
     margin: 0 auto;
     padding-top: 50px;
-    // @include md {
-    //   width: 100%;
-    //   margin: 0;
-    // }
     .title {
       font-weight: bold;
       color: #ffa500;
       font-size: 20px;
       margin-bottom: 24px;
-      // @include xs {
-      //   font-size: 18px;
-      // }
     }
     .follow_tabs {
       width: 100%;
@@ -37,9 +30,6 @@
         border-bottom: solid 2px #a9a9a9;
         padding-bottom: 8px;
         cursor: pointer;
-        // @include xs {
-        //   font-size: 14px;
-        // }
       }
       .active {
         color: #ffa500;
