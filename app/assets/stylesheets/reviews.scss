@@ -3,32 +3,18 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // 関数の読み込み
-@import "function";
-@import "variable";
+@import "common/breakpoint";
 
 .container {
   .review-content {
     margin: 54px auto 0;
     width: 90%;
-    @include md {
-      width: 100%;
-    }
     .review-header {
       display: flex;
       justify-content: space-between;
       .title {
         font-weight: bold;
         font-size: 20px;
-        @include xs {
-          font-size: 16px;
-        }
-      }
-      .review-btn {
-        .btn {
-          @include xs {
-            font-size: x-small;
-          }
-        }
       }
     }
     .reviews {
@@ -40,9 +26,6 @@
         justify-content: space-around;
         padding: 20px;
         width: 100%;
-        @include xs {
-          padding: 20px 0;
-        }
         .review-image {
           display: flex;
           align-items: center;
@@ -51,32 +34,15 @@
             width: 60px;
             height: 60px;
             border-radius: 50%;
-            @include md {
-              width: 50px;
-              height: 50px;
-            }
-            @include xs {
-              width: 40px;
-              height: 40px;
-            }
           }
         }
         .review-name {
           display: flex;
           align-items: center;
           width: 20%;
-          @include md {
-            margin-left: 16px;
-          }
-          @include xs {
-            margin-left: 20px;
-          }
           .reviewer {
             font-weight: bold;
             font-size: 16px;
-            @include xs {
-              font-size: 14px;
-            }
           }
         }
       }
@@ -89,20 +55,6 @@
             width: 19%;
             position: relative;
             font-size: 24px;
-            @include lg {
-              width: 22%;
-            }
-            @include md {
-              font-size: 20px;
-              width: 23%;
-            }
-            @include sm {
-              width: 33%;
-            }
-            @include xs {
-              font-size: 14px;
-              width: 73px;
-            }
             .star-rating-front {
               position: absolute;
               top: 0;
@@ -117,17 +69,11 @@
           .created {
             color: #c0c0c0;
             font-size: 12px;
-            @include xs {
-              font-size: 10px;
-            }
           }
         }
         .review-text {
           .content {
             word-break: break-all;
-            @include xs {
-              font-size: 12px;
-            }
           }
         }
       }
@@ -146,9 +92,6 @@
   .review-form-wrapper {
     margin: 100px auto 0;
     width: 700px;
-    @include sm {
-      width: 90%;
-    }
     .review-form {
       display: flex;
       flex-direction: column;
@@ -162,30 +105,154 @@
           margin-right: 24px;
           cursor: pointer;
           letter-spacing: -1px;
-          @include xs {
-            font-size: 20px;
-          }
         }
         .rating-value-display {
           font-size: 16px;
           margin: auto;
           letter-spacing: 5px;
-          @include xs {
-            font-size: 14px;
-          }
         }
       }
       .form-content {
         margin-bottom: 40px;
-        @include xs {
-          margin: 0 auto 40px;
-          width: 100%;
-        }
         &__field {
           width: 450px;
           padding-top: 8px;
           padding-left: 8px;
-          @include xs {
+        }
+      }
+    }
+  }
+}
+
+// レスポンシブ(PC)
+@include lg {
+  .container {
+    .review-content {
+      .reviews {
+        .review-detail {
+          .review-display {
+            .score {
+              width: 22%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// レスポンシブ(タブレット)
+@include md {
+  .container {
+    .review-content {
+      width: 100%;
+      .reviews {
+        .review {
+          .review-image {
+            .user-image {
+              width: 50px;
+              height: 50px;
+            }
+          }
+          .review-name {
+            margin-left: 16px;
+          }
+        }
+        .review-detail {
+          .review-display {
+            .score {
+              font-size: 20px;
+              width: 23%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// レスポンシブ(スマホ)
+@include sm {
+  .container {
+    .review-content {
+      .reviews {
+        .review-detail {
+          .review-display {
+            .score {
+              width: 33%;
+            }
+          }
+        }
+      }
+    }
+    .review-form-wrapper {
+      width: 90%;
+    }
+  }
+}
+
+// レスポンシブ(スマホ)
+@include xs {
+  .container {
+    .review-content {
+      .review-header {
+        .title {
+          font-size: 16px;
+        }
+        .review-btn {
+          .btn {
+            font-size: x-small;
+          }
+        }
+      }
+      .reviews {
+        .review {
+          padding: 20px 0;
+          .review-image {
+            .user-image {
+              width: 40px;
+              height: 40px;
+            }
+          }
+          .review-name {
+            margin-left: 20px;
+            .reviewer {
+              font-size: 14px;
+            }
+          }
+        }
+        .review-detail {
+          .review-display {
+            .score {
+              font-size: 14px;
+              width: 73px;
+            }
+            .created {
+              font-size: 10px;
+            }
+          }
+          .review-text {
+            .content {
+              font-size: 12px;
+            }
+          }
+        }
+      }
+    }
+    .review-form-wrapper {
+      .review-form {
+        .main-rating {
+          .ratings {
+            font-size: 20px;
+          }
+          .rating-value-display {
+            font-size: 14px;
+          }
+        }
+        .form-content {
+          margin: 0 auto 40px;
+          width: 100%;
+          &__field {
             width: 100%;
           }
         }

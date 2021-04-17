@@ -3,8 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // 関数の読み込み
-@import "function";
-@import "variable";
+@import "common/breakpoint";
+@import "common/favorite";
 
 .container {
   .post-show {
@@ -24,37 +24,20 @@
         text-align: center;
         font-weight: bold;
         font-size: 32px;
-        @include xs {
-          font-size: 20px;
-        }
       }
     }
     .top-image {
       display: flex;
       justify-content: center;
-      .active-photo {
-        @include xs {
-          width: 100%;
-        }
-      }
     }
     .tags-field {
       margin: 40px 120px 0;
       display: flex;
-      @include md {
-        margin: 40px 0 0;
-      }
-      @include xs {
-        margin-top: 24px;
-      }
       .tags {
         margin-right: 8px;
         padding: 4px;
         background-color: #f5f5f5;
         border-radius: 3px;
-        @include xs {
-          padding: 0;
-        }
         .tag {
           text-decoration: none;
           color: #ffc107;
@@ -67,14 +50,6 @@
       border: solid 1px gray;
       box-shadow: 0 0 3px gray;
       border-radius: 5px;
-      // レスポンシブデザイン
-      @include md {
-        margin: 40px 0;
-      }
-      @include xs {
-        padding: 24px 0;
-        margin-top: 24px;
-      }
       .user {
         width: 100%;
         margin: auto;
@@ -84,9 +59,6 @@
           .title {
             font-size: 24px;
             font-weight: bold;
-            @include xs {
-              font-size: 20px;
-            }
           }
         }
         .bottom {
@@ -94,9 +66,6 @@
           display: flex;
           padding: 0 144px;
           margin-bottom: 32px;
-          @include md {
-            padding: 0;
-          }
           .user {
             width: 50%;
             display: flex;
@@ -105,10 +74,6 @@
               border-radius: 50%;
               width: 90px;
               height: 90px;
-              @include sm {
-                width: 50px;
-                height: 50px;
-              }
               }
             }
           }
@@ -120,31 +85,11 @@
           .name {
             font-size: 24px;
             font-weight: bold;
-            @include sm {
-              font-size: 20px;
-            }
-            @include xs {
-              font-size: 18px;
-            }
           }
           .review {
             position: relative;
             font-size: 24px;
             width: 48%;
-            @include lg {
-              width: 73%;
-            }
-            @include md {
-              width: 40%;
-            }
-            @include sm {
-              width: 37%;
-              font-size: 16px;
-            }
-            @include xs {
-              width: 75px;
-              font-size: 15px;
-            }
             .star-rating-front {
               position: absolute;
               top: 0;
@@ -160,15 +105,6 @@
               color: black;
               .count {
                 font-size: 16px;
-                @include lg {
-                  font-size: 14px;
-                }
-                @include sm {
-                  font-size: 12px;
-                }
-                @include xs {
-                  font-size: 8px;
-                }
               }
             }
           }
@@ -176,9 +112,6 @@
       }
       .basic-info {
         padding: 0 96px;
-        @include sm {
-          padding: 0 16px;
-        }
         .content-block {
           width: 100%;
           .top {
@@ -186,20 +119,9 @@
             margin-bottom: 16px;
             font-size: 24px;
             font-weight: bold;
-            @include xs {
-              font-size: 20px;
-            }
-            .table td {
-              @include xs {
-                font-size: 14px;
-              }
-            }
           }
           .bottom {
             margin-bottom: 32px;
-            @include xs {
-              font-size: 16px;
-            }
           }
         }
       }
@@ -213,10 +135,157 @@
       width: 50%;
       display: flex;
       justify-content: space-evenly;
-      @include sm {
+    }
+  }
+}
+
+// レスポンシブ(PC)
+@include lg {
+  .container {
+    .post-show {
+      .post-detail {
+        .user {
+          .info {
+            .review {
+              width: 73%;
+              .link {
+                font-size: 14px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// レスポンシブ(タブレット)
+@include md {
+  .container {
+    .post-show {
+      .tags-field {
+        font-size: 14px;
+        margin: 40px 0 0;
+      }
+      .post-detail {
+        margin: 40px 0;
+        .user {
+          .bottom {
+            padding: 0;
+          }
+          .info {
+            .review {
+              width: 40%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// レスポンシブ(スマホ)
+@include sm {
+  .container {
+    .post-show {
+      .post-detail {
+        .user {
+          .bottom {
+            .user {
+              .icon {
+                width: 50px;
+                height: 50px;
+              }
+            }
+          }
+          .info {
+            .name {
+              font-size: 20px;
+            }
+            .review {
+              width: 37%;
+              font-size: 16px;
+              .link {
+                .count {
+                  font-size: 12px;
+                }
+              }
+            }
+          }
+        }
+        .basic-info {
+          padding: 0 16px;
+        }
+      }
+    }
+    .button-block {
+      .button {
         justify-content: space-between;
       }
-      @include xs {
+    }
+  }
+}
+
+// レスポンシブ(スマホ)
+@include xs {
+  .container {
+    .post-show {
+      .post-top {
+        .title {
+          font-size: 20px;
+        }
+      }
+      .top-image {
+        .active-photo {
+          width: 100%;
+        }
+      }
+      .tags-field {
+        font-size: 12px;
+        margin-top: 24px;
+        .tags {
+          padding: 0;
+        }
+      }
+      .post-detail {
+        padding: 24px 0;
+        margin-top: 24px;
+        .user {
+          .info {
+            .title {
+              font-size: 20px;
+            }
+            .name {
+              font-size: 18px;
+            }
+            .review {
+              width: 75px;
+              font-size: 15px;
+              .link {
+                .count {
+                  font-size: 8px;
+                }
+              }
+            }
+          }
+        }
+        .basic-info {
+          .content-block {
+            .top {
+              font-size: 20px;
+              .table td {
+                font-size: 14px;
+              }
+            }
+            .bottom {
+              font-size: 16px;
+            }
+          }
+        }
+      }
+    }
+    .button-block {
+      .button {
         width: 100%;
         justify-content: space-evenly;
       }

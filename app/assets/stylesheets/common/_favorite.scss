@@ -1,0 +1,20 @@
+// 関数の読み込み
+@import "common/breakpoint";
+
+@mixin favorite {
+  position: absolute;
+  top: 102px;
+  right: 200px;  
+  color: #ffc107;
+  font-size: 24px;
+  // レスポンシブ(スマホ)
+  @include sm {
+    right: 30px;
+    font-size: 20px;
+  }
+  // レスポンシブ(スマホ)
+  @include xs {
+    top: 98px;
+    font-size: 12px;
+  }
+}

@@ -3,19 +3,12 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // 関数の読み込み
-@import "function";
-@import "variable";
+@import "common/breakpoint";
 
 .container {
   .notification-wrapper {
     margin: 80px auto;
     width: 50%;
-    @include md {
-      width: 60%;
-    }
-    @include sm {
-      width: 100%;
-    }
     .title {
       text-align: center;
       margin-bottom: 24px;
@@ -23,9 +16,6 @@
         font-size: 28px;
         color: #ffc107;
         border-bottom: solid 2px #ffc107;
-        @include xs {
-          font-size: 24px;
-        }
       }
     }
     .notification-content {
@@ -43,17 +33,10 @@
               height: 25px;
               border-radius: 50%;
               margin-right: 4px;
-              @include xs {
-                width: 20px;
-                height: 20px;
-              }
             }
             .info {
               .text {
                 font-size: 20px;
-                @include xs {
-                  font-size: 16px;
-                }
               }
               .time-difference {
                 font-size: 12px;
@@ -71,6 +54,54 @@
           .text {
             font-size: 24px;
             color: #a9a9a9;
+          }
+        }
+      }
+    }
+  }
+}
+
+// レスポンシブ(タブレット)
+@include md {
+  .container {
+    .notification-wrapper {
+      width: 60%;
+    }
+  }
+}
+
+// レスポンシブ(スマホ)
+@include sm {
+  .container {
+    .notification-wrapper {
+      width: 100%;
+    }
+  }
+}
+
+// レスポンシブ(スマホ)
+@include xs {
+  .container {
+    .notification-wrapper {
+      .title {
+        .word {
+          font-size: 24px;
+        }
+      }
+      .notification-content {
+        .notifications {
+          .notification-link {
+            .detail {
+              .user-image {
+                width: 20px;
+                height: 20px;
+              }
+              .info {
+                .text {
+                  font-size: 16px;
+                }
+              }
+            }
           }
         }
       }

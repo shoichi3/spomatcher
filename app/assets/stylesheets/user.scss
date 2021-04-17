@@ -1,16 +1,10 @@
 // 関数の読み込み
-@import "function";
-@import "variable";
+@import "common/breakpoint";
+@import "common/user-post_list";
 
 .container {
   .user-inner {
     margin: 60px 150px 48px;
-    @include md {
-      margin: 60px 80px 48px;
-    }
-    @include sm {
-      margin: 60px 0 32px;
-    }
     .user-info {
       height: 100%;
       .upper {
@@ -21,18 +15,6 @@
             width: 110px;
             height: 110px;
             border-radius: 50%;
-            @include md {
-              width: 80px;
-              height: 80px;
-            }
-            @include sm {
-              width: 70px;
-              height: 70px;
-            }
-            @include xs {
-              width: 60px;
-              height: 60px;
-            }
           }
         }
         .right {
@@ -43,29 +25,12 @@
             .name {
               font-weight: bold;
               font-size: 24px;
-              @include md {
-                font-size: 20px;
-              }
-              @include xs {
-                font-size: 16px;
-              }
             }
             .review {
               margin-bottom: 8px;
               position: relative;
               font-size: 24px;
               width: 66%;
-              @include md {
-                font-size: 16px;
-                width: 43%;
-              }
-              @include sm {
-                width: 55%;
-              }
-              @include xs {
-                width: 75px;
-                font-size: 14px;
-              }
               .star-rating-front {
                 position: absolute;
                 top: 0;
@@ -84,13 +49,6 @@
                 .count {
                   font-size: 16px;
                   margin: auto;
-                  @include md {
-                    font-size: 10px;
-                    margin: 0;
-                  }
-                  @include xs {
-                    font-size: 10px;
-                  }
                 }
               }
             }
@@ -101,16 +59,6 @@
                 text-decoration: none;
                 color: black;
                 margin-right: 16px;
-                @include md {
-                  font-size: 16px;
-                }
-                @include sm {
-                  font-size: 12px;
-                }
-                @include xs {
-                  font-size: 10px;
-                  margin-right: 4px;
-                }
                 .count {
                   font-weight: bold;
                   margin-right: 4px;
@@ -120,15 +68,6 @@
                 display: flex;
                 text-decoration: none;
                 color: black;
-                @include md {
-                  font-size: 16px;
-                }
-                @include sm {
-                  font-size: 12px;
-                }
-                @include xs {
-                  font-size: 10px;
-                }
                 .count {
                   font-weight: bold;
                   margin-right: 4px;
@@ -146,20 +85,12 @@
                 width: 100%;
               }
             }
-            .btn-outline-warning {
-              @include xs {
-                font-size: x-small;
-              }
-            }
           }
         }
       }
       .bottom {
         margin-top: 24px;
         word-break: break-all;
-        @include sm {
-          margin-top: 32px;
-        }
         .profile {
           color: #696969;
         }
@@ -170,9 +101,6 @@
     margin-bottom: 48px;
     .user-post {
       margin: 0 100px;
-      @include md {
-        margin: 0;
-      }
       .user-page-tags {
         display: flex;
         margin-bottom: 16px;
@@ -184,9 +112,6 @@
           cursor: pointer;
           border-bottom: solid 2px #a9a9a9;
           padding-bottom: 4px;
-          @include xs {
-            font-size: 14px;
-          }
         }
         .user-favorite-post {
           font-size: 18px;
@@ -195,9 +120,6 @@
           cursor: pointer;
           border-bottom: solid 2px #a9a9a9;
           padding-bottom: 4px;
-          @include xs {
-            font-size: 14px;
-          }
         }
         .active {
           color: #ffa500;
@@ -214,6 +136,152 @@
     }
     .show {
       display: block;
+    }
+  }
+}
+
+// レスポンシブ(タブレット)
+@include md {
+  .container {
+    .user-inner {
+      margin: 60px 80px 48px;
+      .user-info {
+        .upper {
+          .left {
+            .user-image {
+              width: 80px;
+              height: 80px;
+            }
+          }
+          .right {
+            .user-content {
+              .name {
+                font-size: 20px;
+              }
+              .review {
+                font-size: 16px;
+                width: 43%;
+                .link {
+                  .count {
+                    font-size: 10px;
+                    margin: 0;
+                  }
+                }
+              }
+              .follow {
+                .followings {
+                  font-size: 16px;
+                }
+                .followers {
+                  font-size: 16px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .post-inner {
+      .user-post {
+        margin: 0;
+      }
+    }
+  }
+}
+
+// レスポンシブ(スマホ)
+@include sm {
+  .container {
+    .user-inner {
+      margin: 60px 0 32px;
+      .user-info {
+        .upper {
+          .left {
+            .user-image {
+              width: 70px;
+              height: 70px;
+            }
+          }
+          .right {
+            .user-content {
+              .review {
+                width: 55%;
+              }
+              .follow {
+                .followings {
+                  font-size: 12px;
+                }
+                .followers {
+                  font-size: 12px;
+                }
+              }
+            }
+          }
+        }
+        .bottom {
+          margin-top: 32px;
+        }
+      }
+    }
+  }
+}
+
+// レスポンシブ(スマホ)
+@include xs {
+  .container {
+    .user-inner {
+      .user-info {
+        .upper {
+          .left {
+            .user-image {
+              width: 60px;
+              height: 60px;
+            }
+          }
+          .right {
+            .user-content {
+              .name {
+                font-size: 16px;
+              }
+              .review {
+                width: 75px;
+                font-size: 14px;
+                .link {
+                  .count {
+                    font-size: 10px;
+                  }
+                }
+              }
+              .follow {
+                .followings {
+                  font-size: 10px;
+                  margin-right: 4px;
+                }
+                .followers {
+                  font-size: 10px;
+                }
+              }
+            }
+            .button {
+              .btn-outline-warning {
+                font-size: x-small;
+              }
+            }
+          }
+        }
+      }
+    }
+    .post-inner {
+      .user-post {
+        .user-page-tags {
+          .user-last-post {
+            font-size: 14px;
+          }
+          .user-favorite-post {
+            font-size: 14px;
+          }
+        }
+      }
     }
   }
 }

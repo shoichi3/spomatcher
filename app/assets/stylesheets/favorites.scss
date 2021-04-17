@@ -3,26 +3,19 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // 関数の読み込み
-@import "function";
-@import "variable";
+@import "common/breakpoint";
+@import "common/follow";
 
 .container {
   .wrapper-inner {
     width: 80%;
     margin: 0 auto;
     padding-top: 50px;
-    @include md {
-      width: 100%;
-      margin: 0;
-    }
     .title {
       font-weight: bold;
       color: #ffa500;
       font-size: 20px;
       margin-bottom: 24px;
-      @include xs {
-        font-size: 18px;
-      }
     }
     .follow_tabs {
       width: 100%;
@@ -37,9 +30,6 @@
         border-bottom: solid 2px #a9a9a9;
         padding-bottom: 8px;
         cursor: pointer;
-        @include xs {
-          font-size: 14px;
-        }
       }
       .active {
         color: #ffa500;
@@ -55,6 +45,32 @@
     }
     .show {
       display: block;
+    }
+  }
+}
+
+// レスポンシブ(タブレット)
+@include md {
+  .container {
+    .wrapper-inner {
+      width: 100%;
+      margin: 0;
+    }
+  }
+}
+
+// レスポンシブ(スマホ)
+@include xs {
+  .container {
+    .wrapper-inner {
+      .title {
+        font-size: 18px;
+      }
+      .follow_tabs {
+        .follow_tab {
+          font-size: 14px;
+        }
+      }
     }
   }
 }

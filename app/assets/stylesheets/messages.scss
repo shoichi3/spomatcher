@@ -3,8 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // 関数の読み込み
-@import "variable";
-@import "function";
+@import "common/breakpoint";
+@import "common/user-list";
 
 .message-content {
   height: 100vh;
@@ -16,38 +16,14 @@
     border-right: solid 1px #c0c0c0;
     overflow: scroll;
     .empty-room {
-      @include md {
-        width: 100%;
-        height: 100vh;
-      }
       .text {
         display: none;
-        @include md {
-          height: 100vh;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          font-weight: bold;
-          font-size: 32px;
-          color: gray;
-        }
-        @include xs {
-          font-size: 28px;
-        }
       }
-    }
-    // レスポンシブデザイン
-    @include md {
-      width: 100%;
     }
     @include user-list
   }
   .main {
     width: 80%;
-    // レスポンシブデザイン
-    @include md {
-      width: 100%;
-    }
     .main-header {
       width: 100%;
       height: 40px;
@@ -58,28 +34,16 @@
       position: fixed;
       background-color: #ffffff;
       .back-icon {
-        // レスポンシブデザイン
-        @include md {
-          margin-left: 8px;
-        }
         .fa-chevron-left {
           display: none;
           :active {
             text-decoration: none;
-          }
-          // レスポンシブデザイン
-          @include md {
-            display: block;
           }
         }
       }
       .message-partner {
         font-weight: bold;
         padding-left: 80px;
-        // レスポンシブデザイン
-        @include md {
-          padding-left: 16px;
-        }
       }
     }
     .communication {
@@ -89,13 +53,6 @@
       margin-right: 160px;
       padding-left: 20px;
       width: 100%;
-      // レスポンシブデザイン
-      @include md {
-        margin-top: 60px;
-      }
-      @include sm {
-        height: calc(100vh - 215px);
-      }
       .messages-wrapper {
         width: 80%;
         .messages {
@@ -104,37 +61,14 @@
           padding-bottom: 32px;
           .left {
             width: 10%;
-            @include md {
-              text-align: center;
-            }
             .user-image {
               width: 60px;
               height: 60px;
               border-radius: 50%;
-              // レスポンシブデザイン
-              @include lg {
-                width: 50px;
-                height: 50px;
-              }
-              @include md {
-                width: 40px;
-                height: 40px;
-              }
-              @include xs {
-                width: 30px;
-                height: 30px;
-              }
             }
           }
           .right {
             width: 90%;
-            // レスポンシブデザイン
-            @include md {
-              margin-left: 8px;
-            }
-            @include xs {
-              margin-left: 12px;
-            }
             .info {
               display: flex;
               align-items: center;
@@ -142,10 +76,6 @@
               .user-name {
                 font-weight: bold;
                 font-size: 20px;
-                // レスポンシブデザイン
-                @include lg {
-                  font-size: 16px;
-                }
               }
               .message-time {
                 margin-left: 16px;
@@ -156,36 +86,11 @@
             .message {
               margin-bottom: 8px;
               font-size: 20px;
-              // レスポンシブデザイン
-              @include lg {
-                font-size: 16px;
-              }
-              @include xs {
-                font-size: 14px;
-              }
-            }
-            .attached-image {
-              .image {
-                // レスポンシブデザイン
-                @include md {
-                  width: 400px;
-                  height: 400px;
-                }
-                @include sm {
-                  width: 350px;
-                  height: 350px;
-                }
-                @include xs {
-                  width: 90%;
-                  height: 90%;
-                }
-              }
             }
           }
         }
       }
     }
-
     .send {
       width: 100%;
       height: 85px;
@@ -199,18 +104,8 @@
         justify-content: space-between;
         padding: 0 80px;
         width: 100%;
-        // レスポンシブデザイン
-        @include md {
-          padding: 0 10px;
-        }
         .message-field {
           width: 80%;
-          @include sm {
-            width: 75%;
-          }
-          @include xs {
-            width: 65%;
-          }
           &__content {
             width: 100%;
             padding-top: 8px;
@@ -221,18 +116,8 @@
           .far {
             font-size: 40px;
             cursor: pointer;
-            @include xs {
-              font-size: 30px;
-            }
             .file-input {
               display: none;
-            }
-          }
-        }
-        .message-submit {
-          .btn {
-            @include xs {
-              font-size: x-small;
             }
           }
         }
@@ -241,10 +126,6 @@
   }
   .second {
     width: 80%;
-    // レスポンシブデザイン
-    @include md {
-      display: none;
-    }
     .top-message {
       height: 100%;
       display: flex;
@@ -261,10 +142,194 @@
     width: 25%;
     border-right: solid 1px #c0c0c0;
     overflow: scroll;
-    // レスポンシブデザイン
-    @include md {
+    @include user-list
+  }
+}
+
+// レスポンシブ(PC)
+@include lg {
+  .message-content {
+    .main {
+      .communication {
+        .messages-wrapper {
+          .messages {
+            .left {
+              .user-image {
+                width: 50px;
+                height: 50px;
+              }
+            }
+            .right {
+              .info {
+                .user-name {
+                  font-size: 16px;
+                }
+              }
+              .message {
+                font-size: 16px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// レスポンシブ(タブレット)
+@include md {
+  .message-content {
+    .user-lists {
+      width: 100%;
+      .empty-room {
+        width: 100%;
+        height: 100vh;
+        .text {
+          height: 100vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-weight: bold;
+          font-size: 32px;
+          color: gray;
+        }
+      }
+    }
+    .main {
+      width: 100%;
+      .main-header {
+        .back-icon {
+          margin-left: 8px;
+          .fa-chevron-left {
+            display: block;
+          }
+        }
+        .message-partner {
+          padding-left: 16px;
+        }
+      }
+      .communication {
+        margin-top: 60px;
+        .messages-wrapper {
+          .messages {
+            .left {
+              text-align: center;
+              .user-image {
+                width: 40px;
+                height: 40px;
+              }
+            }
+            .right {
+              margin-left: 8px;
+              .attached-image {
+                .image {
+                  width: 400px;
+                  height: 400px;
+                }
+              }
+            }
+          }
+        }
+      }
+      .send {
+        .message-form {
+          padding: 0 10px;
+        }
+      }
+    }
+    .second {
       display: none;
     }
-    @include user-list
+    .user-lists-second {
+      display: none;
+    }
+  }
+}
+
+// レスポンシブ(スマホ)
+@include sm {
+  .message-content {
+    padding-top: 62px;
+    .main {
+      .communication {
+        height: calc(100vh - 215px);
+        .messages-wrapper {
+          .messages {
+            .right {
+              .attached-image {
+                .image {
+                  width: 350px;
+                  height: 350px;
+                }
+              }
+            }
+          }
+        }
+      }
+      .send {
+        .message-form {
+          .message-field {
+            width: 75%;
+          }
+        }
+      }
+    }
+  }
+}
+
+// レスポンシブ(スマホ)
+@include xs {
+  .message-content {
+    padding-top: 56px;
+    .user-lists {
+      .empty-room {
+        .text {
+          font-size: 28px;
+        }
+      }
+    }
+    .main {
+      .communication {
+        .messages-wrapper {
+          .messages {
+            .left {
+              .user-image {
+                width: 30px;
+                height: 30px;
+              }
+            }
+            .right {
+              margin-left: 12px;
+              .message {
+                font-size: 14px;
+              }
+              .attached-image {
+                .image {
+                  width: 90%;
+                  height: 90%;
+                }
+              }
+            }
+          }
+        }
+      }
+      .send {
+        .message-form {
+          .message-field {
+            width: 65%;
+          }
+          .message-image {
+            .far {
+              font-size: 30px;
+            }
+          }
+          .message-submit {
+            .btn {
+              font-size: x-small;
+            }
+          }
+        }
+      }
+    }
   }
 }
