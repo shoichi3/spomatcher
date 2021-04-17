@@ -3,8 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // 関数の読み込み
-@import "function";
-@import "variable";
+@import "common/breakpoint";
+@import "common/post";
 
 // トップページ
 .wrapper {
@@ -104,9 +104,6 @@
       }
     }
   }
-}
-
-@include md {
   .container {
     .posts {
       .post-wrapper {
