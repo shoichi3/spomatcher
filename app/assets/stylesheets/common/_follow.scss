@@ -1,0 +1,97 @@
+// 関数の読み込み
+@import "common/breakpoint";
+
+@mixin follow {
+  display: none;
+  .empty-post {
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .content {
+      color: #a9a9a9;
+      font-size: 24px;
+    }
+  }
+  .user-box {
+    padding: 24px 40px;
+    border-bottom: solid 2px #aaaaaa;
+    &__content {
+      display: flex;
+      justify-content: space-between;
+      .left {
+        display: flex;
+        .photo-area {
+          display: flex;
+          align-items: center;
+          .user-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+          }
+        }
+        .user-info {
+          margin-left: 40px;
+          .name {
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 16px;
+          }
+          .profile {
+            width: 85%;
+            word-break: break-all;
+            color: #696969;
+          }
+        }
+      }
+      .right {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+  // レスポンシブ(スマホ)
+  @include sm {
+    .user-box__content {
+      .left {
+        .photo-area {
+          .user-image {
+            width: 70px;
+            height: 70px;
+          }
+        }
+        .user-info {
+          margin-left: 24px;
+          .name {
+            margin-bottom: 12px;
+          }
+          .profile {
+            width: 90%;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+  // レスポンシブ(スマホ)
+  @include xs {
+    .user-box {
+      padding: 20px 0;
+      &__content {
+        .left {
+          .photo-area {
+            .user-image {
+              width: 50px;
+              height: 50px;
+            }
+          }
+        }
+        .right {
+          .btn {
+            font-size: x-small;
+          }
+        }
+      }
+    }
+  }
+}
