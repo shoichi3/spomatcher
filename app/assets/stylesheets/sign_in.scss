@@ -3,8 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // 関数の読み込み
-@import "function";
-@import "variable";
+@import "common/breakpoint";
+@import "common/whole";
 
 // ログイン画面
 .wrapper {
@@ -20,24 +20,9 @@
     .collapse {
       .nav-item {
         margin-left: 24px;
-        @include sm {
-          margin-left: 20px;
-        }
-        @include xs {
-          margin-left: 12px;
-        }
         i {
           color: #333333;
           font-size: 30px;
-          @include sm {
-            font-size: 24px;
-          }
-          @include xs {
-            font-size: 20px;
-          }
-          @include xs {
-            font-size: 18px;
-          }
         }
         .fa-stack {
           .fa-circle {
@@ -54,14 +39,6 @@
           height: 40px;
           border-radius: 50%;
           cursor: pointer;
-          @include sm {
-            width: 30px;
-            height: 30px;
-          }
-          @include xs {
-            width: 25px;
-            height: 25px;
-          }
         }
       }
     }
@@ -76,68 +53,24 @@
       box-shadow: 0px 0px 2px rgba(0,0,0,0.1);
       padding: 0 8px 8px;
       margin: 0;
-      @include sm {
-        padding: 0 4px 1px;
-      }
-      @include md {
-        right: 50px;
-      }
-      @include sm {
-        top: 58px;
-        right: 30px;
-      }
-      @include xs {
-        top: 48px;
-        right: 12px;
-      }
       &__content {
         padding-top: 8px;
-        @include sm {
-          padding-top: 2px;
-        }
-        @include xs {
-          padding-top: 0;
-        }
         i {
           margin-right: 12px;
-          @include xs {
-            margin-right: 8px;
-          }
         }
         .fa-user-edit {
           margin-right: 8px;
-        }
-        .pull-down-list {
-          @include sm {
-            font-size: 14px;
-          }
-          @include xs {
-            font-size: 12px;
-          }
         }
       }
     }
     .form {
       width: 400px;
       margin: 40px auto;
-      @include xs {
-        width: 80%;
-      }
       .login {
         margin-top: 40px;
-        .btn {
-          @include xs {
-            font-size: x-small;
-          }
-        }
       }
       .guest-login {
         margin-top: 24px;
-        .btn {
-          @include xs {
-            font-size: x-small;
-          }
-        }
       }
       .forgot-password {
         margin-top: 40px;
@@ -150,28 +83,17 @@
       }
       .form-content {
         text-align: left;
-        label {
-          @include xs {
-            font-size: 14px;
-          }
-        }
         .required {
           background-color: red;
           border-radius: 3px;
           color: #ffffff;
           padding: 1px;
-          @include xs {
-            font-size: 12px;
-          }
         }
         .optional {
           background-color: #a9a9a9;
           border-radius: 3px;
           color: #ffffff;
           padding: 1px;
-          @include xs {
-            font-size: 12px;
-          }
         }
         &__field {
           height: 40px;
@@ -180,14 +102,6 @@
           padding-left: 5px;
           border-radius: 1px;
           border: solid 1px #a4a8a4;
-          @include xs {
-            width: 100%;
-          }
-        }
-        &__image {
-          @include xs {
-            width: 100%;
-          }
         }
       }
     }
@@ -210,9 +124,6 @@
         border: solid 1px #a4a8a4;
         padding-left: 5px;
         padding-top: 5px;
-        @include xs {
-          width: 100%;
-        }
       }
       &__image {
         margin-bottom: 24px;
@@ -250,15 +161,16 @@
   }
 }
 
-// レスポンシブWebデザイン
-.wrapper {
-  .container-fluid {
-    @include md {
+// レスポンシブ(タブレット)
+@include md {
+  .wrapper {
+    .container-fluid {
       display: flex;
       flex-wrap: nowrap !important;
-    }
-    .collapse {
-      @include md {
+      .menu {
+        right: 50px;
+      }
+      .collapse {
         display: flex;
         .navbar-nav {
           display: flex;
@@ -266,15 +178,111 @@
         }
       }
     }
-  }
-}
-
-.wrapper {
-  .content {
-    @include md {
+    .content {
       display: flex;
       flex-wrap: nowrap;
       flex-direction: column;
     }
   }
+}
+
+// レスポンシブ(スマホ)
+@include sm {
+  .wrapper {
+    .container-fluid {
+      .collapse {
+        .nav-item {
+          margin-left: 20px;
+          i {
+            font-size: 24px;
+          }
+          .user-image {
+            width: 30px;
+            height: 30px;
+          }
+        }
+      }
+      .menu {
+        padding: 0 4px 1px;
+        top: 58px;
+        right: 30px;
+        &__content {
+          padding-top: 2px;
+          .pull-down-list {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// レスポンシブ(スマホ)
+@include xs {
+  .wrapper {
+    .container-fluid {
+      .collapse {
+        .nav-item {
+          margin-left: 12px;
+          i {
+            font-size: 18px;
+          }
+          .user-image {
+            width: 25px;
+            height: 25px;
+          }
+        }
+      }
+      .menu {
+        top: 48px;
+        right: 12px;
+        &__content {
+          padding-top: 0;
+          i {
+            margin-right: 8px;
+          }
+          .pull-down-list {
+            font-size: 12px;
+          }
+        }
+      }
+      .form {
+        width: 80%;
+        .login {
+          .btn {
+            font-size: x-small;
+          }
+        }
+        .guest-login {
+          .btn {
+            font-size: x-small;
+          }
+        }
+        .form-content {
+          label {
+            font-size: 14px;
+          }
+          .required {
+            font-size: 12px;
+          }
+          .optional {
+            font-size: 12px;
+          }
+          &__field {
+            width: 100%;
+          }
+          &__image {
+            width: 100%;
+          }
+        }
+      }
+    }
+    .form {
+      .form-content {
+        &__profile {
+          width: 100%;
+        }
+      }
+    }
+  } 
 }
