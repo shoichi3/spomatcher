@@ -3,8 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // 関数の読み込み
-@import "variable";
-@import "function";
+@import "common/breakpoint";
+@import "common/user-list";
 
 .message-content {
   height: 100vh;
@@ -249,6 +249,7 @@
 // レスポンシブ(スマホ)
 @include sm {
   .message-content {
+    padding-top: 62px;
     .main {
       .communication {
         height: calc(100vh - 215px);
@@ -279,6 +280,7 @@
 // レスポンシブ(スマホ)
 @include xs {
   .message-content {
+    padding-top: 56px;
     .user-lists {
       .empty-room {
         .text {
