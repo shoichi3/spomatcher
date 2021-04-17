@@ -3,8 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // 関数の読み込み
-@import "function";
-@import "variable";
+@import "common/breakpoint";
+@import "common/follow";
 
 .container {
   .wrapper-inner {
