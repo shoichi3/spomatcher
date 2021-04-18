@@ -3,6 +3,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   include CreateFollowNotificationService
   include CalculateAverageScoreService
+  include ComfirmFollowingService
+  include FollowUserService
+  include UnfollowUserService
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
@@ -52,22 +55,6 @@ class User < ApplicationRecord
     result = update_attributes(params, *options)
     clean_up_passwords
     result
-  end
-
-  # フォローしているかを確認するメソッド
-  def following?(user)
-    following_relationships.find_by(following_id: user.id)
-  end
-
-  # フォローするときのメソッド
-  def follow(user)
-    following_relationships.create!(following_id: user.id)
-  end
-
-  # フォローを外すときのメソッド
-  def unfollow(user)
-    following_user = following_relationships.find_by(following_id: user.id)
-    following_user.destroy
   end
 
 end
