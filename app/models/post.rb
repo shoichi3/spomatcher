@@ -38,12 +38,4 @@ class Post < ApplicationRecord
     notification.checked = true if notification.visitor_id == notification.visited_id
     notification.save if notification.valid?
   end
-
-  def self.search(search)
-    if search != ''
-      Post.where('title LIKE(?)', "%#{search}%").includes([:user, :tags])
-    else
-      Post.all.includes([:user, :tags])
-    end
-  end
 end
