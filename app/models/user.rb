@@ -37,5 +37,4 @@ class User < ApplicationRecord
   with_options format: { with: PASSWORD_REGEX, message: 'には半角英数字の両方が必要です。' } do
     validates :password, on: :create
   end
-
 end

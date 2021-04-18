@@ -23,5 +23,4 @@ class Post < ApplicationRecord
   end
 
   validates :image, presence: { message: 'を選択してください。' }
-  
 end
