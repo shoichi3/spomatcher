@@ -56,7 +56,7 @@ class PostsController < ApplicationController
 
   def search
     @user = User.find_by(id: current_user.id) if user_signed_in?
-    @posts = Post.search(params[:keyword]).page(params[:page]).per(5).order(created_at: 'DESC')
+    @posts = SearchPostsService.search(params[:keyword]).page(params[:page]).per(5).order(created_at: 'DESC')
   end
 
   private
