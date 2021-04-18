@@ -6,6 +6,8 @@ class User < ApplicationRecord
   include ComfirmFollowingService
   include FollowUserService
   include UnfollowUserService
+  # include LoginGuestUserService
+  include UpdateWithoutCurrentPasswordService
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
@@ -34,27 +36,6 @@ class User < ApplicationRecord
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
   with_options format: { with: PASSWORD_REGEX, message: 'には半角英数字の両方が必要です。' } do
     validates :password, on: :create
-  end
-
-  def self.guest
-    User.find_or_create_by!(email: 'guest@example.com') do |user|
-      user.password = SecureRandom.urlsafe_base64
-      user.name = 'ゲスト'
-    end
-  end
-
-  def update_without_current_password(params, *options)
-    params.delete(:current_password)
-
-    if params[:password].blank? && params[:password_confirmation].blank?
-
-      params.delete(:password)
-      params.delete(:password_confirmation)
-    end
-
-    result = update_attributes(params, *options)
-    clean_up_passwords
-    result
   end
 
 end
