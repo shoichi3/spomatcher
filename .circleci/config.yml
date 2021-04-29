@@ -57,6 +57,7 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - "40:0a:81:f8:f5:dd:09:bf:88:af:2a:c0:26:b3:f3:94"
+      - run: gem install bundler -v 2.1.4
       - deploy:
           name: Capistrano deploy
           command:
