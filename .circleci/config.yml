@@ -68,11 +68,11 @@ workflows:
   version: 2
   rubocop_rspec_deploy:
     jobs:
-      # - rubocop
-      # - rspec:
-      #     requires:
-      #       - rubocop
-      - deploy
+      - rubocop
+      - rspec:
+          requires:
+            - rubocop
+      # - deploy
           # requires:
           #   - rspec
           # filters:
