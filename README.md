@@ -36,7 +36,7 @@ https://www.spomatcher.com/
 - 検索（キーワード検索・タグ検索）
 
 ### メッセージ機能
-- ユーザー同士のメッセージ送信（非同期、画像も送信可）
+- ユーザー同士のメッセージ送信（非同期，画像も送信可）
 - トーク履歴の表示
 
 ### レビュー機能
@@ -82,7 +82,7 @@ https://www.spomatcher.com/
 - Docker
 
 ### 本番環境
-- AWS(VPC、EC2、S3、Route53、ACM、ALB)
+- AWS(VPC，EC2，S3，Route53，ACM，ALB，RDS)
 - Nginx，Unicorn
 
 ### CI/CD
