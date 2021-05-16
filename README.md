@@ -1,24 +1,94 @@
-# README
+# Spomatcher
+Spomatcherはスポーツを開催したい人とスポーツをしたい人をマッチングさせるアプリです．
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# URL
+https://www.spomatcher.com/
+トップページ右上のゲストログインボタンをクリックすると，フォームに入力することなくログインすることができます．
+<img width="1327" alt="スクリーンショット 2021-05-16 14 01 50" src="https://user-images.githubusercontent.com/69130053/118386054-65b58a80-b64f-11eb-9a30-97a107ff8cc7.png">
 
-Things you may want to cover:
+# なぜ作成したのか
+大学では野球のサークルに所属しております．所属しているサークルでは毎週サークルが開催されるのですが，人数が集まらず開催されない週もありました．
+そこで，助っ人に参加してもらえれば開催できる週も増えるのでないかと考え，このアプリを作成しました．また，やってみたいスポーツはあるが，中々手を出せないという人のニーズも満たすことができると思っております．
 
-* Ruby version
+# 工夫した点
+スポーツに参加するときの心理的なハードルを下げるため，以下の3点を工夫をしました．
+- ユーザーの評価を星で可視化
+- ユーザーに対するレビューの投稿
+- 実際に参加した際の流れをイメージできるように「当日の流れ」を記載
 
-* System dependencies
+# 機能一覧
+### ユーザー機能
+- ユーザー登録・編集（deviseのgemを使用)
+- ゲストログイン
+- プロフィール画像の登録・編集（activestorageのgemを使用）
+- マイページにて以下の投稿の一覧表示
+  - 全ての自分の投稿
+  - お気に入りに追加した投稿
 
-* Configuration
+### 投稿機能
+- 開催するスポーツの内容の投稿・編集
+- 一覧表示，詳細表示
+- 地図表示（Google Maps API）
+- タグ付け（acts-as-taggable-onのgemを使用）
+- お気に入り追加（非同期）
+- 検索（キーワード検索・タグ検索）
 
-* Database creation
+### メッセージ機能
+- ユーザー同士のメッセージ送信（非同期、画像も送信可）
+- トーク履歴の表示
 
-* Database initialization
+### レビュー機能
+- ユーザーに対するレビューの投稿
+- 一覧表示（星マークで点数を可視化）
 
-* How to run the test suite
+### フォロー機能
+- ユーザーのフォロー・フォロー解除（非同期）
+- フォロー中のユーザーとフォロワーの一覧表示
 
-* Services (job queues, cache servers, search engines, etc.)
+### 通知機能
+- 以下のタイミングでユーザーに通知を送信
+  - 自分の投稿がお気に入りに追加された時
+  - 他のユーザーからメッセージが届いた時
+  - 自分のレビューが投稿された時
+  - 他のユーザーからフォローされた時
+- 一覧表示
+- 未確認の通知がある場合はマークを表示
 
-* Deployment instructions
+### その他
+- レスポンシブ対応
+- テスト（184 examples）
 
-* ...
+# 使用技術
+### フロントエンド
+- HTML
+- Sass
+- JavaScript(一部jQuery)
+
+### バックエンド
+- Ruby 2.6.5
+- Ruby on Rails 6.0.0
+
+### データベース
+- MySQL2
+
+### テスト
+- RSpec(単体テスト，結合テスト)
+- RuboCop
+- FactoryBot
+
+### 開発環境
+- Docker
+
+### 本番環境
+- AWS(VPC、EC2、S3、Route53、ACM、ALB)
+- Nginx，Unicorn
+
+### CI/CD
+- CircleCI
+- Capistrano
+
+# インフラ構成図
+<img width="735" alt="スクリーンショット 2021-05-16 14 05 41" src="https://user-images.githubusercontent.com/69130053/118386107-dc528800-b64f-11eb-8b1b-15ef862866e9.png">
+
+# ER図
+<img width="668" alt="スクリーンショット 2021-05-16 14 07 43" src="https://user-images.githubusercontent.com/69130053/118386127-1a4fac00-b650-11eb-95c3-43a73981b015.png">
