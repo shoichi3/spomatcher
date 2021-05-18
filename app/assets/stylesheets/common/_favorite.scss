@@ -4,9 +4,13 @@
 @mixin favorite {
   position: absolute;
   top: 102px;
-  right: 200px;  
+  right: 50px;  
   color: #ffc107;
   font-size: 24px;
+  // レスポンシブ(タブレット)
+  @include md {
+    right: 40px;
+  }
   // レスポンシブ(スマホ)
   @include sm {
     right: 30px;
