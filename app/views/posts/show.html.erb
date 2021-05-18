@@ -113,25 +113,24 @@
           <div class="top">
             〜地図〜
           </div>
-          <%# 以下の記述の中にあるYOUR_API_KEYには取得したご自身のAPIキーを記述してください %>
           <script type="text/javascript">
             function initMap() {
           // latitude,longitudeから位置を特定
-              var test ={lat: <%= @post.latitude %>, lng: <%= @post.longitude %>};
-              var map = new google.maps.Map(document.getElementById('map'), {
+              const test ={lat: <%= @post.latitude %>, lng: <%= @post.longitude %>};
+              const map = new google.maps.Map(document.getElementById('map'), {
                         zoom: 15, 
                         center: test
                         });
-              var transitLayer = new google.maps.TransitLayer();
+              const transitLayer = new google.maps.TransitLayer();
               transitLayer.setMap(map);
 
-              var contentString = '住所：<%= @post.address %>';
-              var infowindow = new google.maps.InfoWindow({
+              const contentString = '住所：<%= @post.address %>';
+              const infowindow = new google.maps.InfoWindow({
                 content: contentString
               });
 
           // Map上の指定した位置にピンを挿して表示する
-              var marker = new google.maps.Marker({
+              const marker = new google.maps.Marker({
                             position:test,
                             map: map,
                             title: contentString
@@ -146,7 +145,6 @@
                         src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap">
           </script>
 
-          <%# 表示するmapのcssです。ご自身でカスタマイズしてください。高さが設定されていないと表示されないことがあります。 %>
           <style type="text/css">
             #map { height: 400px;
                   width: 100%;}
